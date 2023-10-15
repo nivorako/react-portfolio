@@ -1,0 +1,15 @@
+:root {
+    /* --primary: #cf3201;
+    --secondary: #FF7642; */
+    --primary: aquamarine;
+    --secondary: #00c4e8;
+    --black: #3b3b3b;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--black);
+}
