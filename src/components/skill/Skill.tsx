@@ -1,7 +1,11 @@
 import './index.css';
 
 const Skill = () => {
-    return <div>Skill</div>;
+    return (
+        <section id="skill" className='skill'>
+            Skill
+        </section>
+    )
 };
 
 export default Skill;

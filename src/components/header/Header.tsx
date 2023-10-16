@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -9,6 +9,38 @@ import myLogo from '../../assets/myLogo.png';
 import './index.css';
 
 const Header: React.FC = () => {
+
+    const [scrollTop, setScrollTop] = useState(0);
+    const headerContentRef = useRef<HTMLDivElement | null>(null);
+    const headerNavRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const headerContent = headerContentRef.current;
+            const headerNav = headerNavRef.current;
+            
+            if (headerContent && headerNav) {
+                const headerContentRect = headerContent.getBoundingClientRect();
+                const headerNavRect = headerNav.getBoundingClientRect();
+                const newScrollTop = window.scrollY;
+            
+                if (newScrollTop < scrollTop && headerContentRect.bottom >= headerNavRect.height) {
+                    headerNav.style.top = "10rem";
+                } else if (newScrollTop > scrollTop && newScrollTop > 10 * 16) {
+                    headerNav.style.top = "1rem";
+                }
+            
+                setScrollTop(newScrollTop);
+            }
+            
+        };
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [scrollTop])
+
     const scrollIntoSection = (sectionId: string) => {
         const section = document.getElementById(sectionId);
         if (section) {
@@ -23,9 +55,15 @@ const Header: React.FC = () => {
         else setDrawer(false);
     };
 
+    useEffect(() => {
+        window.onload = () => {
+            window.scrollTo(0, 0);
+          };
+    }, [])
+
     return (
         <header className="header" id="head">
-            <div className="header_nav">
+            <div className="header_nav" ref={headerNavRef}>
                 <div
                     className="header_logo"
                     onClick={() => scrollIntoSection('head')}
@@ -92,7 +130,7 @@ const Header: React.FC = () => {
                     </a>
                 </Drawer>
             </div>
-            <div className="header_content">
+            <div className="header_content" ref={headerContentRef}>
                 <h1>
                     Developpeur front-end
                     <br />
