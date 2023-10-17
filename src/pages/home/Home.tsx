@@ -6,6 +6,7 @@ const Home = () => {
     return (
         <main className="home">
             <About />
+            
             <Skill />
         </main>
     );

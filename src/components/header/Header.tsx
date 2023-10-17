@@ -23,10 +23,11 @@ const Header: React.FC = () => {
                 const headerContentRect = headerContent.getBoundingClientRect();
                 const headerNavRect = headerNav.getBoundingClientRect();
                 const newScrollTop = window.scrollY;
-            
+                // si ( scroll down && .....)
                 if (newScrollTop < scrollTop && headerContentRect.bottom >= headerNavRect.height) {
                     headerNav.style.top = "10rem";
-                } else if (newScrollTop > scrollTop && newScrollTop > 10 * 16) {
+                // si ( scroll up  && newscrollTop > 240px )
+                } else if (newScrollTop > scrollTop && newScrollTop > 10*24) {
                     headerNav.style.top = "1rem";
                 }
             
@@ -127,6 +128,13 @@ const Header: React.FC = () => {
                         onClick={() => scrollIntoSection('about')}
                     >
                         A propos de moi
+                    </a>
+                    <a
+                        href="#skill"
+                        className="drawer_skill"
+                        onClick={() => scrollIntoSection('skill')}
+                    >
+                        Mes compétences
                     </a>
                 </Drawer>
             </div>
