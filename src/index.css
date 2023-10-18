@@ -1,9 +1,10 @@
 :root {
-    /* --primary: #cf3201;
-    --secondary: #FF7642; */
+   
     --primary: aquamarine;
-    --secondary: #00c4e8;
-    --black: #3b3b3b;
+    --secondary: #3b3b3b;                 /*color*/
+    --tertiary: rgb(249, 249, 249);       /*skill*/
+    --quartenary: white;                 /* about */
+    --boxShadow: #3b3b3b;
 }
 
 body {
@@ -11,5 +12,53 @@ body {
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color:var(--black);
+    
+}
+
+[data-theme= "aqua"]{
+    --primary: aquamarine;
+    --secondary: #3b3b3b;                 /*color*/
+    --tertiary: rgb(249, 249, 249);       /*skill*/
+    --quartenary: white;                 /* about */
+    --boxShadow: #3b3b3b;
+}
+
+[data-theme= "dark"]{
+    --primary: rgb(65, 66, 65);
+    --secondary: white;
+    --tertiary: rgb(181, 181, 181);
+    --quartenary: rgb(202, 200, 200);
+    --boxShadow: #3b3b3b;
+}
+
+[data-theme= "gold"]{
+    --primary: #a98743;
+    --secondary: #3b3b3b;
+    --tertiary: #f7c548;
+    --quartenary: #eeebd3; 
+    --boxShadow: #3b3b3b;
+}
+
+[data-theme= "cream"]{
+    --primary: #f79489;
+    --secondary: #3b3b3b;
+    --tertiary: #fadcd9;
+    --quartenary: #f9f1f0; 
+    --boxShadow: #3b3b3b;
+}
+
+[data-theme= "darkBlue"]{
+    --primary: #04012f;
+    --secondary: #fff;
+    --tertiary: #1706d7;
+    --quartenary: #443ce5; 
+    --boxShadow: #3b3b3b;
+}
+
+[data-theme= "darkGold"]{
+    --primary: #382e13;
+    --secondary: #fff;
+    --tertiary: #534c39;
+    --quartenary: #938766; 
+    --boxShadow: #3b3b3b;
 }

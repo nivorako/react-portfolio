@@ -2,10 +2,19 @@
     width: 100%;
     min-height: 50vh;
     display: flex;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(250, 247, 247);
+    background-color: var(--tertiary);
+    color: var(--secondary);
+}
+
+.skill_title{
+  margin: 4rem;
+  font-size: xx-large;
+  text-align: center;
 }
 
 .skill_cards{
@@ -13,20 +22,26 @@
    height: auto;
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   grid-gap: 10px;
+   grid-gap: 4rem;
    grid-auto-rows: minmax(100px, auto); 
-   
+   @media screen and (max-width: 1024px) {
+      grid-gap: 2rem;
+   }
 }
 
 .item{
 width:100%;
 display: flex;
 justify-content: center;
-
+border-radius: 5px;
+transition: all .2s;
+background-color: white;
 }
 
- .item img:hover{
+ .item:hover{
    cursor: pointer;
+   box-shadow: 1px 1px 1px 1px var(--boxShadow);
+   transform: scale(1.02);
  }
 
  .item img{

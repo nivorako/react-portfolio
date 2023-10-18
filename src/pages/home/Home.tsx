@@ -1,5 +1,6 @@
 import About from '../../components/about/About';
 import Skill from '../../components/skill/Skill';
+import Work from '../../components/work/Work';
 import './index.css';
 
 const Home = () => {
@@ -8,6 +9,8 @@ const Home = () => {
             <About />
             
             <Skill />
+            <Work />
+
         </main>
     );
 };
