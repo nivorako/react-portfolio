@@ -4,6 +4,7 @@ import Sass from "../../assets/sass48.png";
 import Js from "../../assets/js.png";
 import Ts from "../../assets/ts.png";
 import ReactLogo from "../../assets/react.png";
+import Git from "../../assets/git.png";
 
 import './index.css';
 
@@ -34,6 +35,9 @@ const Skill = () => {
                 </div>
                 <div className="item">
                     <img src={Ts} alt="html skill" width={50} />
+                </div>
+                <div className="item">
+                    <img src={Git} alt="html skill" width={50} />
                 </div>
                
             </div>
