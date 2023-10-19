@@ -66,14 +66,14 @@ const Header: React.FC = () => {
 
     return (
         <header className="header" id="head">
-            {/* <video
+            <video
                 autoPlay
                 loop
                 muted 
                 controls={false}
             >
                 <source src={Nature} type="video/mp4" />
-            </video> */}
+            </video>
             <div className="header_nav" ref={headerNavRef}>
                 <div
                     className="header_logo"
