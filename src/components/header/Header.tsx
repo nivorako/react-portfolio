@@ -4,6 +4,8 @@ import { Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
+import Nature from "../../assets/nature.mp4";
+
 import myLogo from '../../assets/myLogo.png';
 
 import './index.css';
@@ -64,6 +66,14 @@ const Header: React.FC = () => {
 
     return (
         <header className="header" id="head">
+            {/* <video
+                autoPlay
+                loop
+                muted 
+                controls={false}
+            >
+                <source src={Nature} type="video/mp4" />
+            </video> */}
             <div className="header_nav" ref={headerNavRef}>
                 <div
                     className="header_logo"
@@ -135,6 +145,13 @@ const Header: React.FC = () => {
                         onClick={() => scrollIntoSection('skill')}
                     >
                         Mes compétences
+                    </a>
+                    <a
+                        href="#work"
+                        className="drawer_work"
+                        onClick={() => scrollIntoSection('work')}
+                    >
+                        Mes réalisations
                     </a>
                 </Drawer>
             </div>
