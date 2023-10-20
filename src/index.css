@@ -5,6 +5,12 @@
     --tertiary: rgb(249, 249, 249);       /*skill*/
     --quartenary: white;                 /* about */
     --boxShadow: #3b3b3b;
+    --one: rgb(249, 249, 249);
+    --two: rgb(181, 181, 181);
+    --three: #f7c548;
+    --for: #fadcd9;
+    --five: #1706d7;
+    --six: #534c39;
 }
 
 body {

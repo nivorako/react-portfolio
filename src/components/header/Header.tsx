@@ -1,4 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ReactPlayer from 'react-player';
+
+import 'video.js/dist/video-js.css'; 
 
 import { Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -11,7 +15,8 @@ import myLogo from '../../assets/myLogo.png';
 import './index.css';
 
 const Header: React.FC = () => {
-
+   
+    const navigate = useNavigate();
     const [scrollTop, setScrollTop] = useState(0);
     const headerContentRef = useRef<HTMLDivElement | null>(null);
     const headerNavRef = useRef<HTMLDivElement | null>(null);
@@ -45,9 +50,13 @@ const Header: React.FC = () => {
     }, [scrollTop])
 
     const scrollIntoSection = (sectionId: string) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+       
+        if (sectionId) {
+            navigate("/");
+            const section = document.getElementById(sectionId);
+            if(section){
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
             setDrawer(false);
         }
     };
@@ -66,15 +75,13 @@ const Header: React.FC = () => {
 
     return (
         <header className="header" id="head">
-            <video
-                autoPlay
-                loop
-                muted 
+            <ReactPlayer 
+                url={Nature}
+                playing={true}
                 controls={false}
-                disablePictureInPicture
-            >
-                <source src={Nature} type="video/mp4" />
-            </video>
+                loop={true}
+                muted={true}
+            />
             <div className="header_nav" ref={headerNavRef}>
                 <div
                     className="header_logo"

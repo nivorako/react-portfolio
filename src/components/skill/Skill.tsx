@@ -1,3 +1,5 @@
+import React from "react";
+
 import Html from "../../assets/HTML5.png";
 import Css from "../../assets/css3.png";
 import Sass from "../../assets/sass48.png";
@@ -8,7 +10,7 @@ import Git from "../../assets/git.png";
 
 import './index.css';
 
-const Skill = () => {
+const Skill: React.FC = () => {
 
     const setMode = (theme: string) => {
         document.querySelector("body")?.setAttribute("data-theme", theme)
@@ -22,24 +24,31 @@ const Skill = () => {
             <div className='skill_cards'>
                 <div className="item"  onClick={() => setMode("aqua")}>
                     <img src={Html} alt="html skill" width={50} />
+                    <span className="item_color" style={{backgroundColor: "var(--one)"}}></span>
                 </div>
                 <div className="item" onClick={() => setMode("dark")}>
                     <img src={Css} alt="html skill" width={50} />
+                    <span className="item_color" style={{backgroundColor: "var(--two)"}}></span>
                 </div>
                 <div className="item" onClick={() => setMode("gold")}>
                     <img src={Sass} alt="html skill" width={50} />
+                    <span className="item_color" style={{backgroundColor: "var(--three)"}}></span>
                 </div>
                 <div className="item" onClick={() => setMode("cream")}>
                     <img src={Js} alt="html skill" width={50} />
+                    <span className="item_color" style={{backgroundColor: "var(--for)"}}></span>
                 </div>
                 <div className="item"  onClick={() => setMode("darkBlue")}>
                     <img src={ReactLogo} alt="html skill" width={50} />
+                    <span className="item_color" style={{backgroundColor: "var(--five)"}}></span>
                 </div>
                 <div className="item" onClick={() => setMode("darkGold")}>
                     <img src={Ts} alt="html skill" width={50} />
+                    <span className="item_color" style={{backgroundColor: "var(--six)"}}></span>
                 </div>
                 <div className="item">
                     <img src={Git} alt="html skill" width={50} />
+                    <span className="item_color"></span>
                 </div>
                 <div className="item">
                     

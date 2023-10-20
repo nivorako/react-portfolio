@@ -1,7 +1,9 @@
+import React from "react";
+
 import avatar from '../../assets/avatar.jpg';
 import './index.css';
 
-const About = () => {
+const About: React.FC = () => {
     return (
         <section className="about" id="about">
             <div className="about_title">

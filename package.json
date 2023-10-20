@@ -15,9 +15,13 @@
         "@emotion/styled": "^11.11.0",
         "@mui/icons-material": "^5.14.13",
         "@mui/material": "^5.14.13",
+        "@types/video.js": "^7.3.55",
+        "plyr": "^3.7.8",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^6.16.0"
+        "react-player": "^2.13.0",
+        "react-router-dom": "^6.16.0",
+        "video.js": "^8.6.0"
     },
     "devDependencies": {
         "@testing-library/jest-dom": "^6.1.4",
