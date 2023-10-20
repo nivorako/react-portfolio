@@ -20,6 +20,19 @@
     opacity: .4;
 }
 
+/* Dans votre fichier CSS */
+video::-webkit-media-controls {
+    display: none;
+}
+
+video::-webkit-media-controls-start-playback-button {
+    display: none;
+}
+
+video::-webkit-media-controls-play-button {
+    display: none;
+}
+
 
 .header_nav {
     opacity: 0.9;

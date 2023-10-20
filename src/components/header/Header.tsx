@@ -71,6 +71,7 @@ const Header: React.FC = () => {
                 loop
                 muted 
                 controls={false}
+                disablePictureInPicture
             >
                 <source src={Nature} type="video/mp4" />
             </video>
