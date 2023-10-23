@@ -20,20 +20,6 @@
     opacity: .4;
 }
 
-/* Dans votre fichier CSS */
-video::-webkit-media-controls {
-    display: none;
-}
-
-video::-webkit-media-controls-start-playback-button {
-    display: none;
-}
-
-video::-webkit-media-controls-play-button {
-    display: none;
-}
-
-
 .header_nav {
     opacity: 0.9;
     position: fixed;
@@ -55,7 +41,7 @@ video::-webkit-media-controls-play-button {
 }
 
 .header_content {
-    margin: 20rem 1rem 0 1rem;
+    margin: 1rem 1rem 0 1rem;
     font-family: 'Chewy', serif;
     font-size: larger;
     text-align: center;
