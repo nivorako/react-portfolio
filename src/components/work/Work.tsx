@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import Kizomba from "../../assets/kizomba1.jpg";
+import Weare from "../../assets/WEARE2GETHER.png";
 import "./index.css";
 
 const Work: React.FC = () => {
     const navigate = useNavigate();
-    const test = () => {
+    const handleNavigate = () => {
         navigate("/workItem");
     }
     return (
@@ -16,8 +16,8 @@ const Work: React.FC = () => {
             </div>
            
             <div className="cube">
-                <div className="face front" onClick={test}>
-                    <img src={Kizomba} alt="html skill" width={150} />
+                <div className="face front" onClick= {handleNavigate}>
+                    <img src={Weare} alt="html skill"  />
                 </div>
                 <div className="face back">Back</div>
                 <div className="face right">Right</div>

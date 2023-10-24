@@ -1,4 +1,5 @@
 .workItem{
+    width: 100%;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -7,3 +8,43 @@
     background-color: var(--quartenary);
     color: var(--secondary);
 }
+
+.wokItem_card{
+    position: relative;
+    width: 60%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   
+    margin: 5rem;
+}
+
+.workItem_img img{
+    width: 100%;
+
+}
+
+.hovered {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    background-color: var(--quartenary);
+    z-index: 2; /* Pour empiler cette div au-dessus des autres */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+    border: black thin solid;
+    
+  }
+  .hide{
+    display: none;
+  }
+
+  .workItem_link{
+    font-size: large;
+  }
