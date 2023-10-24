@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { Drawer } from '@mui/material';
-
 import Weare from "../../assets/WEARE2GETHER.png";
 
 import "./index.css";
