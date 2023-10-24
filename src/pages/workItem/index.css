@@ -32,7 +32,7 @@
     width: 80%;
     height: 100%;
     background-color: var(--quartenary);
-    z-index: 2; /* Pour empiler cette div au-dessus des autres */
+    z-index: 20; /* Pour empiler cette div au-dessus des autres */
     display: flex;
     flex-direction: column;
     justify-content: center;
