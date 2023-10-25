@@ -20,14 +20,15 @@
 
 .workItem_img img{
   width: 100%;
-
 }
 
 .hovered {
     position: absolute;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
-    width: 70%;
+    width: 100%;
     height: 100%;
     background-color: var(--quartenary);
     z-index: 2; /* Pour empiler cette div au-dessus des autres */
@@ -39,9 +40,10 @@
     border: black thin solid;
     
   }
-  .hide{
-    display: none;
-  }
+
+.hide{
+  display: none;
+}
 
   .workItem_link{
     font-size: large;

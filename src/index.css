@@ -13,6 +13,10 @@
     --six: #534c39;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
