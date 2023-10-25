@@ -1,6 +1,5 @@
 .workItem{
     width: 100%;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,16 +11,15 @@
 .wokItem_card{
     position: relative;
     width: 60%;
-
     display: flex;
     flex-direction: row;
     justify-content: space-around;
    
-    margin: 5rem;
+    margin: 5rem auto;
 }
 
 .workItem_img img{
-    width: 100%;
+  width: 100%;
 
 }
 
@@ -29,7 +27,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 80%;
+    width: 70%;
     height: 100%;
     background-color: var(--quartenary);
     z-index: 2; /* Pour empiler cette div au-dessus des autres */

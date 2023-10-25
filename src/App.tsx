@@ -7,7 +7,7 @@ import WorkItem from './pages/workItem/WorkItem';
 function App() {
     return (
         <>
-            <div className='body'>
+            <div className='app'>
                 <Header />
                 <Routes>
                     <Route path="/" element={<Home />} />

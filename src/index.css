@@ -18,7 +18,6 @@ body {
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    
 }
 
 [data-theme= "aqua"]{
@@ -67,4 +66,11 @@ body {
     --tertiary: #534c39;
     --quartenary: #938766; 
     --boxShadow: #3b3b3b;
+}
+
+@media screen and (max-width: 640px) {
+    .app {
+        width: 100%;
+        overflow: hidden;
+    }
 }
