@@ -13,13 +13,20 @@
     width: 60%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-   
+    justify-content: space-around;   
     margin: 5rem auto;
+    border-radius: var(--borderRadius);
+    @media screen and (max-width: 764px){
+      width: 80%;
+    }
 }
 
 .workItem_img img{
+  border-radius: var(--borderRadius);
   width: 100%;
+  @media screen and (max-width: 764px){
+    height: 300px;
+  }
 }
 
 .hovered {
@@ -34,17 +41,22 @@
     z-index: 2; /* Pour empiler cette div au-dessus des autres */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     padding: 2rem;
     border: black thin solid;
-    
+    border-radius: var(--borderRadius);
+    transition: all 1s;
   }
 
 .hide{
   display: none;
 }
 
-  .workItem_link{
-    font-size: large;
-  }
+.hovered_details{
+
+}
+
+.hovered_link{
+  font-size: large;
+}

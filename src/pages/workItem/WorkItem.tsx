@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-import Weare from "../../assets/WEARE2GETHER.png";
+import { useParams } from "react-router-dom";
 
 import "./index.css";
 
@@ -8,10 +7,52 @@ const WorkItem: React.FC = () => {
 
     const [isHovered, setIsHovered] = useState(false);
 
+
+    const { imgSrc, altText } = useParams();
+
+    const projectsData: Record<string, { title: string; details: string[]; link: string }> = {
+        'weare2gether': {
+            title: 'WEARE 2GETHER',
+            details: [
+                'Réalisé avec react RTK et Material UI.', 
+                "Utilisation de Back4app", 
+                "Création de page admin qui permet de gérer le site"
+            ],
+            link: 'https://weare2gether-7gzj5dx03-nivorako.vercel.app',
+        },
+        'fisheye': {
+            title: "Fish Eye",
+            details:[
+                "création d fish eye",
+                "blablabla et toto tata"
+            ],
+            link:"https://nivorako.github.io/P6-Front-End-Fisheye/"
+        },
+       'kasa': {
+            title: "Kasa",
+            details:[
+                "création kasa file",
+                "blalalalalal"
+            ],
+            link:"https://kasa-je8bk4yxl-nivorako.vercel.app/"
+       }
+    };
+
+    if(altText === undefined){
+        return <div>Alt Text non défini</div>;
+    }
+
+    const project = projectsData[altText];
+
+    if (!project) {
+        // Gérez le cas où le projet n'est pas trouvé
+        return <div>Projet non trouvé</div>;
+    }
+
     return (
         <main className='workItem'>
             <div className='wokItem_title'>
-                <h2>WEARE 2GETHER</h2>
+                <h2>{project.title}</h2>
             </div>
             <div 
                 className='wokItem_card'
@@ -19,19 +60,24 @@ const WorkItem: React.FC = () => {
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <div className='workItem_img'>
-                    <img src={Weare} alt="html skill"  />
+                    <img src={imgSrc} alt={altText}  />
                 </ div>
                 
                 <div className={isHovered ? "hovered" : "hide"}>
-                    <p>
-                        Réalisé avec react RTK et Material UI.
-                    </p>
-                    <p>Utilisation de Bck4app</p>
-                    <p>Création de page admin qui permet de gérer</p>  
+                    <div className='hovered_details'>
+                    
+                        {
+                            project.details.map((detail, index) => {
+                                return (
+                                    <p key={index}>{detail}</p>
+                                )
+                            })
+                        }
+                    </div>  
                     <a
-                        href="https://weare2gether-7gzj5dx03-nivorako.vercel.app"
+                        href={project.link}
                         target="_blank"
-                        className='workItem_link'
+                        className='hovered_link'
                     >
                         Voir le site par ici
                     </a>

@@ -11,7 +11,7 @@ function App() {
                 <Header />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/WorkItem" element={<WorkItem />} />
+                    <Route path="/WorkItem/:imgSrc/:altText" element={<WorkItem />} />
                 </Routes>
                 <Footer />
             </div>

@@ -6,11 +6,9 @@ import './index.css';
 const Home = () => {
     return (
         <main className="home">
-            <About />
-            
+            <About />           
             <Skill />
             <Work />
-
         </main>
     );
 };
