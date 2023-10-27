@@ -14,7 +14,7 @@ const WorkItem: React.FC = () => {
         'weare2gether': {
             title: 'WEARE 2GETHER',
             details: [
-                'Réalisé avec react RTK et Material UI.', 
+                'Ce site a été réalisé avec react RTK et Material UI.', 
                 "Utilisation de Back4app", 
                 "Création de page admin qui permet de gérer le site"
             ],
@@ -79,7 +79,7 @@ const WorkItem: React.FC = () => {
                         target="_blank"
                         className='hovered_link'
                     >
-                        Voir le site par ici
+                        Visiter le site par ici
                     </a>
                 </div>                   
             </div>

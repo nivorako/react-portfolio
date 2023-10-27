@@ -1,0 +1,15 @@
+.presta{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--tertiary);
+    color: var(--secondary);
+}
+
+.presta_title{
+    margin: 2rem 0;
+    font-size: xx-large;
+    text-align: center;
+}

@@ -22,6 +22,7 @@
 }
 
 .workItem_img img{
+  object-fit: fill;
   border-radius: var(--borderRadius);
   width: 100%;
   @media screen and (max-width: 764px){
@@ -59,4 +60,5 @@
 
 .hovered_link{
   font-size: large;
+  align-self: center;
 }
