@@ -161,6 +161,13 @@ const Header: React.FC = () => {
                     >
                         Mes réalisations
                     </a>
+                    <a
+                        href="#presta"
+                        className="drawer_presta"
+                        onClick={() => scrollIntoSection('presta')}
+                    >
+                        Mes préstations
+                    </a>
                 </Drawer>
             </div>
             <div className="header_content" ref={headerContentRef}>
