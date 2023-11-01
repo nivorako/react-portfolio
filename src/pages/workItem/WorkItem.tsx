@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 
-import Button from '../../components/button/Button';
-
 import "./index.css";
 
 /**
@@ -107,7 +105,7 @@ const WorkItem: React.FC = () => {
                     >
                         Visiter le site par ici
                     </a>
-                    {/* <Button /> */}
+                   
                         
                     
                 </div>                   
