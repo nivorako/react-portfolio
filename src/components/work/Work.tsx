@@ -41,7 +41,7 @@ const Work: React.FC = () => {
         {class:"two", img:Fisheye, alt: "fisheye" },
         {class:"three", img:Kasa, alt: "kasa"},
         {class:"four", img: Booki, alt: "booki"},
-        {class:"five", img: PortFolio, alt: "portFolio"}
+        {class:"five", img: PortFolio, alt: "portfolio"}
     ];
 
     return (

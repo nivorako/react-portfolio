@@ -56,7 +56,17 @@ const WorkItem: React.FC = () => {
             "Site responsive"
         ],
         link:"https://nivorako.github.io/projet-P2/"
-   }
+        },
+        'portfolio': {
+            title: "Mon Portfolio",
+            desc: "Projet Personnel",
+            details:[
+                "Intégration d'une maquette FIGMA avec html et css",
+                "Site responsive",
+                "etc etc ...."
+            ],
+            link:"#"
+            }
     };
 
     if(altText === undefined){
