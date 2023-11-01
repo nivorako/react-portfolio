@@ -1,5 +1,11 @@
+import "./index.css";
+
 const Button = () => {
-    return <button>bouton</button>;
+    return (
+        <button>
+            coco
+        </button>
+    )
 };
 
 export default Button;

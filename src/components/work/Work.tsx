@@ -4,8 +4,14 @@ import { useNavigate } from "react-router-dom";
 import Weare from "../../assets/WEARE2GETHER.png";
 import Fisheye from "../../assets/Fisheye.png";
 import Kasa from "../../assets/kasa.png";
+import Booki from "../../assets/Booki.png";
 
 import "./index.css";
+
+/**
+ * Interface decsribing the data structure for each work Item
+ * @interface WorkData
+ */
 
 interface WorkData{
     class: string;
@@ -13,9 +19,19 @@ interface WorkData{
     alt: string;
 }
 
+/**
+ * Component that displays all of my work in the form of a clickable card
+ * @function Work
+ */
+
 const Work: React.FC = () => {
 
     const navigate = useNavigate();
+
+    /**
+     * manage navigation to WorkItem
+     * @param {WorkData} work - work data to display
+     */
     const handleNavigate = (work: WorkData) => {
         navigate(`/workItem/${encodeURIComponent(work.img)}/${encodeURIComponent(work.alt)}` );
     };
@@ -23,7 +39,8 @@ const Work: React.FC = () => {
     const worksData: WorkData[] = [
         {class:"one", img:Weare, alt: "weare2gether"}, 
         {class:"two", img:Fisheye, alt: "fisheye" },
-        {class:"three", img:Kasa, alt: "kasa"}
+        {class:"three", img:Kasa, alt: "kasa"},
+        {class:"four", img: Booki, alt: "booki"}
     ];
 
     return (

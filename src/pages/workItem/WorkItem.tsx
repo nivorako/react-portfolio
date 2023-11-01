@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 
+import Button from '../../components/button/Button';
+
 import "./index.css";
+
+/**
+ * 
+ * @function WorkItem
+ */
 
 const WorkItem: React.FC = () => {
 
@@ -10,32 +17,48 @@ const WorkItem: React.FC = () => {
 
     const { imgSrc, altText } = useParams();
 
-    const projectsData: Record<string, { title: string; details: string[]; link: string }> = {
+    const projectsData: Record<string, { title: string; details: string[]; link: string; desc:string }> = {
         'weare2gether': {
             title: 'WEARE 2GETHER',
+            desc:  "Mise en relation entre une association et ses membres.",
             details: [
-                'Ce site a été réalisé avec react RTK et Material UI.', 
+                "Création de la maquette avec FIGMA",
+                "Utilisation de Redux et Material UI",
                 "Utilisation de Back4app", 
-                "Création de page admin qui permet de gérer le site"
+                "Création d'une page admin qui permet de gérer le site"
             ],
-            link: 'https://weare2gether-7gzj5dx03-nivorako.vercel.app',
+            link: 'https://weare2gether-rfwczgkiv-nivorako.vercel.app/',
         },
         'fisheye': {
             title: "Fish Eye",
+            desc: "Projet OpenClassRooms",
             details:[
-                "création d fish eye",
-                "blablabla et toto tata"
+                "Intégration d'une maquette FIGMA avec html, css et js",
+                "Construction d'une page dynamique",
+                "Construction d'un site accessible pour tous"
             ],
             link:"https://nivorako.github.io/P6-Front-End-Fisheye/"
         },
        'kasa': {
             title: "Kasa",
+            desc: "Projet OpenClassRooms",
             details:[
-                "création kasa file",
-                "blalalalalal"
+                "Utilisation Create react app",
+                "Logique de routage fonctionnelle",
+                "Utilisation react hooks",
+                "Utilisation de SASS",
             ],
             link:"https://kasa-je8bk4yxl-nivorako.vercel.app/"
-       }
+       },
+       'booki': {
+        title: "Booki",
+        desc: "Projet OpenClassRooms",
+        details:[
+            "Intégration d'une maquette FIGMA avec html et css",
+            "Site responsive"
+        ],
+        link:"https://nivorako.github.io/projet-P2/"
+   }
     };
 
     if(altText === undefined){
@@ -51,9 +74,9 @@ const WorkItem: React.FC = () => {
 
     return (
         <main className='workItem'>
-            <div className='wokItem_title'>
-                <h2>{project.title}</h2>
-            </div>
+           
+                <h2 className='wokItem_title'>{project.title}</h2>
+           
             <div 
                 className='wokItem_card'
                 onMouseEnter={() => setIsHovered(true)}
@@ -65,14 +88,17 @@ const WorkItem: React.FC = () => {
                 
                 <div className={isHovered ? "hovered" : "hide"}>
                     <div className='hovered_details'>
-                    
-                        {
-                            project.details.map((detail, index) => {
-                                return (
-                                    <p key={index}>{detail}</p>
-                                )
-                            })
-                        }
+                        <p className='hovered_detailDesc'>{project.desc}</p>
+                        <h4>Compétences aquises :</h4>
+                        <ul>
+                            {
+                                project.details.map((detail, index) => {
+                                    return (                                   
+                                        <li key={index}>{detail}</li>                                    
+                                    )
+                                })
+                            }
+                        </ul>
                     </div>  
                     <a
                         href={project.link}
@@ -81,6 +107,9 @@ const WorkItem: React.FC = () => {
                     >
                         Visiter le site par ici
                     </a>
+                    {/* <Button /> */}
+                        
+                    
                 </div>                   
             </div>
                 

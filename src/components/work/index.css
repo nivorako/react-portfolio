@@ -122,6 +122,8 @@
 
 .three {transform: rotateX(-90deg) translateZ(110px);}
 
+.four {transform: rotateX(180deg) translateZ(110px);}
+
 @media screen and (min-width: 764px) {
 
     .one {transform: translateZ(160px);}
@@ -129,5 +131,7 @@
     .two {transform: rotateY(90deg) translateZ(160px);}
     
     .three {transform: rotateY(-90deg) translateZ(160px);}
+
+    .four {transform: rotateY(180deg) translateZ(160px);}
      
 }
