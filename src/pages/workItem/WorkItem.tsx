@@ -104,13 +104,9 @@ const WorkItem: React.FC = () => {
                         className='hovered_link'
                     >
                         Visiter le site par ici
-                    </a>
-                   
-                        
-                    
+                    </a>                    
                 </div>                   
-            </div>
-                
+            </div>               
         </main>
     )
 }

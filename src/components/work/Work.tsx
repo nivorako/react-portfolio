@@ -5,7 +5,7 @@ import Weare from "../../assets/WEARE2GETHER.png";
 import Fisheye from "../../assets/Fisheye.png";
 import Kasa from "../../assets/kasa.png";
 import Booki from "../../assets/Booki.png";
-
+import PortFolio from "../../assets/MyPortfolio.png";
 import "./index.css";
 
 /**
@@ -40,7 +40,8 @@ const Work: React.FC = () => {
         {class:"one", img:Weare, alt: "weare2gether"}, 
         {class:"two", img:Fisheye, alt: "fisheye" },
         {class:"three", img:Kasa, alt: "kasa"},
-        {class:"four", img: Booki, alt: "booki"}
+        {class:"four", img: Booki, alt: "booki"},
+        {class:"five", img: PortFolio, alt: "portFolio"}
     ];
 
     return (
