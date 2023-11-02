@@ -12,7 +12,9 @@ const About: React.FC = () => {
             <div className="about_content">
                 <div className="about_img">
                     <img src={avatar} alt="la peche" />
+                    <h2>NIVO RAKOTO</h2>
                 </div>
+                
                 <div className='about_all'>
                     <p className="about_desc">
                         Mon parcours professionnel m'a toujours conduit vers le secteur de la logistique et du transport, 

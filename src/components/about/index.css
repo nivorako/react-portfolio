@@ -25,7 +25,9 @@
 
 .about_img {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-bottom: 5rem;
 }
 
