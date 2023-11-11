@@ -15,47 +15,33 @@ const Skill: React.FC = () => {
     const setMode = (theme: string) => {
         document.querySelector("body")?.setAttribute("data-theme", theme)
     };
-    
+
+    const skills = [
+        { id: 1, name: 'HTML5', mode: 'aqua', color: 'var(--one)', image: Html },
+        { id: 2, name: 'Css', mode: 'dark', color: 'var(--two)', image: Css },
+        { id: 3, name: 'Sass', mode: 'gold', color: 'var(--three)', image: Sass },
+        { id: 4, name: 'Js', mode: 'cream', color: 'var(--for)', image: Js },
+        { id: 5, name: 'React', mode: 'darkBlue', color: 'var(--five)', image: ReactLogo },
+        { id: 6, name: 'Ts', mode: 'darkGold', color: 'var(--six)', image: Ts },
+        { id: 7, name: 'Git', mode: 'gitMode', color: 'gitColor', image: Git },
+        ];
+
+
     return (
         <section id="skill" className='skill'>
             <div className='skill_title'>
                 <h2>Mes compétences</h2>
             </div>
             <div className='skill_cards'>
-                <div className="item"  onClick={() => setMode("aqua")}>
-                    <img src={Html} alt="html skill" width={50} />
-                    <span className="item_color" style={{backgroundColor: "var(--one)"}}></span>
-                </div>
-                <div className="item" onClick={() => setMode("dark")}>
-                    <img src={Css} alt="html skill" width={50} />
-                    <span className="item_color" style={{backgroundColor: "var(--two)"}}></span>
-                </div>
-                <div className="item" onClick={() => setMode("gold")}>
-                    <img src={Sass} alt="html skill" width={50} />
-                    <span className="item_color" style={{backgroundColor: "var(--three)"}}></span>
-                </div>
-                <div className="item" onClick={() => setMode("cream")}>
-                    <img src={Js} alt="html skill" width={50} />
-                    <span className="item_color" style={{backgroundColor: "var(--for)"}}></span>
-                </div>
-                <div className="item"  onClick={() => setMode("darkBlue")}>
-                    <img src={ReactLogo} alt="html skill" width={50} />
-                    <span className="item_color" style={{backgroundColor: "var(--five)"}}></span>
-                </div>
-                <div className="item" onClick={() => setMode("darkGold")}>
-                    <img src={Ts} alt="html skill" width={50} />
-                    <span className="item_color" style={{backgroundColor: "var(--six)"}}></span>
-                </div>
-                <div className="item">
-                    <img src={Git} alt="html skill" width={50} />
-                    <span className="item_color"></span>
-                </div>
-                <div className="item">
-                    
-                </div>
-               
-            </div>
-            
+                {
+                    skills.map(skill => (
+                        <div key={skill.id} className="item"  onClick={() => setMode(skill.mode)}>
+                            <img src={skill.image} alt={`${skill.name} skill`} width={50} />
+                            <span className="item_color" style={{backgroundColor: skill.color}}></span>
+                        </div>
+                    ))
+                }
+            </div>   
         </section>
     )
 };
