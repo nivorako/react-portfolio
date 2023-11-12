@@ -72,9 +72,15 @@
 }
 
 .hovered_link{
-  font-size: large;
+  color: var(--secondary);
   align-self: center;
 }
+
+/* .hovered_link:hover{
+  filter: blur(1px);  
+  transform: scale(1.1);
+  transition: 1s;
+} */
 
 h4{
   font-size: large;

@@ -22,6 +22,7 @@ interface WorkData{
 /**
  * Component that displays all of my work in the form of a clickable card
  * @function Work
+ * @returns {JSX.Element} 
  */
 
 const Work: React.FC = () => {
@@ -31,6 +32,7 @@ const Work: React.FC = () => {
     /**
      * manage navigation to WorkItem
      * @param {WorkData} work - work data to display
+     * 
      */
     const handleNavigate = (work: WorkData) => {
         navigate(`/workItem/${encodeURIComponent(work.img)}/${encodeURIComponent(work.alt)}` );

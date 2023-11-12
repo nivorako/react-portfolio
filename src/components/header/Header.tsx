@@ -7,12 +7,18 @@ import 'video.js/dist/video-js.css';
 import { Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import Button from '../button/Button';
 
 import Nature from "../../assets/nature.mp4";
 
 import myLogo from '../../assets/myLogo.png';
 
 import './index.css';
+
+/**
+ * 
+ * @returns {JSX.Element} - display Header elt width drawer
+ */
 
 const Header: React.FC = () => {
    
@@ -140,13 +146,15 @@ const Header: React.FC = () => {
                             }}
                         />
                     </div>
-                    <a
-                        href="#about"
-                        className="drawer_about"
-                        onClick={() => scrollIntoSection('about')}
-                    >
-                        A propos de moi
-                    </a>
+                    <Button>
+                        <a
+                            href="#about"
+                            className="drawer_about"
+                            onClick={() => scrollIntoSection('about')}
+                        >
+                            A propos de moi
+                        </a>
+                    </Button>
                     <a
                         href="#skill"
                         className="drawer_skill"

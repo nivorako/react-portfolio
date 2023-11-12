@@ -1,5 +1,10 @@
 import "./index.css";
 
+/**
+ * 
+ * @returns {JSX.Element} - Section which represent my prestations
+ */
+
 const Presta = () => {
   return (
         <main className="presta" id="presta">

@@ -1,0 +1,12 @@
+.btn{
+    border: none;
+    padding: .5rem;
+    background-color: var(--primary);
+    border-radius: var(--borderRadius);
+}
+
+.btn:hover{
+    filter: blur(1px);  
+    transform: scale(1.1);
+    transition: 1s;
+}

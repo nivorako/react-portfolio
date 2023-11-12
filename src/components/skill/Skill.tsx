@@ -10,6 +10,11 @@ import Git from "../../assets/git.png";
 
 import './index.css';
 
+/**
+ * 
+ * @returns {JSX.elements}
+ */
+
 const Skill: React.FC = () => {
 
     const setMode = (theme: string) => {

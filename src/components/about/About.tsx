@@ -3,6 +3,11 @@ import React from "react";
 import avatar from '../../assets/avatar.jpg';
 import './index.css';
 
+/**
+ * 
+ * @returns {JSX.Element} - display about section
+ */
+
 const About: React.FC = () => {
     return (
         <section className="about" id="about">

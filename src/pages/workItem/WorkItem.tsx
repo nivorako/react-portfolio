@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
+import Button from '../../components/button/Button';
 
 import "./index.css";
 
 /**
  * 
  * @function WorkItem
+ * @returns  {JSX.Element} - Élément JSX représentant le composant WorkItem.
  */
 
 const WorkItem: React.FC = () => {
@@ -80,6 +82,10 @@ const WorkItem: React.FC = () => {
         return <div>Projet non trouvé</div>;
     }
 
+    // const handleBtnClic = () => {
+    //     console.log("cococu")
+    // }
+
     return (
         <main className='workItem'>
            
@@ -107,14 +113,27 @@ const WorkItem: React.FC = () => {
                                 })
                             }
                         </ul>
-                    </div>  
-                    <a
+                    </div> 
+                    <div className='hovered_link'>
+                        <Button                           
+                        >
+                            <a
+                                href={project.link}
+                                target="_blank"
+                                className='hovered_link'
+                            >
+                                Visiter le site par ici
+                            </a>     
+                        </Button>
+                              
+                    </div> 
+                    {/* <a
                         href={project.link}
                         target="_blank"
                         className='hovered_link'
                     >
                         Visiter le site par ici
-                    </a>                    
+                    </a>                     */}
                 </div>                   
             </div>               
         </main>
