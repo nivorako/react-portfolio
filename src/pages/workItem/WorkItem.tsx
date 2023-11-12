@@ -1,77 +1,78 @@
 import React, { useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import Button from '../../components/button/Button';
 
-import "./index.css";
+import './index.css';
 
 /**
- * 
+ *
  * @function WorkItem
  * @returns  {JSX.Element} - Élément JSX représentant le composant WorkItem.
  */
 
 const WorkItem: React.FC = () => {
-
     const [isHovered, setIsHovered] = useState(false);
-
 
     const { imgSrc, altText } = useParams();
 
-    const projectsData: Record<string, { title: string; details: string[]; link: string; desc:string }> = {
-        'weare2gether': {
+    const projectsData: Record<
+        string,
+        { title: string; details: string[]; link: string; desc: string }
+    > = {
+        weare2gether: {
             title: 'WEARE 2GETHER',
-            desc:  "Mise en relation entre une association et ses membres.",
+            desc: 'Mise en relation entre une association et ses membres.',
             details: [
-                "Création de la maquette avec FIGMA",
-                "Utilisation de Redux et Material UI",
-                "Utilisation de Back4app", 
-                "Création d'une page admin qui permet de gérer le site"
+                'Création de la maquette avec FIGMA',
+                'Utilisation de Redux et Material UI',
+                'Utilisation de Back4app',
+                "Création d'une page admin qui permet de gérer le site",
             ],
-            link: 'https://weare2gether-b7nj06suh-nivorako.vercel.app',
+            link: 'https://weare2gether-14rn1j9nc-nivorako.vercel.app/',
         },
-        'fisheye': {
-            title: "Fish Eye",
-            desc: "Projet OpenClassRooms",
-            details:[
+        fisheye: {
+            title: 'Fish Eye',
+            desc: 'Projet OpenClassRooms',
+            details: [
                 "Intégration d'une maquette FIGMA avec html, css et js",
                 "Construction d'une page dynamique",
-                "Construction d'un site accessible pour tous"
+                "Construction d'un site accessible pour tous",
             ],
-            link:"https://nivorako.github.io/P6-Front-End-Fisheye/"
+            link: 'https://nivorako.github.io/P6-Front-End-Fisheye/',
         },
-       'kasa': {
-            title: "Kasa",
-            desc: "Projet OpenClassRooms",
-            details:[
-                "Utilisation Create react app",
-                "Logique de routage fonctionnelle",
-                "Utilisation react hooks",
-                "Utilisation de SASS",
+        kasa: {
+            title: 'Kasa',
+            desc: 'Projet OpenClassRooms',
+            details: [
+                'Utilisation Create react app',
+                'Logique de routage fonctionnelle',
+                'Utilisation react hooks',
+                'Utilisation de SASS',
             ],
-            link:"https://kasa-je8bk4yxl-nivorako.vercel.app/"
-       },
-       'booki': {
-        title: "Booki",
-        desc: "Projet OpenClassRooms",
-        details:[
-            "Intégration d'une maquette FIGMA avec html et css",
-            "Site responsive"
-        ],
-        link:"https://nivorako.github.io/projet-P2/"
+            link: 'https://kasa-je8bk4yxl-nivorako.vercel.app/',
         },
-        'portfolio': {
-            title: "Mon Portfolio",
-            desc: "Projet Personnel",
-            details:[
+        booki: {
+            title: 'Booki',
+            desc: 'Projet OpenClassRooms',
+            details: [
                 "Intégration d'une maquette FIGMA avec html et css",
-                "Site responsive",
-                "etc etc ...."
+                'Site responsive',
             ],
-            link:"#"
-            }
+            link: 'https://nivorako.github.io/projet-P2/',
+        },
+        portfolio: {
+            title: 'Mon Portfolio',
+            desc: 'Projet Personnel',
+            details: [
+                "Intégration d'une maquette FIGMA avec html et css",
+                'Site responsive',
+                'etc etc ....',
+            ],
+            link: '#',
+        },
     };
 
-    if(altText === undefined){
+    if (altText === undefined) {
         return <div>Alt Text non défini</div>;
     }
 
@@ -87,46 +88,39 @@ const WorkItem: React.FC = () => {
     // }
 
     return (
-        <main className='workItem'>
-           
-                <h2 className='wokItem_title'>{project.title}</h2>
-           
-            <div 
-                className='wokItem_card'
+        <main className="workItem">
+            <h2 className="wokItem_title">{project.title}</h2>
+
+            <div
+                className="wokItem_card"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <div className='workItem_img'>
-                    <img src={imgSrc} alt={altText}  />
-                </ div>
-                
-                <div className={isHovered ? "hovered" : "hide"}>
-                    <div className='hovered_details'>
-                        <p className='hovered_detailDesc'>{project.desc}</p>
+                <div className="workItem_img">
+                    <img src={imgSrc} alt={altText} />
+                </div>
+
+                <div className={isHovered ? 'hovered' : 'hide'}>
+                    <div className="hovered_details">
+                        <p className="hovered_detailDesc">{project.desc}</p>
                         <h4>Compétences aquises :</h4>
                         <ul>
-                            {
-                                project.details.map((detail, index) => {
-                                    return (                                   
-                                        <li key={index}>{detail}</li>                                    
-                                    )
-                                })
-                            }
+                            {project.details.map((detail, index) => {
+                                return <li key={index}>{detail}</li>;
+                            })}
                         </ul>
-                    </div> 
-                    <div className='hovered_link'>
-                        <Button                           
-                        >
+                    </div>
+                    <div className="hovered_link">
+                        <Button>
                             <a
                                 href={project.link}
                                 target="_blank"
-                                className='hovered_link'
+                                className="hovered_link"
                             >
                                 Visiter le site par ici
-                            </a>     
+                            </a>
                         </Button>
-                              
-                    </div> 
+                    </div>
                     {/* <a
                         href={project.link}
                         target="_blank"
@@ -134,10 +128,10 @@ const WorkItem: React.FC = () => {
                     >
                         Visiter le site par ici
                     </a>                     */}
-                </div>                   
-            </div>               
+                </div>
+            </div>
         </main>
-    )
-}
+    );
+};
 
-export default WorkItem
+export default WorkItem;

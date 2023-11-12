@@ -7,7 +7,7 @@
     --boxShadow: #3b3b3b;
     --one: rgb(249, 249, 249);
     --two: rgb(181, 181, 181);
-    --three: #f7c548;
+    --three: #246b62;
     --for: #fadcd9;
     --five: #1706d7;
     --six: #534c39;
@@ -43,10 +43,10 @@ body {
 }
 
 [data-theme= "gold"]{
-    --primary: #a98743;
-    --secondary: #3b3b3b;
-    --tertiary: #f7c548;
-    --quartenary: #eeebd3; 
+    --primary: #246b62;
+    --secondary: white;
+    --tertiary: #a98743;
+    --quartenary: #758345; 
     --boxShadow: #3b3b3b;
 }
 

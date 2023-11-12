@@ -7,11 +7,14 @@ import WorkItem from './pages/workItem/WorkItem';
 function App() {
     return (
         <>
-            <div className='app'>
+            <div className="app">
                 <Header />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/WorkItem/:imgSrc/:altText" element={<WorkItem />} />
+                    <Route
+                        path="/WorkItem/:imgSrc/:altText"
+                        element={<WorkItem />}
+                    />
                 </Routes>
                 <Footer />
             </div>

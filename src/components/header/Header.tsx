@@ -2,26 +2,25 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 
-import 'video.js/dist/video-js.css'; 
+import 'video.js/dist/video-js.css';
 
 import { Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '../button/Button';
 
-import Nature from "../../assets/nature.mp4";
+import Nature from '../../assets/nature.mp4';
 
 import myLogo from '../../assets/myLogo.png';
 
 import './index.css';
 
 /**
- * 
+ *
  * @returns {JSX.Element} - display Header elt width drawer
  */
 
 const Header: React.FC = () => {
-   
     const navigate = useNavigate();
     const [scrollTop, setScrollTop] = useState(0);
     const headerContentRef = useRef<HTMLDivElement | null>(null);
@@ -31,36 +30,37 @@ const Header: React.FC = () => {
         const handleScroll = () => {
             const headerContent = headerContentRef.current;
             const headerNav = headerNavRef.current;
-            
+
             if (headerContent && headerNav) {
                 const headerContentRect = headerContent.getBoundingClientRect();
                 const headerNavRect = headerNav.getBoundingClientRect();
                 const newScrollTop = window.scrollY;
                 // si ( scroll down && .....)
-                if (newScrollTop < scrollTop && headerContentRect.bottom >= headerNavRect.height) {
-                    headerNav.style.top = "10rem";
-                // si ( scroll up  && newscrollTop > 240px )
-                } else if (newScrollTop > scrollTop && newScrollTop > 10*24) {
-                    headerNav.style.top = "1rem";
+                if (
+                    newScrollTop < scrollTop &&
+                    headerContentRect.bottom >= headerNavRect.height
+                ) {
+                    headerNav.style.top = '10rem';
+                    // si ( scroll up  && newscrollTop > 240px )
+                } else if (newScrollTop > scrollTop && newScrollTop > 10 * 24) {
+                    headerNav.style.top = '1rem';
                 }
-            
+
                 setScrollTop(newScrollTop);
             }
-            
         };
         window.addEventListener('scroll', handleScroll);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [scrollTop])
+    }, [scrollTop]);
 
     const scrollIntoSection = (sectionId: string) => {
-       
         if (sectionId) {
-            navigate("/");
+            navigate('/');
             const section = document.getElementById(sectionId);
-            if(section){
+            if (section) {
                 section.scrollIntoView({ behavior: 'smooth' });
             }
             setDrawer(false);
@@ -76,12 +76,12 @@ const Header: React.FC = () => {
     useEffect(() => {
         window.onload = () => {
             window.scrollTo(0, 0);
-          };
-    }, [])
+        };
+    }, []);
 
     return (
         <header className="header" id="head">
-            <ReactPlayer 
+            <ReactPlayer
                 url={Nature}
                 playing={true}
                 controls={false}

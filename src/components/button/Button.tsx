@@ -1,9 +1,9 @@
-import React , { ReactNode, ButtonHTMLAttributes  } from "react";
+import React, { ReactNode, ButtonHTMLAttributes } from 'react';
 
-import "./index.css";
+import './index.css';
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement>{
-    children?: ReactNode
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    children?: ReactNode;
     // any props that come into the component
 }
 
@@ -21,12 +21,12 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement>{
  * @returns {JSX.Element} - Élément JSX which display btn component.
  */
 
-const Button: React.FC<Props> = ({children, ...props}: Props) => {
+const Button: React.FC<Props> = ({ children, ...props }: Props) => {
     return (
         <button className="btn" {...props}>
             {children}
         </button>
-    )
+    );
 };
 
 export default Button;
