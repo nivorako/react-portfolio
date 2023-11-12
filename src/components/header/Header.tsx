@@ -155,27 +155,33 @@ const Header: React.FC = () => {
                             A propos de moi
                         </a>
                     </Button>
-                    <a
-                        href="#skill"
-                        className="drawer_skill"
-                        onClick={() => scrollIntoSection('skill')}
-                    >
-                        Mes compétences
-                    </a>
-                    <a
-                        href="#work"
-                        className="drawer_work"
-                        onClick={() => scrollIntoSection('work')}
-                    >
-                        Mes réalisations
-                    </a>
-                    <a
-                        href="#presta"
-                        className="drawer_presta"
-                        onClick={() => scrollIntoSection('presta')}
-                    >
-                        Mes préstations
-                    </a>
+                    <Button>
+                        <a
+                            href="#skill"
+                            className="drawer_skill"
+                            onClick={() => scrollIntoSection('skill')}
+                        >
+                            Mes compétences
+                        </a>
+                    </Button>
+                    <Button>
+                        <a
+                            href="#work"
+                            className="drawer_work"
+                            onClick={() => scrollIntoSection('work')}
+                        >
+                            Mes réalisations
+                        </a>
+                    </Button>
+                    <Button>
+                        <a
+                            href="#presta"
+                            className="drawer_presta"
+                            onClick={() => scrollIntoSection('presta')}
+                        >
+                            Mes préstations
+                        </a>
+                    </Button>
                 </Drawer>
             </div>
             <div className="header_content" ref={headerContentRef}>
