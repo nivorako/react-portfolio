@@ -27,7 +27,7 @@ const WorkItem: React.FC = () => {
                 "Utilisation de Back4app", 
                 "Création d'une page admin qui permet de gérer le site"
             ],
-            link: 'https://weare2gether-rfwczgkiv-nivorako.vercel.app/',
+            link: 'https://weare2gether-b7nj06suh-nivorako.vercel.app',
         },
         'fisheye': {
             title: "Fish Eye",
