@@ -1,8 +1,30 @@
+import React, {useEffect} from 'react';
+
 import "./index.css";
 
+/**
+ * 
+ * @returns {JSX.Element} - explanation of client' needs
+ */
+
 const Need: React.FC = () => {
+
+    useEffect(() => {
+
+         /**
+         * Retrieves the section ID from the URL hash and scrolls to the corresponding section
+         * @param {string} sectionId - The ID of the section to scroll to.
+         */
+
+        const sectionId = window.location.hash.substring(1);
+        const section = document.getElementById(sectionId)
+        if(section){
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [])
+
     return (
-        <div className="need">
+        <div className="need" id="need">
            <h2>Evaluation des besoins</h2> 
            <div className="need_content">
                 <p className="need_detail">

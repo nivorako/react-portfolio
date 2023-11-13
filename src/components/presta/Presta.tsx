@@ -16,9 +16,17 @@ const Presta: React.FC = () => {
 
 	const navigate = useNavigate();
 
-	const handleNavigate = (path: string) => {
-		navigate(`/${path}`);
-	};
+	// const handleNavigate = (path: string) => {
+	// 	navigate(`/${path}`);
+	// };
+
+	const scrollIntoSection = (sectionId: string) => {
+		if(sectionId){
+			console.log("sectionId", sectionId);
+			navigate(`/${sectionId}/#${sectionId.toLocaleLowerCase()}`)
+            
+		}
+	}
 
     return (
         <main className="presta" id="presta">
@@ -26,11 +34,11 @@ const Presta: React.FC = () => {
                 <h2>Mes préstations</h2>
             </div>
             <div className='presta_content'>
-				<div className='presta_item' onClick={() => handleNavigate("Need")}>
+				<div className='presta_item' onClick={() => scrollIntoSection("Need")}>
 					<CreateIcon/>
 					<p>Evaluation des besoins</p>
 				</div>
-				<div className='presta_item'  onClick={() => handleNavigate("Dev")}>
+				<div className='presta_item'  onClick={() => scrollIntoSection("Dev")}>
 					<IntegrationInstructionsIcon/>
 					<p>Developpement du site</p>
 				</div>

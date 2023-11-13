@@ -1,10 +1,29 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import "./index.css";
 
+/**
+ * 
+ * @returns {JSX.Element} - explanation of develeppment actions
+ */
 const dev: React.FC = () => {
-  return (
-        <div className='dev'>
+
+    useEffect(() => {
+        /**
+         * Retrieves the section ID from the URL hash and scrolls to the corresponding section
+         * @param {string} sectionId - The ID of the section to scroll to.
+         */
+
+        const sectionId = window.location.hash.substring(1);
+        
+        const section = document.getElementById(sectionId)
+        if(section){
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+
+     return (
+        <div className='dev' id="dev">
             <h2 className='dev_title'>Développement du site</h2>
             <div className='dev_content'>
                 <p className='dev_detail'>
