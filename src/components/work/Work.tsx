@@ -58,18 +58,6 @@ const Work: React.FC = () => {
         const workShow = document.querySelector('.workShow');
         if(workShow){
             workShow.classList.add('paused');
-            workShow.classList.remove('faster');
-            workShow.classList.remove('normalSpeed');
-            workShow.classList.remove('slower');
-        }
-    }
-
-    const animationFaster = () => {
-        const workShow = document.querySelector('.workShow');
-        if(workShow){
-            workShow.classList.add('faster');
-            workShow.classList.remove('paused');
-            workShow.classList.remove('normalSpeed');
             workShow.classList.remove('slower');
         }
     }
@@ -79,18 +67,6 @@ const Work: React.FC = () => {
         if(workShow){
             workShow.classList.add('slower');
             workShow.classList.remove('paused');
-            workShow.classList.remove('normalSpeed');
-            workShow.classList.remove('faster');
-        }
-    }
-
-    const animationNormal = () => {
-        const workShow = document.querySelector('.workShow');
-        if(workShow){
-            workShow.classList.add('normalSpeed');
-            workShow.classList.remove('paused');
-            workShow.classList.remove('faster');
-            workShow.classList.remove('slower');
         }
     }
 
@@ -112,11 +88,9 @@ const Work: React.FC = () => {
                     );
                 })}
             </div>
-            <div className='workControll'>
-                <AddIcon className='icon' onClick={animationFaster}/>
+            <div className='workControll'>               
                 <StopIcon className='icon' onClick={animationPaused}/>
-                <PlayArrowIcon className='icon' onClick={animationNormal}/>
-                <RemoveIcon className='icon' onClick={animationSlower}/>
+                <PlayArrowIcon className='icon' onClick={animationSlower}/>
             </div>
         </section>
     );

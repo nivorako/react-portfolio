@@ -23,24 +23,13 @@
     height: 250px;
     transform-style: preserve-3d;
     margin: 4rem auto 8rem;
-    animation: rotateYWorkShow 8s linear infinite;
+    animation: rotateXWorkShow 12s linear infinite;
     transition: transform 2s ease;
-    @media screen and (max-width: 764px) {
-        animation: rotateXWorkShow 8s linear infinite;
-    }
 }
 
 .workShow.paused {
     animation-play-state: paused;
     
-}
-
-.workShow.faster {
-    animation: rotateXWorkShow 4s linear infinite;
-}
-
-.workShow.normalSpeed {
-    animation: rotateXWorkShow 8s linear infinite;
 }
 
 .workShow.slower {
@@ -56,17 +45,13 @@
 .workControll{
     width: 300px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .face img{
     width:200px;
     height: 200px;
     border-radius: var(--borderRadius);
-    @media screen and (min-width: 764px) {
-        width: 300px;
-        height: 300px;
-    }
 }
 
 .face {
@@ -82,10 +67,6 @@
     border-radius: var(--borderRadius);
     &:hover{
         cursor: pointer;
-    }
-    @media screen and (min-width: 764px) {
-        width: 300px;
-        height: 300px;
     }
 }
 
@@ -121,14 +102,32 @@
 
 @media screen and (min-width: 764px) {
 
-    .one {transform: translateZ(220px);}
+    .one {transform: translateZ(205px);}
   
-    .two {transform: rotateY(72deg) translateZ(220px);}
+    .two {transform: rotateY(72deg) translateZ(205px);}
     
-    .three {transform: rotateY(-72deg) translateZ(220px);}
+    .three {transform: rotateY(-72deg) translateZ(205px);}
 
-    .four {transform: rotateY(144deg) translateZ(220px);}
+    .four {transform: rotateY(144deg) translateZ(205px);}
 
-    .five {transform: rotateY(-144deg) translateZ(220px);}
+    .five {transform: rotateY(-144deg) translateZ(205px);}
+
+    .face{
+        width: 300px;
+        height: 300px;
+    }
+
+    .face img{
+        width: 250px;
+        height: 250px;
+    }
+
+    .workShow{
+        animation: rotateYWorkShow 12s linear infinite; 
+    }
+
+    .workShow.slower{
+        animation: rotateYWorkShow 12s linear infinite;
+    }
      
 }
