@@ -1,0 +1,35 @@
+.work{
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--quartenary);
+    color: var(--secondary);
+}
+
+.work_title{
+    margin: 4rem;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.workShow{
+    width: 80%;
+    margin: auto;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.face img{
+    width: 400px;
+    height: 400px;
+}
+
+.face {
+    width: 400px;
+    height: 400px;
+}

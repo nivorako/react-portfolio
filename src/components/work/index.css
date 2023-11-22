@@ -1,6 +1,6 @@
 .work{
     width: 100%;
-    min-height: 50vh;
+    
     display: flex;
     padding-bottom: 4rem;
     padding-top: 4rem;
@@ -19,16 +19,45 @@
 
 .workShow{
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     transform-style: preserve-3d;
-    margin: 4rem auto;
+    margin: 4rem auto 8rem;
     animation: rotateYWorkShow 8s linear infinite;
+    transition: transform 2s ease;
     @media screen and (max-width: 764px) {
         animation: rotateXWorkShow 8s linear infinite;
     }
 }
 
+.workShow.paused {
+    animation-play-state: paused;
+    
+}
+
+.workShow.faster {
+    animation: rotateXWorkShow 4s linear infinite;
+}
+
+.workShow.normalSpeed {
+    animation: rotateXWorkShow 8s linear infinite;
+}
+
+.workShow.slower {
+    animation: rotateXWorkShow 12s linear infinite;
+}
+
+.icon{
+    &:hover{
+        cursor:pointer;
+    }
+}
+
+.workControll{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
 
 .face img{
     width:200px;
@@ -42,9 +71,9 @@
 
 .face {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(0, 0, 0, 0.2);
+    width: 250px;
+    height: 250px;
+    background-color: var(--primary);
     border: 1px solid #333;
     display: flex;
     justify-content: center;
@@ -80,15 +109,15 @@
       }
 }
 
-.one {transform: translateZ(160px);}
+.one {transform: translateZ(170px);}
   
-.two {transform: rotateX(72deg) translateZ(160px);}
+.two {transform: rotateX(72deg) translateZ(170px);}
 
-.three {transform: rotateX(-72deg) translateZ(160px);}
+.three {transform: rotateX(-72deg) translateZ(170px);}
 
-.four {transform: rotateX(144deg) translateZ(160px);}
+.four {transform: rotateX(144deg) translateZ(170px);}
 
-.five {transform: rotateX(-144deg) translateZ(160px);}
+.five {transform: rotateX(-144deg) translateZ(170px);}
 
 @media screen and (min-width: 764px) {
 

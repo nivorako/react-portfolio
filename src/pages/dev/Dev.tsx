@@ -30,7 +30,7 @@ const dev: React.FC = () => {
                     J'utilise une méthodologie rigoureuse basée sur les bonnes pratiques 
                     de développement. 
                     Je privilégie l'utilisation de langages de programmation éprouvés tels 
-                    que HTML, CSS, JavaScript et PHP pour construire des sites web robustes 
+                    que HTML, CSS, JavaScript et React pour construire des sites web robustes 
                     et performants. Chaque ligne de code est écrite avec soin,
                     en respectant les normes du web pour assurer la compatibilité, 
                     la performance et l'accessibilité. Mon but est de créer un site web 

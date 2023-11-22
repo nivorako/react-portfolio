@@ -25,9 +25,10 @@ const Need: React.FC = () => {
 
     return (
         <div className="need" id="need">
-           <h2>Evaluation des besoins</h2> 
+           <h2 className='need_title'>Evaluation des besoins</h2> 
            <div className="need_content">
                 <p className="need_detail">
+
                     Lors de notre première rencontre, nous discuterons en détail de vos 
                     attentes pour votre futur site Internet. Cette étape cruciale me 
                     permettra de cerner précisément vos besoins, vos préférences en termes 

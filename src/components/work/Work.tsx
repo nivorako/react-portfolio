@@ -1,7 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Weare from '../../assets/WEARE2GETHER.png';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import StopIcon from '@mui/icons-material/Stop';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+
+import Weare from '../../assets/WEARE2GETHER2.png';
 import Fisheye from '../../assets/Fisheye.png';
 import Kasa from '../../assets/kasa.png';
 import Booki from '../../assets/Booki.png';
@@ -49,6 +54,46 @@ const Work: React.FC = () => {
         { class: 'five', img: PortFolio, alt: 'portfolio' },
     ];
 
+    const animationPaused = () => {
+        const workShow = document.querySelector('.workShow');
+        if(workShow){
+            workShow.classList.add('paused');
+            workShow.classList.remove('faster');
+            workShow.classList.remove('normalSpeed');
+            workShow.classList.remove('slower');
+        }
+    }
+
+    const animationFaster = () => {
+        const workShow = document.querySelector('.workShow');
+        if(workShow){
+            workShow.classList.add('faster');
+            workShow.classList.remove('paused');
+            workShow.classList.remove('normalSpeed');
+            workShow.classList.remove('slower');
+        }
+    }
+
+    const animationSlower = () => {
+        const workShow = document.querySelector('.workShow');
+        if(workShow){
+            workShow.classList.add('slower');
+            workShow.classList.remove('paused');
+            workShow.classList.remove('normalSpeed');
+            workShow.classList.remove('faster');
+        }
+    }
+
+    const animationNormal = () => {
+        const workShow = document.querySelector('.workShow');
+        if(workShow){
+            workShow.classList.add('normalSpeed');
+            workShow.classList.remove('paused');
+            workShow.classList.remove('faster');
+            workShow.classList.remove('slower');
+        }
+    }
+
     return (
         <section className="work" id="work">
             <div className="work_title">
@@ -66,6 +111,12 @@ const Work: React.FC = () => {
                         </div>
                     );
                 })}
+            </div>
+            <div className='workControll'>
+                <AddIcon className='icon' onClick={animationFaster}/>
+                <StopIcon className='icon' onClick={animationPaused}/>
+                <PlayArrowIcon className='icon' onClick={animationNormal}/>
+                <RemoveIcon className='icon' onClick={animationSlower}/>
             </div>
         </section>
     );

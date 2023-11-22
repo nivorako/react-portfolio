@@ -26,6 +26,8 @@ const Header: React.FC = () => {
     const headerContentRef = useRef<HTMLDivElement | null>(null);
     const headerNavRef = useRef<HTMLDivElement | null>(null);
 
+    // Controll headerNav position when scrollTop
+
     useEffect(() => {
         const handleScroll = () => {
             const headerContent = headerContentRef.current;
