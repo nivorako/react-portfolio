@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import AddIcon from '@mui/icons-material/Add';
@@ -46,6 +46,25 @@ const Work: React.FC = () => {
         );
     };
 
+    let n=0;
+
+
+    useEffect(() => {
+        showSlide(n);
+    }, []);
+
+    const showSlide = (n: number) => {
+        
+        const workItem = document.getElementsByClassName("work_item") as HTMLCollectionOf<HTMLElement>;
+        const length = workItem.length;
+        if(workItem){
+            for(let i=0 ; i < length ; i++){
+                workItem[i].style.display = "none";
+            }
+        }
+        workItem[n].style.display = "block";
+    };
+
     const worksData: WorkData[] = [
         { class: 'one', img: Weare, alt: 'weare2gether' },
         { class: 'two', img: Fisheye, alt: 'fisheye' },
@@ -54,28 +73,39 @@ const Work: React.FC = () => {
         { class: 'five', img: PortFolio, alt: 'portfolio' },
     ];
 
-    const animationPaused = () => {
-        const workShow = document.querySelector('.workShow');
-        if(workShow){
-            workShow.classList.add('paused');
-            workShow.classList.remove('slower');
-        }
-    }
+    // const animationPaused = () => {
+    //     const workShow = document.querySelector('.workShow');
+    //     if(workShow){
+    //         workShow.classList.add('paused');
+    //         workShow.classList.remove('slower');
+    //     }
+    // }
 
-    const animationSlower = () => {
-        const workShow = document.querySelector('.workShow');
-        if(workShow){
-            workShow.classList.add('slower');
-            workShow.classList.remove('paused');
-        }
-    }
+    // const animationSlower = () => {
+    //     const workShow = document.querySelector('.workShow');
+    //     if(workShow){
+    //         workShow.classList.add('slower');
+    //         workShow.classList.remove('paused');
+    //     }
+    // }
 
     return (
         <section className="work" id="work">
             <div className="work_title">
                 <h2>Mes réalisations</h2>
             </div>
-            <div className="workShow">
+            <ul className="work_items">
+                {worksData.map((work, index) => {
+                    return(
+                        <li key={index} className="work_item">
+                            <img src={work.img} alt={work.alt} />
+                        </li>
+                    )
+                })}
+            </ul>
+
+            {/* <div className="workShow">
+                
                 {worksData.map((work, index) => {
                     return (
                         <div
@@ -87,11 +117,11 @@ const Work: React.FC = () => {
                         </div>
                     );
                 })}
-            </div>
-            <div className='workControll'>               
+            </div> */}
+            {/* <div className='workControll'>               
                 <StopIcon className='icon' onClick={animationPaused}/>
                 <PlayArrowIcon className='icon' onClick={animationSlower}/>
-            </div>
+            </div> */}
         </section>
     );
 };
