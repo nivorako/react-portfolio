@@ -6,7 +6,10 @@ import WorkItem from './pages/workItem/WorkItem';
 import Need from './pages/need/Need';
 import Dev from "./pages/dev/Dev";
 
+import "./app.css";
+
 function App() {
+   
     return (
         <>
             <div className="app">

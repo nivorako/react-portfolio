@@ -1,12 +1,21 @@
 import React, {useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
 
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import StopIcon from '@mui/icons-material/Stop';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { styled , Theme,  createTheme } from '@mui/material/styles';
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import CardActions from '@mui/material/CardActions';
+import Collapse from '@mui/material/Collapse';
 
-import Weare from '../../assets/WEARE2GETHER2.png';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+
+// import { useNavigate } from 'react-router-dom';
+import Weare from '../../assets/WeareToWebp.webp';
 import Fisheye from '../../assets/Fisheye.png';
 import Kasa from '../../assets/kasa.png';
 import Booki from '../../assets/Booki.png';
@@ -19,10 +28,22 @@ import './index.css';
  */
 
 interface WorkData {
-    class: string;
     img: string;
     alt: string;
+    title: string,
+    details : string[],
+    desc: string,
+    link: string
 }
+
+/**
+ *  Déclaration de l'interface ExpandMoreProps
+ */
+
+interface ExpandMoreProps extends IconButtonProps {
+    theme: Theme;
+    expand: boolean;
+  }
 
 /**
  * Component that displays all of my work in the form of a clickable card
@@ -31,27 +52,28 @@ interface WorkData {
  */
 
 const Work: React.FC = () => {
-    const navigate = useNavigate();
+
+    // const navigate = useNavigate();
 
     /**
      * manage navigation to WorkItem
      * @param {WorkData} work - work data to display
      *
      */
-    const handleNavigate = (work: WorkData) => {
-        navigate(
-            `/workItem/${encodeURIComponent(work.img)}/${encodeURIComponent(
-                work.alt,
-            )}`,
-        );
-    };
+    // const handleNavigate = (work: WorkData) => {
+    //     navigate(
+    //         `/workItem/${encodeURIComponent(work.img)}/${encodeURIComponent(
+    //             work.alt,
+    //         )}`,
+    //     );
+    // };
 
     let n=0;
-
-
     useEffect(() => {
         showSlide(n);
     }, []);
+
+
 
     const showSlide = (n: number) => {
         
@@ -63,31 +85,120 @@ const Work: React.FC = () => {
             }
         }
         workItem[n].style.display = "block";
+        // workItem[n + 1].style.display = "block";
+        // workItem[n + 2].style.display = "block";
     };
 
     const worksData: WorkData[] = [
-        { class: 'one', img: Weare, alt: 'weare2gether' },
-        { class: 'two', img: Fisheye, alt: 'fisheye' },
-        { class: 'three', img: Kasa, alt: 'kasa' },
-        { class: 'four', img: Booki, alt: 'booki' },
-        { class: 'five', img: PortFolio, alt: 'portfolio' },
+        { 
+            img: Weare, 
+            alt: 'weare2gether',
+            title: 'WEARE 2GETHER',
+            desc: 'Mise en relation entre une association et ses membres.',
+            details: [
+                'Création de la maquette avec FIGMA',
+                'Utilisation de Redux et Material UI',
+                'Utilisation de Back4app',
+                "Création d'une page admin qui permet de gérer le site",
+            ],
+            link: 'https://weare2gether-hncxqzflp-nivorako.vercel.app/',
+        },
+        { 
+            img: Fisheye, 
+            alt: 'fisheye',
+            title: 'Fish Eye',
+            desc: 'Projet OpenClassRooms',
+            details: [
+                "Intégration d'une maquette FIGMA avec html, css et js",
+                "Construction d'une page dynamique",
+                "Construction d'un site accessible pour tous",
+            ],
+            link: 'https://nivorako.github.io/P6-Front-End-Fisheye/'
+        },
+        { 
+            img: Kasa, 
+            alt: 'kasa',
+            title: 'Kasa',
+            desc: 'Projet OpenClassRooms',
+            details: [
+                'Utilisation Create react app',
+                'Logique de routage fonctionnelle',
+                'Utilisation react hooks',
+                'Utilisation de SASS',
+            ],
+            link: 'https://kasa-je8bk4yxl-nivorako.vercel.app/'
+        },
+        { 
+            img: Booki,
+            alt: 'booki',
+            title: 'Booki',
+            desc: 'Projet OpenClassRooms',
+            details: [
+                "Intégration d'une maquette FIGMA avec html et css",
+                'Site responsive',
+            ],
+            link: 'https://nivorako.github.io/projet-P2/',
+        },
+        { 
+            img: PortFolio, 
+            alt: 'portfolio',
+            title: 'Mon Portfolio',
+            desc: 'Projet Personnel',
+            details: [
+                "Intégration d'une maquette FIGMA avec html et css",
+                'Site responsive',
+                'etc etc ....',
+            ],
+            link: '#', 
+        },
     ];
 
-    // const animationPaused = () => {
-    //     const workShow = document.querySelector('.workShow');
-    //     if(workShow){
-    //         workShow.classList.add('paused');
-    //         workShow.classList.remove('slower');
+    const ExpandMore: React.FC<ExpandMoreProps> = styled((props: ExpandMoreProps) => {
+        const { expand, ...other } = props;
+        return <IconButton {...other} />;
+      })(({ theme, expand }) => ({
+        transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+        marginLeft: 'auto',
+        color: "var(--black)",
+        transition: theme.transitions.create('transform', {
+          duration: theme.transitions.duration.shortest,
+        }),
+      }));
+
+      const theme = createTheme();
+      const [expanded, setExpanded] = React.useState(false);
+
+      function handleOnClickLeftA(n: number){
+
+        const items = document.getElementsByClassName("work_item")
+        const length = items.length
+
+        if(n < length - 1) {
+            n++
+            showSlide(n)
+        }
+        else if(n === length - 1) showSlide(0)      
+    }
+
+    // function handleOnClickRightA(n: number){
+    //     const items = document.getElementsByClassName("work__item")
+    //     const length = items.length
+        
+    //     if(n > 0) {
+    //         n--
+    //         showSlide(n)
     //     }
+    //     else if(n === 0) {
+    //         n = length - 1
+    //         showSlide(n)
+    //     }
+    
+    //     showSlide(n)
     // }
 
-    // const animationSlower = () => {
-    //     const workShow = document.querySelector('.workShow');
-    //     if(workShow){
-    //         workShow.classList.add('slower');
-    //         workShow.classList.remove('paused');
-    //     }
-    // }
+      const handleExpandClick = () => {
+        setExpanded(!expanded);
+      };
 
     return (
         <section className="work" id="work">
@@ -97,31 +208,70 @@ const Work: React.FC = () => {
             <ul className="work_items">
                 {worksData.map((work, index) => {
                     return(
-                        <li key={index} className="work_item">
-                            <img src={work.img} alt={work.alt} />
+                        
+                        <li key={index} className="work_item" >
+                            <Card
+                                className='work_card'  
+                                sx={{
+                                    maxWidth:300,
+
+                                }}
+                            >
+                                <CardHeader
+                                    title={work.title}
+                                />
+                                <CardMedia
+                                    component="img"
+                                    height="194"
+                                    image={work.img}
+                                    alt={work.alt}
+                                />
+                                <CardContent>
+                                    <Typography variant="body2" color="text.secondary">
+                                        {work.desc}
+                                    </Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <ExpandMore  
+                                        theme={theme}
+                                        expand={expanded}
+                                        onClick={handleExpandClick}
+                                    >
+                                        <ExpandMoreIcon />
+                                    </ExpandMore>
+                                </CardActions>
+                                <Collapse  in={expanded} timeout="auto" unmountOnExit>
+                                    <CardContent>
+                                        <h4>Compétences aquises :</h4>
+                                        {work.details.map((detail, index) =>(
+                                            <div key={index}>  
+                                                <p>{detail} </p>
+                                            </div> 
+                                        ))}
+                                    </CardContent>
+                                </Collapse>
+                            </Card>
+                            <div className='work_controllShow'>
+                                <KeyboardDoubleArrowLeftIcon
+                                    onClick={() => {
+                                        handleOnClickLeftA(index)
+                                    }}
+                                />
+                                <p className="carrousel__count">{index + 1} / {worksData.length} </p>
+                                <KeyboardDoubleArrowRightIcon 
+                                    onClick={() => {
+                                        // handleOnClickRightA(index)
+                                    }}
+                                />
+                            </div>
+                            
                         </li>
+                       
                     )
                 })}
             </ul>
-
-            {/* <div className="workShow">
-                
-                {worksData.map((work, index) => {
-                    return (
-                        <div
-                            className={`face ${work.class}`}
-                            key={index}
-                            onClick={() => handleNavigate(work)}
-                        >
-                            <img src={work.img} alt={work.alt} />
-                        </div>
-                    );
-                })}
-            </div> */}
-            {/* <div className='workControll'>               
-                <StopIcon className='icon' onClick={animationPaused}/>
-                <PlayArrowIcon className='icon' onClick={animationSlower}/>
-            </div> */}
+           
+           
         </section>
     );
 };

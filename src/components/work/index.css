@@ -1,6 +1,5 @@
 .work{
-    width: 100%;
-    
+    width: 100%;    
     display: flex;
     padding-bottom: 4rem;
     padding-top: 4rem;
@@ -12,122 +11,31 @@
 }
 
 .work_title{
-    margin: 4rem;
+    
     font-size: xx-large;
     text-align: center;
 }
 
-.workShows{
-    position: relative;
-    width: 250px;
-    height: 250px;
-    transform-style: preserve-3d;
-    margin: 4rem auto 8rem;
-    animation: rotateXWorkShow 12s linear infinite;
-    transition: transform 2s ease;
+.work_items{
+    width: 80%;
+    height: 100%;
+    display: flex;
+   
+    justify-content: space-around;
+    align-items: center;
 }
 
-.workShow.paused {
-    animation-play-state: paused;
-    
+
+.work_card:hover{
+    transform: scale(1.02);
+    transition: all .3s ease-in-out;
 }
 
-.workShow.slower {
-    animation: rotateXWorkShow 12s linear infinite;
-}
-
-.icon{
-    &:hover{
-        cursor:pointer;
-    }
-}
-
-.workControll{
-    width: 300px;
+.work_controllShow{
+    width: 100%;
+    margin:auto;
     display: flex;
     justify-content: space-around;
-}
-
-.face img{
-    width:200px;
-    height: 200px;
-    border-radius: var(--borderRadius);
-}
-
-.face {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background-color: var(--primary);
-    border: 1px solid #333;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 24px;
-    border-radius: var(--borderRadius);
-    &:hover{
-        cursor: pointer;
-    }
-}
-
-@keyframes rotateYWorkShow{
-    0% {
-        transform: rotateY(0deg);
-      }
- 
-      100% {
-        transform: rotateY(360deg);
-      }
-}
-
-@keyframes rotateXWorkShow{
-    0% {
-        transform: rotateX(0deg);
-      }
- 
-      100% {
-        transform: rotateX(360deg);
-      }
-}
-
-.one {transform: translateZ(170px);}
-  
-.two {transform: rotateX(72deg) translateZ(170px);}
-
-.three {transform: rotateX(-72deg) translateZ(170px);}
-
-.four {transform: rotateX(144deg) translateZ(170px);}
-
-.five {transform: rotateX(-144deg) translateZ(170px);}
-
-@media screen and (min-width: 764px) {
-
-    .one {transform: translateZ(205px);}
-  
-    .two {transform: rotateY(72deg) translateZ(205px);}
-    
-    .three {transform: rotateY(-72deg) translateZ(205px);}
-
-    .four {transform: rotateY(144deg) translateZ(205px);}
-
-    .five {transform: rotateY(-144deg) translateZ(205px);}
-
-    .face{
-        width: 300px;
-        height: 300px;
-    }
-
-    .face img{
-        width: 250px;
-        height: 250px;
-    }
-
-    .workShow{
-        animation: rotateYWorkShow 12s linear infinite; 
-    }
-
-    .workShow.slower{
-        animation: rotateYWorkShow 12s linear infinite;
-    }
-     
+    margin-top: 2rem;
 }
