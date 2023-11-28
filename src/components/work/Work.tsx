@@ -53,27 +53,10 @@ interface ExpandMoreProps extends IconButtonProps {
 
 const Work: React.FC = () => {
 
-    // const navigate = useNavigate();
-
-    /**
-     * manage navigation to WorkItem
-     * @param {WorkData} work - work data to display
-     *
-     */
-    // const handleNavigate = (work: WorkData) => {
-    //     navigate(
-    //         `/workItem/${encodeURIComponent(work.img)}/${encodeURIComponent(
-    //             work.alt,
-    //         )}`,
-    //     );
-    // };
-
     let n=0;
     useEffect(() => {
         showSlide(n);
     }, []);
-
-
 
     const showSlide = (n: number) => {
         
@@ -94,7 +77,7 @@ const Work: React.FC = () => {
             img: Weare, 
             alt: 'weare2gether',
             title: 'WEARE 2GETHER',
-            desc: 'Mise en relation entre une association et ses membres.',
+            desc: 'Site de mise en relation.',
             details: [
                 'Création de la maquette avec FIGMA',
                 'Utilisation de Redux et Material UI',
@@ -156,49 +139,48 @@ const Work: React.FC = () => {
     const ExpandMore: React.FC<ExpandMoreProps> = styled((props: ExpandMoreProps) => {
         const { expand, ...other } = props;
         return <IconButton {...other} />;
-      })(({ theme, expand }) => ({
+    })(({ theme, expand }) => ({
         transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
         marginLeft: 'auto',
         color: "var(--black)",
         transition: theme.transitions.create('transform', {
           duration: theme.transitions.duration.shortest,
         }),
-      }));
+    }));
 
-      const theme = createTheme();
-      const [expanded, setExpanded] = React.useState(false);
+    const theme = createTheme();
+    const [expanded, setExpanded] = React.useState(false);
 
-      function handleOnClickLeftA(n: number){
+    function handleOnClickLeftA(n: number){
 
         const items = document.getElementsByClassName("work_item")
         const length = items.length
-
         if(n < length - 1) {
-            n++
-            showSlide(n)
+            n++;
+            showSlide(n);
         }
-        else if(n === length - 1) showSlide(0)      
+        else if(n === length - 1) showSlide(0) ;     
     }
 
-    // function handleOnClickRightA(n: number){
-    //     const items = document.getElementsByClassName("work__item")
-    //     const length = items.length
-        
-    //     if(n > 0) {
-    //         n--
-    //         showSlide(n)
-    //     }
-    //     else if(n === 0) {
-    //         n = length - 1
-    //         showSlide(n)
-    //     }
-    
-    //     showSlide(n)
-    // }
+    function handleOnClickRightA(n: number){
+        const items = document.getElementsByClassName("work_item");
+        const length = items.length;
 
-      const handleExpandClick = () => {
-        setExpanded(!expanded);
-      };
+        if(n > 0) {
+            n--
+            showSlide(n)
+        }
+        else if(n === 0) {
+            n = length - 1;
+            showSlide(n);
+        }
+    
+        showSlide(n);
+    }
+
+    const handleExpandClick = () => {
+    setExpanded(!expanded);
+    };
 
     return (
         <section className="work" id="work">
@@ -213,12 +195,15 @@ const Work: React.FC = () => {
                             <Card
                                 className='work_card'  
                                 sx={{
-                                    maxWidth:300,
-
+                                    width:300,
+                                    boxShadow: "1px 5px 5px 0 grey"
                                 }}
                             >
                                 <CardHeader
                                     title={work.title}
+                                    sx={{
+                                        textAlign: "center"
+                                    }}
                                 />
                                 <CardMedia
                                     component="img"
@@ -227,7 +212,13 @@ const Work: React.FC = () => {
                                     alt={work.alt}
                                 />
                                 <CardContent>
-                                    <Typography variant="body2" color="text.secondary">
+                                    <Typography 
+                                        variant="body2" 
+                                        color="text.secondary" 
+                                        sx={{
+                                            textAlign: "center"
+                                        }}
+                                    >
                                         {work.desc}
                                     </Typography>
                                 </CardContent>
@@ -242,7 +233,7 @@ const Work: React.FC = () => {
                                 </CardActions>
                                 <Collapse  in={expanded} timeout="auto" unmountOnExit>
                                     <CardContent>
-                                        <h4>Compétences aquises :</h4>
+                                        <h4 className='collapse_title'>Compétences acquises :</h4>
                                         {work.details.map((detail, index) =>(
                                             <div key={index}>  
                                                 <p>{detail} </p>
@@ -253,18 +244,19 @@ const Work: React.FC = () => {
                             </Card>
                             <div className='work_controllShow'>
                                 <KeyboardDoubleArrowLeftIcon
+                                    className='arrow'
                                     onClick={() => {
                                         handleOnClickLeftA(index)
                                     }}
                                 />
-                                <p className="carrousel__count">{index + 1} / {worksData.length} </p>
-                                <KeyboardDoubleArrowRightIcon 
+                                <p className="work__count">{index + 1} / {worksData.length} </p>
+                                <KeyboardDoubleArrowRightIcon
+                                    className='arrow' 
                                     onClick={() => {
-                                        // handleOnClickRightA(index)
+                                        handleOnClickRightA(index)
                                     }}
                                 />
-                            </div>
-                            
+                            </div>                           
                         </li>
                        
                     )

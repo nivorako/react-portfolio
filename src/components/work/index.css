@@ -25,10 +25,10 @@
     align-items: center;
 }
 
-
 .work_card:hover{
     transform: scale(1.02);
     transition: all .3s ease-in-out;
+    box-shadow: 1px 5px 5px 0 #000;
 }
 
 .work_controllShow{
@@ -38,4 +38,13 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 2rem;
+}
+
+.collapse_title{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.arrow:hover{
+    cursor: pointer;
 }
