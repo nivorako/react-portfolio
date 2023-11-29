@@ -196,7 +196,9 @@ const Work: React.FC = () => {
                                 className='work_card'  
                                 sx={{
                                     width:300,
-                                    boxShadow: "1px 5px 5px 0 grey"
+                                    boxShadow: "1px 5px 5px 0 grey",
+                                    backgroundColor: "var(--primary)",
+                                    color: "var(--secondary)"
                                 }}
                             >
                                 <CardHeader
@@ -210,11 +212,14 @@ const Work: React.FC = () => {
                                     height="194"
                                     image={work.img}
                                     alt={work.alt}
+                                    sx={{
+                                        padding: "1rem"
+                                    }}
                                 />
                                 <CardContent>
                                     <Typography 
                                         variant="body2" 
-                                        color="text.secondary" 
+                                         
                                         sx={{
                                             textAlign: "center"
                                         }}
