@@ -1,10 +1,21 @@
 import React, {useEffect} from 'react';
 
-import { styled , Theme,  createTheme } from '@mui/material/styles';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+// import { styled } from '@mui/system';
+import {  styled, Theme,  createTheme } from '@mui/material/styles';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
+import CardMedia,  { CardMediaProps } from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -54,23 +65,23 @@ interface ExpandMoreProps extends IconButtonProps {
 const Work: React.FC = () => {
 
     let n=0;
-    useEffect(() => {
-        showSlide(n);
-    }, []);
+    // useEffect(() => {
+    //     showSlide(n);
+    // }, []);
 
-    const showSlide = (n: number) => {
+    // const showSlide = (n: number) => {
         
-        const workItem = document.getElementsByClassName("work_item") as HTMLCollectionOf<HTMLElement>;
-        const length = workItem.length;
-        if(workItem){
-            for(let i=0 ; i < length ; i++){
-                workItem[i].style.display = "none";
-            }
-        }
-        workItem[n].style.display = "block";
-        // workItem[n + 1].style.display = "block";
-        // workItem[n + 2].style.display = "block";
-    };
+    //     const workItem = document.getElementsByClassName("work_item") as HTMLCollectionOf<HTMLElement>;
+    //     const length = workItem.length;
+    //     if(workItem){
+    //         for(let i=0 ; i < length ; i++){
+    //             workItem[i].style.display = "none";
+    //         }
+    //     }
+    //     workItem[n].style.display = "block";
+    //     // workItem[n + 1].style.display = "block";
+    //     // workItem[n + 2].style.display = "block";
+    // };
 
     const worksData: WorkData[] = [
         { 
@@ -188,89 +199,118 @@ const Work: React.FC = () => {
                 <h2>Mes réalisations</h2>
             </div>
             <ul className="work_items">
-                {worksData.map((work, index) => {
-                    return(
-                        
-                        <li key={index} className="work_item" >
-                            <Card
-                                className='work_card'  
-                                sx={{
-                                    width:300,
-                                    boxShadow: "1px 5px 5px 0 grey",
-                                    backgroundColor: "var(--primary)",
-                                    color: "var(--secondary)"
-                                }}
-                            >
-                                <CardHeader
-                                    title={work.title}
-                                    sx={{
-                                        textAlign: "center"
-                                    }}
-                                />
-                                <CardMedia
-                                    component="img"
-                                    height="194"
-                                    image={work.img}
-                                    alt={work.alt}
-                                    sx={{
-                                        padding: "1rem"
-                                    }}
-                                />
-                                <CardContent>
-                                    <Typography 
-                                        variant="body2" 
-                                         
+                <Swiper>
+                    {worksData.map((work, index) => {
+                        return(
+                            <SwiperSlide>
+                                <li key={index} className="work_item" >
+                                    
+                                    <Card
+                                        className='work_card'  
                                         sx={{
-                                            textAlign: "center"
+                                            width:300,
+                                            boxShadow: "1px 5px 5px 0 grey",
+                                            backgroundColor: "var(--primary)",
+                                            color: "var(--secondary)"
                                         }}
                                     >
-                                        {work.desc}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions>
-                                    <ExpandMore  
-                                        theme={theme}
-                                        expand={expanded}
-                                        onClick={handleExpandClick}
-                                    >
-                                        <ExpandMoreIcon />
-                                    </ExpandMore>
-                                </CardActions>
-                                <Collapse  in={expanded} timeout="auto" unmountOnExit>
-                                    <CardContent>
-                                        <h4 className='collapse_title'>Compétences acquises :</h4>
-                                        {work.details.map((detail, index) =>(
-                                            <div key={index}>  
-                                                <p>{detail} </p>
-                                            </div> 
-                                        ))}
-                                    </CardContent>
-                                </Collapse>
-                            </Card>
-                            <div className='work_controllShow'>
-                                <KeyboardDoubleArrowLeftIcon
-                                    className='arrow'
-                                    onClick={() => {
-                                        handleOnClickLeftA(index)
-                                    }}
-                                />
-                                <p className="work__count">{index + 1} / {worksData.length} </p>
-                                <KeyboardDoubleArrowRightIcon
-                                    className='arrow' 
-                                    onClick={() => {
-                                        handleOnClickRightA(index)
-                                    }}
-                                />
-                            </div>                           
-                        </li>
+                                        <CardHeader
+                                            title={work.title}
+                                            sx={{
+                                                textAlign: "center"
+                                            }}
+                                        />
+                                        <StyledCardMediaContainer>
+                                            <StyledCardMedia
+                                                component="img"
+                                                height="194"
+                                                image={work.img}
+                                                alt={work.alt}
+                                            />
+                                        </StyledCardMediaContainer>
+                                        <CardContent>
+                                            <Typography 
+                                                variant="body2" 
+                                                
+                                                sx={{
+                                                    textAlign: "center"
+                                                }}
+                                            >
+                                                {work.desc}
+                                            </Typography>
+                                        </CardContent>
+                                        <CardActions>
+                                            <ExpandMore  
+                                                theme={theme}
+                                                expand={expanded}
+                                                onClick={handleExpandClick}
+                                            >
+                                                <ExpandMoreIcon />
+                                            </ExpandMore>
+                                        </CardActions>
+                                        <Collapse  in={expanded} timeout="auto" unmountOnExit>
+                                            <CardContent>
+                                                <h4 className='collapse_title'>Compétences acquises :</h4>
+                                                {work.details.map((detail, index) =>(
+                                                    <div key={index}>  
+                                                        <p>{detail} </p>
+                                                    </div> 
+                                                ))}
+                                            </CardContent>
+                                        </Collapse>
+                                    </Card>
+                                    
+                                    {/* <div className='work_controllShow'>
+                                        <KeyboardDoubleArrowLeftIcon
+                                            className='arrow'
+                                            onClick={() => {
+                                                handleOnClickLeftA(index)
+                                            }}
+                                        />
+                                        <p className="work__count">{index + 1} / {worksData.length} </p>
+                                        <KeyboardDoubleArrowRightIcon
+                                            className='arrow' 
+                                            onClick={() => {
+                                                handleOnClickRightA(index)
+                                            }}
+                                        />
+                                    </div>                            */}
+                                </li>
+                            </SwiperSlide>
+                        )
+                    })}
+                </Swiper> 
+                    {/* <Swiper>
+                        {worksData.map((work, index) => {
+                            return (
+                                <SwiperSlide>
+                                <div key={index}>
+                                    <p>{work.title} </p>
+                                </div>
+                                </SwiperSlide>
+                            )
+                        })}
                        
-                    )
-                })}
+                    </Swiper> */}
             </ul>
            
            
         </section>
     );
 };
+
+const StyledCardMedia = styled(CardMedia)<CardMediaProps>`
+     
+&& {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+`;
+
+const StyledCardMediaContainer = styled('div')`
+  padding: 1rem;
+  borderRadius: 10px;
+`;
+
 
 export default Work;
