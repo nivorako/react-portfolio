@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import  { Swiper, SwiperSlide } from 'swiper/react';
 // import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
+import {  EffectCoverflow,  Pagination } from 'swiper/modules';
+// import SwiperCore from "swiper/core";
 // Import Swiper styles
 import 'swiper/css';
 
@@ -24,6 +24,7 @@ import Kasa from '../../assets/kasa.png';
 import Booki from '../../assets/Booki.png';
 import PortFolio from '../../assets/MyPortfolio.png';
 import './index.css';
+import { truncate } from 'fs';
 
 /**
  * Interface decsribing the data structure for each work Item
@@ -38,6 +39,8 @@ interface WorkData {
     desc: string,
     link: string
 }
+
+Swiper// Core.use([Navigation, Pagination, Scrollbar, A11y]);
 
 /**
  * Component that displays all of my work in the form of a clickable card
@@ -118,9 +121,21 @@ const Work: React.FC = () => {
             </div>
             <ul className="work_items">
                 <Swiper
-                    modules={[Navigation, Pagination, Scrollbar, A11y]}
-                    spaceBetween={50}
-                    slidesPerView={1}
+                    
+                    effect={'coverflow'}
+                    grabCursor={true}
+                    centeredSlides={true}
+                    slidesPerView={'auto'}
+                    coverflowEffect={{
+                      rotate: 50,
+                      stretch: 0,
+                      depth: 300,
+                      modifier: 1,
+                      slideShadows: true,
+                    }}
+                    pagination={true}
+                    
+                    modules={[EffectCoverflow, Pagination]}
                     className='swiper'
                 >
                     {worksData.map((work, index) => {

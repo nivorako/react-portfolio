@@ -61,8 +61,8 @@ const WorkItem: React.FC<WorkItemProps> = ({title, img, desc, alt, details}): JS
 }
 
 const Card = styled.div`
-	width: 300px;
-	min-height: 400px;
+	width: 100%;
+	height: 100%;
 	padding: .5rem;
 	background-color: var(--primary);
 	color: var(--secondary);

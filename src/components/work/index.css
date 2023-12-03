@@ -19,10 +19,7 @@
 .work_items{
     width: 80%;
     height: 100%;
-    display: flex;
-   
-    justify-content: space-around;
-    align-items: center;
+    
 }
 
 .work_card:hover{
@@ -49,7 +46,27 @@
     cursor: pointer;
 }
 
-.swiper{
-    
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;  
+    width: 50%;
+    min-height: 400px;
    
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+  
+  @media screen and(max-width: 764px){
+    .swiper-slide{
+        width:200px;
+    }
 }
