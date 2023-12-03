@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,20 +11,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-// import { styled } from '@mui/system';
-import {  styled, Theme,  createTheme } from '@mui/material/styles';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia,  { CardMediaProps } from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import WorkItem from '../workItem/WorkItem';
 
 // import { useNavigate } from 'react-router-dom';
 import Weare from '../../assets/WeareToWebp.webp';
@@ -48,40 +40,12 @@ interface WorkData {
 }
 
 /**
- *  Déclaration de l'interface ExpandMoreProps
- */
-
-interface ExpandMoreProps extends IconButtonProps {
-    theme: Theme;
-    expand: boolean;
-  }
-
-/**
  * Component that displays all of my work in the form of a clickable card
  * @function Work
  * @returns {JSX.Element}
  */
 
 const Work: React.FC = () => {
-
-    let n=0;
-    // useEffect(() => {
-    //     showSlide(n);
-    // }, []);
-
-    // const showSlide = (n: number) => {
-        
-    //     const workItem = document.getElementsByClassName("work_item") as HTMLCollectionOf<HTMLElement>;
-    //     const length = workItem.length;
-    //     if(workItem){
-    //         for(let i=0 ; i < length ; i++){
-    //             workItem[i].style.display = "none";
-    //         }
-    //     }
-    //     workItem[n].style.display = "block";
-    //     // workItem[n + 1].style.display = "block";
-    //     // workItem[n + 2].style.display = "block";
-    // };
 
     const worksData: WorkData[] = [
         { 
@@ -133,7 +97,7 @@ const Work: React.FC = () => {
             ],
             link: 'https://nivorako.github.io/projet-P2/',
         },
-        { 
+        {
             img: PortFolio, 
             alt: 'portfolio',
             title: 'Mon Portfolio',
@@ -147,170 +111,38 @@ const Work: React.FC = () => {
         },
     ];
 
-    const ExpandMore: React.FC<ExpandMoreProps> = styled((props: ExpandMoreProps) => {
-        const { expand, ...other } = props;
-        return <IconButton {...other} />;
-    })(({ theme, expand }) => ({
-        transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-        marginLeft: 'auto',
-        color: "var(--black)",
-        transition: theme.transitions.create('transform', {
-          duration: theme.transitions.duration.shortest,
-        }),
-    }));
-
-    const theme = createTheme();
-    const [expanded, setExpanded] = React.useState(false);
-
-    function handleOnClickLeftA(n: number){
-
-        const items = document.getElementsByClassName("work_item")
-        const length = items.length
-        if(n < length - 1) {
-            n++;
-            showSlide(n);
-        }
-        else if(n === length - 1) showSlide(0) ;     
-    }
-
-    function handleOnClickRightA(n: number){
-        const items = document.getElementsByClassName("work_item");
-        const length = items.length;
-
-        if(n > 0) {
-            n--
-            showSlide(n)
-        }
-        else if(n === 0) {
-            n = length - 1;
-            showSlide(n);
-        }
-    
-        showSlide(n);
-    }
-
-    const handleExpandClick = () => {
-    setExpanded(!expanded);
-    };
-
     return (
         <section className="work" id="work">
             <div className="work_title">
                 <h2>Mes réalisations</h2>
             </div>
             <ul className="work_items">
-                <Swiper>
+                <Swiper
+                    modules={[Navigation, Pagination, Scrollbar, A11y]}
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    className='swiper'
+                >
                     {worksData.map((work, index) => {
-                        return(
-                            <SwiperSlide>
-                                <li key={index} className="work_item" >
-                                    
-                                    <Card
-                                        className='work_card'  
-                                        sx={{
-                                            width:300,
-                                            boxShadow: "1px 5px 5px 0 grey",
-                                            backgroundColor: "var(--primary)",
-                                            color: "var(--secondary)"
-                                        }}
-                                    >
-                                        <CardHeader
-                                            title={work.title}
-                                            sx={{
-                                                textAlign: "center"
-                                            }}
-                                        />
-                                        <StyledCardMediaContainer>
-                                            <StyledCardMedia
-                                                component="img"
-                                                height="194"
-                                                image={work.img}
-                                                alt={work.alt}
-                                            />
-                                        </StyledCardMediaContainer>
-                                        <CardContent>
-                                            <Typography 
-                                                variant="body2" 
-                                                
-                                                sx={{
-                                                    textAlign: "center"
-                                                }}
-                                            >
-                                                {work.desc}
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions>
-                                            <ExpandMore  
-                                                theme={theme}
-                                                expand={expanded}
-                                                onClick={handleExpandClick}
-                                            >
-                                                <ExpandMoreIcon />
-                                            </ExpandMore>
-                                        </CardActions>
-                                        <Collapse  in={expanded} timeout="auto" unmountOnExit>
-                                            <CardContent>
-                                                <h4 className='collapse_title'>Compétences acquises :</h4>
-                                                {work.details.map((detail, index) =>(
-                                                    <div key={index}>  
-                                                        <p>{detail} </p>
-                                                    </div> 
-                                                ))}
-                                            </CardContent>
-                                        </Collapse>
-                                    </Card>
-                                    
-                                    {/* <div className='work_controllShow'>
-                                        <KeyboardDoubleArrowLeftIcon
-                                            className='arrow'
-                                            onClick={() => {
-                                                handleOnClickLeftA(index)
-                                            }}
-                                        />
-                                        <p className="work__count">{index + 1} / {worksData.length} </p>
-                                        <KeyboardDoubleArrowRightIcon
-                                            className='arrow' 
-                                            onClick={() => {
-                                                handleOnClickRightA(index)
-                                            }}
-                                        />
-                                    </div>                            */}
-                                </li>
+                        return (
+                            <SwiperSlide key={index}>
+                                <WorkItem 
+                                    title= {work.title}
+                                    img= {work.img}
+                                    desc={work.desc}
+                                    alt= {work.alt}
+                                    details= {work.details}
+                                />
                             </SwiperSlide>
                         )
                     })}
                 </Swiper> 
-                    {/* <Swiper>
-                        {worksData.map((work, index) => {
-                            return (
-                                <SwiperSlide>
-                                <div key={index}>
-                                    <p>{work.title} </p>
-                                </div>
-                                </SwiperSlide>
-                            )
-                        })}
-                       
-                    </Swiper> */}
+                    
             </ul>
            
            
         </section>
     );
 };
-
-const StyledCardMedia = styled(CardMedia)<CardMediaProps>`
-     
-&& {
-    padding: 1rem;
-    border-radius: 10px;
-  }
-`;
-
-const StyledCardMediaContainer = styled('div')`
-  padding: 1rem;
-  borderRadius: 10px;
-`;
-
 
 export default Work;
