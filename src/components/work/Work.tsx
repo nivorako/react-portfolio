@@ -1,10 +1,9 @@
 import React from 'react';
 
 import  { Swiper, SwiperSlide } from 'swiper/react';
-// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
 import {  EffectCoverflow,  Pagination } from 'swiper/modules';
-// import SwiperCore from "swiper/core";
-// Import Swiper styles
+
 import 'swiper/css';
 
 import 'swiper/css/navigation';
@@ -24,8 +23,6 @@ import Kasa from '../../assets/kasa.png';
 import Booki from '../../assets/Booki.png';
 import PortFolio from '../../assets/MyPortfolio.png';
 import './index.css';
-import { truncate } from 'fs';
-
 /**
  * Interface decsribing the data structure for each work Item
  * @interface WorkData
