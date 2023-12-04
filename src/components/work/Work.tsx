@@ -155,6 +155,7 @@ const Work: React.FC = (): JSX.Element => {
                                     desc={work.desc}
                                     alt= {work.alt}
                                     details= {work.details}
+                                    link={work.link}
                                     expanded={index === expandedIndex}
                                     onExpandClick={() => handleExpandClick(index)}
                                 />

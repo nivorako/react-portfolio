@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
@@ -11,6 +12,7 @@ interface WorkItemProps {
 	desc: string;
 	alt: string;
 	details: string[];
+	link: string;
   }
 
 
@@ -24,6 +26,7 @@ const WorkItem: React.FC<WorkItemProps & { expanded: boolean; onExpandClick: () 
 	desc, 
 	alt, 
 	details,
+	link,
 	expanded,
 	onExpandClick
 }): JSX.Element => {
@@ -54,7 +57,11 @@ const WorkItem: React.FC<WorkItemProps & { expanded: boolean; onExpandClick: () 
 												{detail}
 											</Li>
 									)
-								})}					
+								})}	
+								<Link>
+									<a href={link}>Voir le site par ici</a>	
+								</Link>
+											
 						</CardContent>
 					) : null
 				}
@@ -115,4 +122,16 @@ const Li = styled.li`
 	line-height: 2rem;
 `;
 
+const Link = styled.div`
+	width: 100%;
+	padding: 2rem;
+	display: flex;
+	justify-content: center;
+	transition: all .5s ease;
+	&:hover{
+		cursor: pointer;
+		transform: scale(1.05);
+		filter: blur(1px);
+	}
+`;
 export default WorkItem
