@@ -55,9 +55,11 @@
   .swiper-slide {
     background-position: center;
     background-size: cover;  
-    width: 50%;
+    width: 70%; 
     min-height: 400px;
-   
+    @media screen and (min-width: 764px){
+        width: 50%
+    }
   }
 
   .swiper-slide img {
@@ -65,8 +67,4 @@
     width: 100%;
   }
   
-  @media screen and(max-width: 764px){
-    .swiper-slide{
-        width:200px;
-    }
-}
+ 

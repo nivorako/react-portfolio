@@ -45,7 +45,7 @@ Swiper// Core.use([Navigation, Pagination, Scrollbar, A11y]);
  * @returns {JSX.Element}
  */
 
-const Work: React.FC = () => {
+const Work: React.FC = (): JSX.Element => {
 
     const worksData: WorkData[] = [
         { 
@@ -111,6 +111,17 @@ const Work: React.FC = () => {
         },
     ];
 
+    const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
+
+    const handleExpandClick = (index: number) => {
+        setExpandedIndex(expandedIndex === index ? null : index);
+    };
+
+    const handleSlideChange = () => {
+        // Fermer le contenu expansé lors du changement de diapositive
+        setExpandedIndex(null);
+    };
+
     return (
         <section className="work" id="work">
             <div className="work_title">
@@ -118,7 +129,7 @@ const Work: React.FC = () => {
             </div>
             <ul className="work_items">
                 <Swiper
-                    
+                    onSlideChange={handleSlideChange}
                     effect={'coverflow'}
                     grabCursor={true}
                     centeredSlides={true}
@@ -144,6 +155,8 @@ const Work: React.FC = () => {
                                     desc={work.desc}
                                     alt= {work.alt}
                                     details= {work.details}
+                                    expanded={index === expandedIndex}
+                                    onExpandClick={() => handleExpandClick(index)}
                                 />
                             </SwiperSlide>
                         )

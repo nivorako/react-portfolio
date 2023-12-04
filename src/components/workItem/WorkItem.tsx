@@ -18,14 +18,16 @@ interface WorkItemProps {
  * Returns a card that represents every detail for each project
  * @returns {JSX.Element}
  */
-const WorkItem: React.FC<WorkItemProps> = ({title, img, desc, alt, details}): JSX.Element => {
+const WorkItem: React.FC<WorkItemProps & { expanded: boolean; onExpandClick: () => void }> = ({
+	title, 
+	img, 
+	desc, 
+	alt, 
+	details,
+	expanded,
+	onExpandClick
+}): JSX.Element => {
 
-	const [expanded, setExpanded] = React.useState(false);
-
-	const handleExpandClick = () => {
-		setExpanded(!expanded);
-		};
-		console.log("expanded :", expanded);
 	return (
 			<Card>
 				<CardHeader>
@@ -37,7 +39,7 @@ const WorkItem: React.FC<WorkItemProps> = ({title, img, desc, alt, details}): JS
 				<CardDesc>
 					{desc}
 				</CardDesc>
-				<CardAction onClick={handleExpandClick}>
+				<CardAction onClick={onExpandClick}>
 					{expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}					
 				</CardAction>
 				{
