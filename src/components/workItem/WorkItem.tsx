@@ -6,6 +6,10 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 import "./index.css";
 
+interface LiProps {
+	isEven: boolean;
+  }
+
 interface WorkItemProps {
 	title: string;
 	img: string;
@@ -53,7 +57,7 @@ const WorkItem: React.FC<WorkItemProps & { expanded: boolean; onExpandClick: () 
 								</CardContentTitle>
 								{details.map((detail, index) => {
 									return (											
-											<Li key={index}>
+											<Li key={index} isEven={index % 2 === 0}>
 												{detail}
 											</Li>
 									)
@@ -115,11 +119,15 @@ const CardContent = styled.div`
 
 const CardContentTitle = styled.h4`
 	border-bottom: thin var(--secondary) solid; 
-	padding-bottom: .5rem;
+	padding: .5rem;
+	margin-bottom: 2rem;
 `;
 
-const Li = styled.li`
+const Li = styled.li<LiProps>`
+	padding: .5rem;
+	border-radius: var(--borderRadius);
 	line-height: 2rem;
+	background-color: ${(props) => (props.isEven ? 'var(--quartenary)' : 'var(--primary)')};
 `;
 
 const Link = styled.div`
