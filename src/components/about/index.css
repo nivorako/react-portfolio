@@ -1,5 +1,5 @@
 .about {
-    padding: 1rem;
+    padding: 1rem 0 4rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .about_title {
-    margin: 2rem 0;
+    margin: 8rem 0 4rem 0;
     font-size: xx-large;
     text-align: center;
 }
@@ -42,4 +42,8 @@
     margin-bottom: 1rem;
     line-height: 2rem;
     letter-spacing: 0.1rem;
+}
+
+.about_cvLoad{
+    margin: 2rem;
 }

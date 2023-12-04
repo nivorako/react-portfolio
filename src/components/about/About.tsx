@@ -1,6 +1,9 @@
 import React from 'react';
 
 import avatar from '../../assets/avatar.jpg';
+
+import Button from '../button/Button';
+
 import './index.css';
 
 /**
@@ -37,10 +40,12 @@ const About: React.FC = () => {
                         du monde logistique à la créativité et à la technicité
                         du développement web.
                     </p>
-                    <div className="about_links">
-                        <button>télécharger mon cv</button>
-                    </div>
                 </div>
+            </div>
+            <div className="about_cvLoad">
+                <Button>
+                    télécharger mon cv
+                </Button>
             </div>
         </section>
     );
