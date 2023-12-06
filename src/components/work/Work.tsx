@@ -48,13 +48,25 @@ Swiper// Core.use([Navigation, Pagination, Scrollbar, A11y]);
 const Work: React.FC = (): JSX.Element => {
 
     const worksData: WorkData[] = [
+        {
+            img: PortFolio, 
+            alt: 'portfolio',
+            title: 'Mon Portfolio',
+            desc: 'Projet Personnel',
+            details: [
+                "Création et intégration de la maquette FIGMA",
+                "Utilisation de vite react et typescript",
+                'Site responsive',
+            ],
+            link: '#', 
+        },
         { 
             img: Weare, 
             alt: 'weare2gether',
             title: 'WEARE 2GETHER',
             desc: 'Site de mise en relation.',
             details: [
-                'Création de la maquette avec FIGMA',
+                'Création et intégration de la maquette avec FIGMA',
                 'Utilisation de Redux et Material UI',
                 'Utilisation de Back4app',
                 "Création d'une page admin qui permet de gérer le site",
@@ -96,18 +108,6 @@ const Work: React.FC = (): JSX.Element => {
                 'Site responsive',
             ],
             link: 'https://nivorako.github.io/projet-P2/',
-        },
-        {
-            img: PortFolio, 
-            alt: 'portfolio',
-            title: 'Mon Portfolio',
-            desc: 'Projet Personnel',
-            details: [
-                "Intégration d'une maquette FIGMA avec html et css",
-                'Site responsive',
-                'etc etc ....',
-            ],
-            link: '#', 
         },
     ];
 

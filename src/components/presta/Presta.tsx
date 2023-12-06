@@ -16,10 +16,6 @@ const Presta: React.FC = () => {
 
 	const navigate = useNavigate();
 
-	// const handleNavigate = (path: string) => {
-	// 	navigate(`/${path}`);
-	// };
-
 	const scrollIntoSection = (sectionId: string) => {
 		if(sectionId){
 			console.log("sectionId", sectionId);

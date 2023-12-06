@@ -7,6 +7,7 @@ import Js from '../../assets/js.png';
 import Ts from '../../assets/ts.png';
 import ReactLogo from '../../assets/react.png';
 import Git from '../../assets/git.png';
+import Mui from '../../assets/material-ui-1.svg';
 
 import './index.css';
 
@@ -46,6 +47,7 @@ const Skill: React.FC = () => {
         },
         { id: 6, name: 'Ts', mode: 'darkGold', color: 'var(--six)', image: Ts },
         { id: 7, name: 'Git', mode: 'gitMode', color: 'gitColor', image: Git },
+        { id: 8, name: 'Git', mode: 'yellow-orange', color: 'var(--eight)', image: Mui },
     ];
 
     return (

@@ -1,7 +1,7 @@
 .presta{
     width: 100%;
-    padding: 1rem;
-    padding-bottom: 2rem;
+    height: 100vh;
+    padding: 8rem 0 4rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;

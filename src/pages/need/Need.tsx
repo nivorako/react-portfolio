@@ -7,7 +7,7 @@ import "./index.css";
  * @returns {JSX.Element} - explanation of client' needs
  */
 
-const Need: React.FC = () => {
+const Need: React.FC = (): JSX.Element => {
 
     useEffect(() => {
 

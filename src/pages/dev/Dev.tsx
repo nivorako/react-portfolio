@@ -6,7 +6,7 @@ import "./index.css";
  * 
  * @returns {JSX.Element} - explanation of develeppment actions
  */
-const dev: React.FC = () => {
+const dev: React.FC = (): JSX.Element => {
 
     useEffect(() => {
         /**
