@@ -132,7 +132,7 @@ const Li = styled.li<LiProps>`
 
 const Link = styled.div`
 	width: 100%;
-	padding: 2rem;
+	margin: 2rem 0;
 	display: flex;
 	justify-content: center;
 	transition: all .5s ease;

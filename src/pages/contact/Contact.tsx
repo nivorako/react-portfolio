@@ -24,7 +24,7 @@ const Contact: React.FC = (): JSX.Element =>{
     const {
         register,
         handleSubmit,
-        watch,
+        reset,
         formState: { errors },
     } = useForm<Inputs>();
 
@@ -36,6 +36,7 @@ const Contact: React.FC = (): JSX.Element =>{
             const res = await fakeApiCall(data);
             if(res.status === "success"){
                 console.log('Données envoyées avec succès');
+                reset();
                 setShowErrorModal(true);
             }
         } catch (error) {
@@ -51,15 +52,13 @@ const Contact: React.FC = (): JSX.Element =>{
                 const success = true
                 if(success){
                     res({status: "success"});
-                    console.log("data: ", data)
+                    console.log(data)
                 }else{
                     rej(new Error('Echec de l\' envoi des données'));
                 }
             }, 500);
         });
     };
-    
-    console.log(watch("firstName"))
 
     useEffect(() => {
 
@@ -92,21 +91,21 @@ const Contact: React.FC = (): JSX.Element =>{
                     <label>firstName*</label>
                     <div className='input_item'>
                         <input placeholder='firstName' {...register("firstName", { required: true })} />
-                        {errors.firstName && <span>Votre nom est obligatoire</span>}
+                        {errors.firstName && <span>Veuillez renseigner votre nom</span>}
                     </div>       
                 </div>
                 <div className='input'>
                     <label>lastName*</label>
                     <div className='input_item'>
                         <input placeholder='lastName' {...register("lastName", { required: true })} />
-                        {errors.lastName && <span>Votre prénom est obligatoire</span>}
+                        {errors.lastName && <span>Veuillez renseigner votre prénom</span>}
                     </div>
                 </div>
                 <div className='input'>
                     <label>email*</label>
                     <div className='input_item'>
                         <input placeholder='email' type='email' {...register("email", { required: true })} />
-                        {errors.email && <span>Votre email est obligatoire</span>}
+                        {errors.email && <span>Veuillez renseigner votre email</span>}
                     </div>
                 </div>
                 <div className='input'>
