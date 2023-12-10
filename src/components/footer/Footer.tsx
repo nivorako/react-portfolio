@@ -23,7 +23,11 @@ const Footer: React.FC = (): JSX.Element => {
 	}
     return (
         <footer className="footer">
-            <Button  onClick={() => scrollIntoSection("contact")}>Contactez moi</Button>
+            <div className='footer1'>
+                <Button  onClick={() => scrollIntoSection("contact")}>Contactez moi</Button>
+                <div>doudou</div>
+            </div>
+            <div className='footer2'></div>
         </footer>
     );
 };

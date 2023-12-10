@@ -19,6 +19,7 @@
         "plyr": "^3.7.8",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-hook-form": "^7.49.0",
         "react-player": "^2.13.0",
         "react-router-dom": "^6.16.0",
         "swiper": "^11.0.5",

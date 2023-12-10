@@ -6,7 +6,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--quartenary);
+    background-color: var(--tertiary);
+    color: var(--secondary);
 }
 
 .need_content{
