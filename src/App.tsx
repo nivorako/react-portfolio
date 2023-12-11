@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer';
 import Need from './pages/need/Need';
 import Dev from "./pages/dev/Dev";
 import Contact from './pages/contact/Contact';
+import Service from "./pages/service/Service";
 
 import "./app.css";
 
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/Need" element={<Need />} />
                     <Route path="/Dev" element={<Dev />} />
                     <Route path="/Contact" element={<Contact />} />
+                    <Route path="/Service" element={<Service />} />
                 </Routes>
                 <Footer />
             </div>

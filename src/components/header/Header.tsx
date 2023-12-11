@@ -184,6 +184,15 @@ const Header: React.FC = () => {
                             Mes préstations
                         </a>
                     </Button>
+                    <Button>
+                        <a
+                            href="#footer"
+                            className="drawer_footer"
+                            onClick={() => scrollIntoSection('footer')}
+                        >
+                            Contactez-moi
+                        </a>
+                    </Button>
                 </Drawer>
             </div>
             <div className="header_content" ref={headerContentRef}>

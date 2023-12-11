@@ -26,7 +26,7 @@ const Footer: React.FC = (): JSX.Element => {
 		}
 	}
     return (
-        <footer className="footer">
+        <footer className="footer" id='footer'>
             <div className='footer1'>
                 <Button  onClick={() => scrollIntoSection("contact")}>Contactez moi</Button>
                 <div className='footer1_socNet'>

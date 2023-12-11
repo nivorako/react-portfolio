@@ -12,13 +12,12 @@ import './index.css';
  * @returns {JSX.Element} - Section which represent my prestations
  */
 
-const Presta: React.FC = () => {
+const Presta: React.FC = (): JSX.Element => {
 
 	const navigate = useNavigate();
 
 	const scrollIntoSection = (sectionId: string) => {
 		if(sectionId){
-			console.log("sectionId", sectionId);
 			navigate(`/${sectionId}/#${sectionId.toLocaleLowerCase()}`)
             
 		}
@@ -38,7 +37,7 @@ const Presta: React.FC = () => {
 					<IntegrationInstructionsIcon/>
 					<p>Developpement du site</p>
 				</div>
-				<div className='presta_item'>
+				<div className='presta_item' onClick={() => scrollIntoSection("Service")}>
 					<BuildIcon/>
 					<p>Maintenance et amélioration</p>
 				</div>

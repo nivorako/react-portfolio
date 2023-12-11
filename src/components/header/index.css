@@ -63,7 +63,8 @@ a{
 .drawer_presta,
 .drawer_work,
 .drawer_about, 
-.drawer_skill {
+.drawer_skill,
+.drawer_footer {
     transition: all .2s ease;
     &:hover {
         cursor: pointer;
