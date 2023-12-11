@@ -31,13 +31,17 @@ const Footer: React.FC = (): JSX.Element => {
                 <Button  onClick={() => scrollIntoSection("contact")}>Contactez moi</Button>
                 <div className='footer1_socNet'>
                     <div className='footer1_socNetItem'>
-                        <img src={Linked} alt="linked in" width={50} />
+                        <a href="https://www.linkedin.com/in/nivo-rakotondrabe">
+                            <img src={Linked} alt="linked in" width={50} />
+                        </a>
                     </div>
                     <div className='footer1_socNetItem'>
                         <img src={Youtube} alt="youtube" width={50} />
                     </div>
                     <div className='footer1_socNetItem'>
-                        <img src={Twitter} alt="twitter" width={50} />
+                        <a >
+                            <img src={Twitter} alt="twitter" width={50} />
+                        </a>
                     </div>
                 </div>
             </div>
