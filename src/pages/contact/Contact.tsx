@@ -88,16 +88,16 @@ const Contact: React.FC = (): JSX.Element =>{
             <form onSubmit={handleSubmit(onSubmit)} className='contact_form'>
             
                 <div className='input'>
-                    <label>firstName*</label>
+                    <label>Nom*</label>
                     <div className='input_item'>
-                        <input placeholder='firstName' {...register("firstName", { required: true })} />
+                        <input placeholder='Votre nom ici' {...register("firstName", { required: true })} />
                         {errors.firstName && <span>Veuillez renseigner votre nom</span>}
                     </div>       
                 </div>
                 <div className='input'>
-                    <label>lastName*</label>
+                    <label>Prénom*</label>
                     <div className='input_item'>
-                        <input placeholder='lastName' {...register("lastName", { required: true })} />
+                        <input placeholder='Votre prénom ici' {...register("lastName", { required: true })} />
                         {errors.lastName && <span>Veuillez renseigner votre prénom</span>}
                     </div>
                 </div>

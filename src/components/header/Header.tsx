@@ -73,13 +73,6 @@ const Header: React.FC = () => {
         }
     };
 
-    // const scrolltoSection = (sectionId: string) => {
-	// 	if(sectionId){
-	// 		navigate(`/${sectionId}/#${sectionId.toLocaleLowerCase()}`)
-            
-	// 	}
-	// }
-
     const [drawer, setDrawer] = useState(false);
     const toggleDrawer = () => {
         if (!drawer) setDrawer(true);
