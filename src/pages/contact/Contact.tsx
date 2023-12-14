@@ -73,7 +73,7 @@ const Contact: React.FC = (): JSX.Element =>{
            section.scrollIntoView({ behavior: 'smooth' });
        }
     }, []);
-    
+    console.log("location :", location.hash);
     return (
         <div className='contact' id='contact'>
             <div className='contact_title'>

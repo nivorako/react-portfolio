@@ -64,7 +64,7 @@ a{
 .drawer_work,
 .drawer_about, 
 .drawer_skill,
-.drawer_footer {
+.drawer_contact {
     transition: all .2s ease;
     &:hover {
         cursor: pointer;

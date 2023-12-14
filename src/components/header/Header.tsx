@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 
 import 'video.js/dist/video-js.css';
@@ -21,7 +21,6 @@ import './index.css';
  */
 
 const Header: React.FC = () => {
-    const navigate = useNavigate();
     const [scrollTop, setScrollTop] = useState(0);
     const headerContentRef = useRef<HTMLDivElement | null>(null);
     const headerNavRef = useRef<HTMLDivElement | null>(null);
@@ -58,16 +57,28 @@ const Header: React.FC = () => {
         };
     }, [scrollTop]);
 
+    const navigate = useNavigate();
     const scrollIntoSection = (sectionId: string) => {
         if (sectionId) {
-            navigate('/');
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
+            if(sectionId === "Contact"){
+                navigate(`/${sectionId}/#${sectionId.toLocaleLowerCase()}`)
+            }else{
+                navigate('/');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }   
             }
             setDrawer(false);
         }
     };
+
+    // const scrolltoSection = (sectionId: string) => {
+	// 	if(sectionId){
+	// 		navigate(`/${sectionId}/#${sectionId.toLocaleLowerCase()}`)
+            
+	// 	}
+	// }
 
     const [drawer, setDrawer] = useState(false);
     const toggleDrawer = () => {
@@ -75,11 +86,11 @@ const Header: React.FC = () => {
         else setDrawer(false);
     };
 
-    useEffect(() => {
-        window.onload = () => {
-            window.scrollTo(0, 0);
-        };
-    }, []);
+    // useEffect(() => {
+    //     window.onload = () => {
+    //         window.scrollTo(0, 0);
+    //     };
+    // }, []);
 
     return (
         <header className="header" id="head">
@@ -149,50 +160,69 @@ const Header: React.FC = () => {
                         />
                     </div>
                     <Button>
-                        <a
-                            href="#about"
+                        <Link
+                            to="/about"
                             className="drawer_about"
-                            onClick={() => scrollIntoSection('about')}
+                            onClick={(e) => {
+                                e.preventDefault(); // Empêche la navigation par défaut
+                                scrollIntoSection('about');
+                                setDrawer(false);
+                            }}
                         >
                             A propos de moi
-                        </a>
+                        </Link>
                     </Button>
                     <Button>
-                        <a
-                            href="#skill"
+                        <Link
+                            to="/skill"
                             className="drawer_skill"
-                            onClick={() => scrollIntoSection('skill')}
+                            onClick={(e) => {
+                                e.preventDefault(); // Empêche la navigation par défaut
+                                scrollIntoSection('skill');
+                                setDrawer(false);
+                            }}
                         >
                             Mes compétences
-                        </a>
+                        </Link>
                     </Button>
                     <Button>
-                        <a
-                            href="#work"
+                        <Link
+                            to="/work"
                             className="drawer_work"
-                            onClick={() => scrollIntoSection('work')}
+                            onClick={(e) => {
+                                e.preventDefault(); // Empêche la navigation par défaut
+                                scrollIntoSection('work');
+                                setDrawer(false);
+                            }}
                         >
                             Mes réalisations
-                        </a>
+                        </Link>
                     </Button>
                     <Button>
-                        <a
-                            href="#presta"
+                        <Link
+                            to="/presta"
                             className="drawer_presta"
-                            onClick={() => scrollIntoSection('presta')}
+                            onClick={(e) => {
+                                e.preventDefault(); // Empêche la navigation par défaut
+                                scrollIntoSection('presta');
+                            }}
                         >
-                            Mes préstations
-                        </a>
+                            Mes prestations
+                        </Link>
                     </Button>
                     <Button>
-                        <a
-                            href="#footer"
-                            className="drawer_footer"
-                            onClick={() => scrollIntoSection('footer')}
+                        <Link
+                            to="/Contact"
+                            className="drawer_contact"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                scrollIntoSection("Contact");
+                                setDrawer(false);
+                            }}
                         >
                             Contactez-moi
-                        </a>
-                    </Button>
+                        </Link>
+                    </Button>                   
                 </Drawer>
             </div>
             <div className="header_content" ref={headerContentRef}>

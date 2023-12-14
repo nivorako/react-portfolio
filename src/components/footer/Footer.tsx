@@ -28,7 +28,7 @@ const Footer: React.FC = (): JSX.Element => {
     return (
         <footer className="footer" id='footer'>
             <div className='footer1'>
-                <Button  onClick={() => scrollIntoSection("contact")}>Contactez moi</Button>
+                <Button  onClick={() => scrollIntoSection("Contact")}>Contactez moi</Button>
                 <div className='footer1_socNet'>
                     <div className='footer1_socNetItem'>
                         <a href="https://www.linkedin.com/in/nivo-rakotondrabe">

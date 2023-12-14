@@ -16,7 +16,7 @@ const Presta: React.FC = (): JSX.Element => {
 
 	const navigate = useNavigate();
 
-	const scrollIntoSection = (sectionId: string) => {
+	const scrolltoSection = (sectionId: string) => {
 		if(sectionId){
 			navigate(`/${sectionId}/#${sectionId.toLocaleLowerCase()}`)
             
@@ -26,18 +26,18 @@ const Presta: React.FC = (): JSX.Element => {
     return (
         <main className="presta" id="presta">
             <div className="presta_title">
-                <h2>Mes préstations</h2>
+                <h2>Mes prestations</h2>
             </div>
             <div className='presta_content'>
-				<div className='presta_item' onClick={() => scrollIntoSection("Need")}>
+				<div className='presta_item' onClick={() => scrolltoSection("Need")}>
 					<CreateIcon/>
 					<p>Evaluation des besoins</p>
 				</div>
-				<div className='presta_item'  onClick={() => scrollIntoSection("Dev")}>
+				<div className='presta_item'  onClick={() => scrolltoSection("Dev")}>
 					<IntegrationInstructionsIcon/>
 					<p>Developpement du site</p>
 				</div>
-				<div className='presta_item' onClick={() => scrollIntoSection("Service")}>
+				<div className='presta_item' onClick={() => scrolltoSection("Service")}>
 					<BuildIcon/>
 					<p>Maintenance et amélioration</p>
 				</div>
