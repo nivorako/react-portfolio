@@ -125,9 +125,10 @@ const CardContentTitle = styled.h4`
 
 const Li = styled.li<LiProps>`
 	padding: .5rem;
+	margin-bottom: 1rem;
 	border-radius: var(--borderRadius);
 	line-height: 2rem;
-	background-color: ${(props) => (props.isEven ? 'var(--quartenary)' : 'var(--primary)')};
+	background-color: ${(props) => (props.isEven ? 'var(--quartenary)' : 'var(--tertiary)')};
 `;
 
 const Link = styled.div`

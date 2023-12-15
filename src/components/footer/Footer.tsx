@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import Linked from "../../assets/linkedin.png";
 import Youtube from "../../assets/youtube.png";
@@ -31,9 +31,9 @@ const Footer: React.FC = (): JSX.Element => {
                 <Button  onClick={() => scrollIntoSection("Contact")}>Contactez moi</Button>
                 <div className='footer1_socNet'>
                     <div className='footer1_socNetItem'>
-                        <a href="https://www.linkedin.com/in/nivo-rakotondrabe">
+                        <Link to="https://www.linkedin.com/in/nivo-rakotondrabe" target="_blank" rel="noopener noreferrer">
                             <img src={Linked} alt="linked in" width={50} />
-                        </a>
+                        </Link>
                     </div>
                     <div className='footer1_socNetItem'>
                         <img src={Youtube} alt="youtube" width={50} />

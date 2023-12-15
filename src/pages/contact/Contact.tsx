@@ -121,8 +121,9 @@ const Contact: React.FC = (): JSX.Element =>{
                 {showErrorModal && (
                 <div className="error-modal">
                     <div className='error_msg'>
-                        <p>Une erreur inattendue s'est produite. Envoyez-moi un email à :</p>
+                        <p>Une erreur inattendue s'est produite.<br/> Envoyez un email à :</p>
                         <p className='error_mail'>nivo.rakoto@yahoo.fr</p>
+                        <p>Une réponse vous sera transmise dans les plus bref délai</p>
                         <Button onClick={() => setShowErrorModal(false)}>Fermer</Button>
                     </div>
                 </div>

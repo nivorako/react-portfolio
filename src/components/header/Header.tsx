@@ -60,11 +60,14 @@ const Header: React.FC = () => {
     const navigate = useNavigate();
     const scrollIntoSection = (sectionId: string) => {
         if (sectionId) {
+            console.log("oooooo")
             if(sectionId === "Contact"){
                 navigate(`/${sectionId}/#${sectionId.toLocaleLowerCase()}`)
+                console.log("okok");
             }else{
                 navigate('/');
                 const section = document.getElementById(sectionId);
+                console.log("section :", section);
                 if (section) {
                     section.scrollIntoView({ behavior: 'smooth' });
                 }   
