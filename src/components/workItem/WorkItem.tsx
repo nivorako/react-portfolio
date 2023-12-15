@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -62,8 +63,10 @@ const WorkItem: React.FC<WorkItemProps & { expanded: boolean; onExpandClick: () 
 											</Li>
 									)
 								})}	
-								<Link>
-									<a href={link}>Voir le site par ici</a>	
+								<Link to={link} target="_blank" rel="noopener noreferrer">
+									<Button >
+										<p>Voir le site par ici</p>
+									</Button>	
 								</Link>
 											
 						</CardContent>
@@ -131,16 +134,21 @@ const Li = styled.li<LiProps>`
 	background-color: ${(props) => (props.isEven ? 'var(--quartenary)' : 'var(--tertiary)')};
 `;
 
-const Link = styled.div`
-	width: 100%;
-	margin: 2rem 0;
+const Button = styled.div`
+	width: 90%;
+	margin: 2rem auto;
+	padding: .5rem;
 	display: flex;
 	justify-content: center;
 	transition: all .5s ease;
+	border-radius: var(--borderRadius);
+	color: var(--secondary);
 	&:hover{
 		cursor: pointer;
-		transform: scale(1.05);
 		filter: blur(1px);
+		transform: scale(1.1);
+		transition: .5s;
+		box-shadow: 1px 1px 1px 2px white;
 	}
 `;
 export default WorkItem
