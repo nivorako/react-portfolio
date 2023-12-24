@@ -24,9 +24,9 @@ const Header: React.FC = () => {
     const [scrollTop, setScrollTop] = useState(0);
     const headerContentRef = useRef<HTMLDivElement | null>(null);
     const headerNavRef = useRef<HTMLDivElement | null>(null);
+    const lastClickedSection = useRef<string | null>(null);
 
     // Controll headerNav position when scrollTop
-
     useEffect(() => {
         const handleScroll = () => {
             const headerContent = headerContentRef.current;
@@ -55,26 +55,36 @@ const Header: React.FC = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [scrollTop]);
+    }, [scrollTop]); 
 
+    // navigate into section...
     const navigate = useNavigate();
     const scrollIntoSection = (sectionId: string) => {
+       
         if (sectionId) {
-            console.log("oooooo")
+            lastClickedSection.current = sectionId;
+            console.log("sectionId :", sectionId);
             if(sectionId === "Contact"){
                 navigate(`/${sectionId}/#${sectionId.toLocaleLowerCase()}`)
-                console.log("okok");
+                console.log("contact page");
             }else{
                 navigate('/');
-                const section = document.getElementById(sectionId);
-                console.log("section :", section);
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                }   
             }
             setDrawer(false);
         }
     };
+
+    // controll section position when scrollIntoSection
+    useEffect(() => {
+        const sectionId = lastClickedSection.current;
+
+        if (sectionId && sectionId !== "Contact") {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [lastClickedSection.current]);
 
     const [drawer, setDrawer] = useState(false);
     const toggleDrawer = () => {
@@ -82,11 +92,6 @@ const Header: React.FC = () => {
         else setDrawer(false);
     };
 
-    // useEffect(() => {
-    //     window.onload = () => {
-    //         window.scrollTo(0, 0);
-    //     };
-    // }, []);
 
     return (
         <header className="header" id="head">
@@ -213,7 +218,6 @@ const Header: React.FC = () => {
                             onClick={(e) => {
                                 e.preventDefault();
                                 scrollIntoSection("Contact");
-                                setDrawer(false);
                             }}
                         >
                             Contactez-moi
