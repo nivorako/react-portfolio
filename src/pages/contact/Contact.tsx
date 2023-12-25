@@ -75,7 +75,7 @@ const Contact: React.FC = (): JSX.Element =>{
     }, []);
     console.log("location :", location.hash);
     return (
-        <section className='contact' id='contact'>
+        <div className='contact' id='contact'>
             <div className='contact_title'>
                 <h2>Contactez-moi</h2>
                 <div className='contact_title_desc'>
@@ -129,7 +129,7 @@ const Contact: React.FC = (): JSX.Element =>{
                 </div>
             )}
             </form>
-        </section>
+        </div>
       )
 }
 

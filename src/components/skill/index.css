@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-.skill_cards{
+/* .skill_cards{
    width:70%;
    height: auto;
    display: grid;
@@ -27,11 +27,36 @@
    @media screen and (max-width: 1024px) {
       grid-gap: 2rem;
    }
+} */
+
+.category_title{
+  margin: 1rem 0;
+}
+
+.skill_cards{
+  width:70%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.items{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  border: var(--secondary) 2px solid;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: var(--borderRadius);
 }
 
 .item{
-  width:100%;
+  width:100px;
+  height: 150px;
   padding-bottom: 1rem;
+  margin: 1rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -48,6 +73,10 @@
   border-radius: 50%;
   position: absolute;
   bottom: .5rem;
+}
+
+.item_name{
+  text-align: center;
 }
 
  .item:hover{
