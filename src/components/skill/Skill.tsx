@@ -34,36 +34,6 @@ const Skill: React.FC = () => {
         document.querySelector('body')?.setAttribute('data-theme', theme);
     };
 
-    // const skills = [
-    //     {
-    //         id: 1,
-    //         name: 'HTML5',
-    //         mode: 'aqua',
-    //         color: 'var(--one)',
-    //         image: Html,
-    //     },
-    //     { id: 2, name: 'Css', mode: 'dark', color: 'var(--two)', image: Css },
-    //     {
-    //         id: 3,
-    //         name: 'Sass',
-    //         mode: 'gold',
-    //         color: 'var(--three)',
-    //         image: Sass,
-    //     },
-    //     { id: 4, name: 'Js', mode: 'cream', color: 'var(--for)', image: Js },
-    //     {
-    //         id: 5,
-    //         name: 'React',
-    //         mode: 'darkBlue',
-    //         color: 'var(--five)',
-    //         image: ReactLogo,
-    //     },
-    //     { id: 6, name: 'Typescript', mode: 'darkGold', color: 'var(--six)', image: Ts },
-    //     { id: 7, name: 'Git', mode: 'gitMode', color: 'gitColor', image: Git },
-    //     { id: 8, name: 'Material UI', mode: 'yellow-orange', color: 'var(--eight)', image: Mui },
-    //     { id: 9, name: 'Material UI', mode: 'yellow-orange', color: 'var(--eight)', image: B4App }
-    // ];
-
     const skills: Skills = {
         Intégration:[
             {
@@ -116,7 +86,7 @@ const Skill: React.FC = () => {
                             {
                                 skills[category].map((skill) => (
                                     
-                                    React.createElement('div', null,
+                                    React.createElement('div', {key: skill.id},
                                         React.createElement('div', {
                                             key:skill.id,
                                             className:"item",
