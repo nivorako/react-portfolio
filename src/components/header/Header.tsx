@@ -136,12 +136,14 @@ const Header: React.FC = () => {
                     anchor="right"
                     PaperProps={{
                         sx: {
-                            width: '100%', // Définir la largeur du drawer à 100%
+                            width: '100%',// Définir la largeur du drawer à 100%
+                           
                             zIndex: '10', // Placer le drawer au-dessus du reste du contenu
                             backgroundColor: 'var(--primary)',
                             display: 'flex',
                             justifyContent: 'space-around',
                             alignItems: 'center',
+                            position: 'fixed',
                         },
                     }}
                 >

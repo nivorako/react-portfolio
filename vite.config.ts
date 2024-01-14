@@ -2,14 +2,27 @@ import { defineConfig, mergeConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
-const defaultConfig  = defineConfig({
+export default defineConfig({
     plugins: [react()],
-});
-
-const productionConfig = {
     build: {
         chunkSizeWarningLimit: 1000,
     },
-};
+    server: {
+        host: '0.0.0.0',
+    },
+});
 
-export default mergeConfig(defaultConfig, productionConfig);
+// const productionConfig = {
+//     build: {
+//         chunkSizeWarningLimit: 1000,
+//     },
+// };
+
+// const serverConfig = {
+//     server: {
+//         host: '0.0.0.0',
+//     },
+//     // Autres configurations du serveur...
+// };
+
+//export default mergeConfig(defaultConfig);
