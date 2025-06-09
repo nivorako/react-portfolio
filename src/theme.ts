@@ -2,10 +2,10 @@ export const theme = {
     light: {
         primary: "#0070f3",
         secondary: "#0070f3",
-        background: "#ffffff",
+        background: "#666666",
         surface: "#f5f5f5",
         text: "#1a1a1a",
-        textSecondary: "#666666",
+        textSecondary: "#ffffff",
         border: "#e0e0e0",
         shadow: "rgba(0, 0, 0, 0.1)",
     },
