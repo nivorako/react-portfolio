@@ -28,15 +28,15 @@ const Subtitle = styled(motion.p)`
 const Button = styled(motion.button)`
     padding: 1rem 2rem;
     font-size: 1.1rem;
-    background: var(--primary);
+    background: var(--secondary);
     color: var(--text);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; 
     &:hover {
         transform: translateY(-2px);
-        background: #0056b3;
+        background: #1E293B;
     }
 `;
 

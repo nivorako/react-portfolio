@@ -5,6 +5,7 @@ import { theme } from "../theme";
 
 interface ToggleButtonProps {
     "data-isdark": boolean;
+    onClick: () => void;
 }
 
 const HeaderContainer = styled(motion.header)`
@@ -44,42 +45,39 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled.h1`
-    font-size: 1.5rem;
-    font-weight: bold;
+font-family: 'Pacifico', cursive;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
     color: var(--text);
 `;
 
 const ToggleButton = styled.button<ToggleButtonProps>`
+    background: none; 
+    border: none;
+    cursor: pointer;
+    padding: 8px;
     position: relative;
     width: 60px;
     height: 30px;
-    background: var(--border);
     border-radius: 15px;
-    padding: 2px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    
-    &:hover {
-        background: var(--primary);
+    background-color: var(--text);
+    transition: background-color 0.3s;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        transition: transform 0.3s;
     }
 
-    .slider {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background: var(--text);
-        border-radius: 13px;
-        transition: all 0.3s ease;
-        
-        &::before {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background: var(--primary);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            left: ${props => props["data-isdark"] ? 'calc(100% - 24px)' : '2px'};
+    &[data-isdark="true"] {
+        &:before {
+            transform: translateX(28px);
         }
     }
 `;
@@ -96,13 +94,35 @@ const Header = () => {
         // Mettre à jour l'état local
         setIsDark(newIsDark);
         
-        // Mettre à jour les variables CSS
-        root.style.setProperty('--is-dark', newIsDark ? 'true' : 'false');
-        const currentTheme = newIsDark ? theme.dark : theme.light;
-        Object.entries(currentTheme).forEach(([key, value]) => {
-            root.style.setProperty(`--${key}`, value);
-        });
-    };
+         // Mettre à jour les variables CSS
+         root.style.setProperty('--is-dark', newIsDark ? 'true' : 'false');
+         const currentTheme = newIsDark ? theme.dark : theme.light;
+         
+         // Définir les variables de typographie
+         root.style.setProperty('--font-family', currentTheme.fontFamily);
+         
+         // Définir les tailles de police
+         Object.entries(currentTheme.fontSize).forEach(([key, value]) => {
+             root.style.setProperty(`--font-size-${key}`, value);
+         });
+         
+         // Définir les poids de police
+         Object.entries(currentTheme.fontWeight).forEach(([key, value]) => {
+             root.style.setProperty(`--font-weight-${key}`, value.toString());
+         });
+         
+         // Définir les couleurs et autres propriétés
+         Object.entries(currentTheme).forEach(([key, value]) => {
+             if (key !== 'fontFamily' && key !== 'fontSize' && key !== 'fontWeight') {
+                 if (typeof value === 'object' && value !== null) {
+                     // Ignorer les objets (fontSize et fontWeight) qui ont déjà été traités
+                     return;
+                 }
+                 root.style.setProperty(`--${key}`, value.toString());
+             }
+         });
+     };
+    
 
     return (
         <HeaderContainer
