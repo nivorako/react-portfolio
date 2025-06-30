@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styled from "styled-components";
 import avatar from "../assets/avatar.webp";
 import { FaReact, FaNodeJs, FaGithub } from 'react-icons/fa';
