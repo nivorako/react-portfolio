@@ -83,9 +83,12 @@ const ToggleButton = styled.button<ToggleButtonProps>`
 `;
 
 const Header = () => {
-    const [isDark, setIsDark] = useState(() => 
-        document.documentElement.style.getPropertyValue('--is-dark') === 'true'
-    );
+
+    const [isDark, setIsDark] = useState(() => {
+        // Récupérer le thème depuis le localStorage ou utiliser la valeur par défaut
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        return savedTheme === 'dark';
+    });
 
     const toggleTheme = () => {
         const root = document.documentElement;
@@ -93,32 +96,18 @@ const Header = () => {
         
         // Mettre à jour l'état local
         setIsDark(newIsDark);
+
+         // Sauvegarder le thème dans le localStorage
+         localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
         
          // Mettre à jour les variables CSS
          root.style.setProperty('--is-dark', newIsDark ? 'true' : 'false');
          const currentTheme = newIsDark ? theme.dark : theme.light;
          
-         // Définir les variables de typographie
-         root.style.setProperty('--font-family', currentTheme.fontFamily);
-         
-         // Définir les tailles de police
-         Object.entries(currentTheme.fontSize).forEach(([key, value]) => {
-             root.style.setProperty(`--font-size-${key}`, value);
-         });
-         
-         // Définir les poids de police
-         Object.entries(currentTheme.fontWeight).forEach(([key, value]) => {
-             root.style.setProperty(`--font-weight-${key}`, value.toString());
-         });
-         
-         // Définir les couleurs et autres propriétés
+         // Appliquer toutes les variables CSS du thème
          Object.entries(currentTheme).forEach(([key, value]) => {
-             if (key !== 'fontFamily' && key !== 'fontSize' && key !== 'fontWeight') {
-                 if (typeof value === 'object' && value !== null) {
-                     // Ignorer les objets (fontSize et fontWeight) qui ont déjà été traités
-                     return;
-                 }
-                 root.style.setProperty(`--${key}`, value.toString());
+             if (typeof value === 'string' && !key.startsWith('font')) {
+                 root.style.setProperty(`--${key}`, value);
              }
          });
      };
