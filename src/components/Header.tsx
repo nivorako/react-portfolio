@@ -18,8 +18,8 @@ const HeaderContainer = styled(motion.header)`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--surface);
-    backdrop-filter: blur(10px);
+    background: transparent;
+    backdrop-filter: blur(5px);
     z-index: 1000;
     box-shadow: 0 2px 10px var(--shadow);
     @media (max-width: 1224px) {

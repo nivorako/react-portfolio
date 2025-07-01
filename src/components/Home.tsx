@@ -1,9 +1,12 @@
-
 import styled from "styled-components";
-import avatar from "../assets/avatar.webp";
+import { useState, useEffect } from 'react';
 import { FaReact, FaNodeJs, FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import webDesign from '../assets/web-design.webp';
+import { motion } from 'framer-motion';
+import avatar from "../assets/avatar.webp";
+import { useScrollScale } from '../hooks/useScrollScale';
+
 const HomeContainer = styled.div`
     min-height: 100vh;
     display: flex;
@@ -11,7 +14,7 @@ const HomeContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 2rem;
+    padding: 2rem;
     background: var(--background);
     @media (max-width: 768px) {
         padding: 4rem 2rem;
@@ -109,7 +112,7 @@ const ProfileSection = styled.div`
     margin-top: 2rem;
 `;
 
-const Avatar = styled.img`
+const Avatar = styled(motion.img)`
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -138,7 +141,7 @@ const SkillsSection = styled.div`
     }
 `;
 
-const SkillCard = styled.div`
+const SkillCard = styled(motion.div)`
     background: var(--surface);
     padding: 1.5rem;
     border-radius: 10px;
@@ -169,13 +172,60 @@ const SkillDescription = styled.p`
 `;
 
 const Home = () => {
+  const [scale1, setScale1] = useState(1);
+  const [scale2, setScale2] = useState(1);
+  const [scale3, setScale3] = useState(1);
+
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    // Si on est à 50px du haut ou du bas
+    if (scrollPosition <= 50 || documentHeight - windowHeight - scrollPosition <= 50) {
+      setScale1(0);
+      setScale2(0);
+      setScale3(0);
+    } else {
+      setScale1(1);
+      setScale2(1);
+      setScale3(1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
     return (
         <HomeContainer>
-            <Title>Nivo-RAKOTO</Title>
+            <div
+                style={{
+                    fontSize: "var(--font-size-4xl)",
+                    marginTop: '6rem',
+                    color: 'var(--textSecondary)',
+                    
+                }} 
+            >
+                Bienvenue sur mon portfolio !  Je m appelle :
+            </div>
+            <Title>Nivo RAKOTO</Title>
             <Subtitle>Développeur Web passionné</Subtitle>
 
             <ProfileSection>
-                <Avatar src={avatar} alt="Nivo-RAKOTO" />
+                <Avatar 
+                    src={avatar} 
+                    alt="Nivo-RAKOTO"
+                    animate={{ 
+                        scale: [1, 1.1, 1],
+                    }}
+                    transition={{ 
+                        duration: 2,
+                        ease: 'easeInOut',
+                        repeat: Infinity,
+                        repeatType: 'reverse', 
+                    }}
+                />
                 <Description>
                     Transformant des idées en réalité numérique, je crée des applications web modernes et performantes, alliant créativité et innovation technique.
                 </Description>
@@ -183,19 +233,40 @@ const Home = () => {
             </ProfileSection>
 
             <SkillsSection>
-                <SkillCard>
+                <SkillCard
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: scale1 }}
+                    whileHover={{ scale: 1 }}
+                    exit={{ scale: scale1 }} 
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
                     <SkillIcon><FaReact /></SkillIcon>
                     <SkillTitle>Frontend Expert</SkillTitle>
                     <SkillDescription>React, TypeScript, Next.js - Applications web modernes et réactives</SkillDescription>
                 </SkillCard>
                 
-                <SkillCard>
+                <SkillCard
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: scale1 }}
+                    whileHover={{ scale: 1 }}
+                    exit={{ scale: scale2 }} 
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
                     <SkillIcon><FaNodeJs /></SkillIcon>
                     <SkillTitle>Backend Maîtrisé</SkillTitle>
                     <SkillDescription>Express.js, MongoDB - Architecture robuste et performante</SkillDescription>
                 </SkillCard>
                 
-                <SkillCard>
+                <SkillCard
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: scale2 }}
+                    whileHover={{ scale: 1.1 }}
+                    exit={{ scale: scale3 }} 
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
                     <SkillIcon><FaGithub /></SkillIcon>
                     <SkillTitle>DevOps Pratiqué</SkillTitle>
                     <SkillDescription>Github - Gestion de versions et déploiement continu</SkillDescription>
