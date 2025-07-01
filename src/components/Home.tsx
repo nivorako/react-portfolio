@@ -2,7 +2,9 @@
 import styled from "styled-components";
 import avatar from "../assets/avatar.webp";
 import { FaReact, FaNodeJs, FaGithub } from 'react-icons/fa';
-
+import { Link } from 'react-router-dom';
+import presentationImage from '../assets/presentation-image.webp';
+import webDesign from '../assets/web-design.webp';
 const HomeContainer = styled.div`
     min-height: 100vh;
     display: flex;
@@ -12,6 +14,9 @@ const HomeContainer = styled.div`
     text-align: center;
     padding: 0 2rem;
     background: var(--background);
+    @media (max-width: 768px) {
+        padding: 4rem 2rem;
+    }
 `;
 
 const Title = styled.h1`
@@ -25,6 +30,57 @@ const Subtitle = styled.p`
     font-size: 1.2rem;
     color: var(--textSecondary);
     margin-bottom: 2rem;
+`;
+
+const PresentationContainer = styled.div`
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+`;
+
+const PresentationImage = styled.img`
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: scale(1.02);
+    }
+`;
+
+const PresentationText = styled.p`
+    font-size: 1.1rem;
+    color: var(--textSecondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+`;
+
+const PresentationButton = styled(Link)`
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background: var(--secondary);
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+        transform: translateY(-2px);
+        background: #1E293B;
+        color: var(--primary);
+    }
+    &:active {
+        transform: scale(0.98);
+    }
 `;
 
 const Button = styled.button`
@@ -84,7 +140,7 @@ const SkillsSection = styled.div`
 `;
 
 const SkillCard = styled.div`
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--surface);
     padding: 1.5rem;
     border-radius: 10px;
     text-align: center;
@@ -118,13 +174,15 @@ const Home = () => {
         <HomeContainer>
             <Title>Nivo-RAKOTO</Title>
             <Subtitle>Développeur Web passionné</Subtitle>
+
             <ProfileSection>
                 <Avatar src={avatar} alt="Nivo-RAKOTO" />
                 <Description>
                     Transformant des idées en réalité numérique, je crée des applications web modernes et performantes, alliant créativité et innovation technique.
                 </Description>
+                <Button>Voir mes projets</Button>
             </ProfileSection>
-            
+
             <SkillsSection>
                 <SkillCard>
                     <SkillIcon><FaReact /></SkillIcon>
@@ -145,7 +203,14 @@ const Home = () => {
                 </SkillCard>
             </SkillsSection>
 
-            <Button>Voir mes projets</Button>
+            <PresentationContainer>
+                <PresentationImage src={webDesign} alt="Formation et développement" />
+                <PresentationText>
+                    Passionné par le développement web, j'ai suivi une formation complète en développement fullstack qui m'a permis d'acquérir une solide base technique. Depuis, je continue mon apprentissage par l'autoformation, explorant constamment de nouvelles technologies et approches de développement.
+                </PresentationText>
+                <PresentationButton to="/about">En savoir plus</PresentationButton>
+            </PresentationContainer>
+        
         </HomeContainer>
     );
 };
