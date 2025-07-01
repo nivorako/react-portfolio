@@ -3,7 +3,6 @@ import styled from "styled-components";
 import avatar from "../assets/avatar.webp";
 import { FaReact, FaNodeJs, FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import presentationImage from '../assets/presentation-image.webp';
 import webDesign from '../assets/web-design.webp';
 const HomeContainer = styled.div`
     min-height: 100vh;
