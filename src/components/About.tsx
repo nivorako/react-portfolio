@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
 
@@ -22,6 +22,14 @@ const AboutContainer = styled.div`
     }
 `;
 
+  /**
+   * A component that displays the About page.
+   * It uses the useInView hook to detect when the component is inside the viewport.
+   * The component displays a header and a paragraph when it is inside the viewport.
+   * The header displays the string "Header inside viewport true." when the component is inside the viewport.
+   * The paragraph displays a short description of the developer.
+   * The component also displays a second header with the string "À propos de moi deux" when it is outside the viewport.
+   */
 const About = () => {
     const { ref, inView } = useInView({
         threshold: 1,
