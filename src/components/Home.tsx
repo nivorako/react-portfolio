@@ -171,24 +171,18 @@ const SkillDescription = styled.p`
 `;
 
 const Home = () => {
-  const [scale1, setScale1] = useState(1);
-  const [scale2, setScale2] = useState(1);
-  const [scale3, setScale3] = useState(1);
+  const [scale, setScale] = useState(1);
 
   const handleScroll = () => {
-    const scrollPosition = window.scrollY;
-    const windowHeight = window.innerHeight;
+    const scrollPosition = window.scrollY; 
+    const windowHeight = window.innerHeight; 
     const documentHeight = document.documentElement.scrollHeight;
     
     // Si on est à 50px du haut ou du bas
     if (scrollPosition <= 50 || documentHeight - windowHeight - scrollPosition <= 50) {
-      setScale1(0);
-      setScale2(0);
-      setScale3(0);
+      setScale(0);     
     } else {
-      setScale1(1);
-      setScale2(1);
-      setScale3(1);
+      setScale(1);     
     }
   };
 
@@ -234,10 +228,10 @@ const Home = () => {
             <SkillsSection>
                 <SkillCard
                     initial={{ scale: 0 }}
-                    whileInView={{ scale: scale1 }}
-                    whileHover={{ scale: 1 }}
-                    exit={{ scale: scale1 }} 
-                    viewport={{ once: true }}
+                    whileInView={{ scale: scale }}
+                    whileHover={{ scale: 1.1 }}
+                    exit={{ scale: scale }} 
+                    viewport={{ amount: 0.5 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                     <SkillIcon><FaReact /></SkillIcon>
@@ -247,10 +241,10 @@ const Home = () => {
                 
                 <SkillCard
                     initial={{ scale: 0 }}
-                    whileInView={{ scale: scale1 }}
-                    whileHover={{ scale: 1 }}
-                    exit={{ scale: scale2 }} 
-                    viewport={{ once: true }}
+                    whileInView={{ scale: scale }}
+                    whileHover={{ scale: 1.1 }}
+                    exit={{ scale: scale }} 
+                    viewport={{ amount: 0.5 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                     <SkillIcon><FaNodeJs /></SkillIcon>
@@ -260,10 +254,10 @@ const Home = () => {
                 
                 <SkillCard
                     initial={{ scale: 0 }}
-                    whileInView={{ scale: scale2 }}
+                    whileInView={{ scale: scale }}
                     whileHover={{ scale: 1.1 }}
-                    exit={{ scale: scale3 }} 
-                    viewport={{ once: true }}
+                    exit={{ scale: scale }} 
+                    viewport={{ amount: 0.5 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                     <SkillIcon><FaGithub /></SkillIcon>
