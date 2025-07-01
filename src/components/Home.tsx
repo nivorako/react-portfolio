@@ -33,7 +33,7 @@ const Subtitle = styled.p`
     margin-bottom: 2rem;
 `;
 
-const PresentationContainer = styled.div`
+const PresentationContainer = styled(motion.div)`
     max-width: 1200px;
     margin: 4rem auto;
     padding: 2rem;
@@ -266,7 +266,12 @@ const Home = () => {
                 </SkillCard>
             </SkillsSection>
 
-            <PresentationContainer>
+            <PresentationContainer
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                viewport={{ amount: 0.5 }}
+            >
                 <PresentationImage src={webDesign} alt="Formation et développement" />
                 <PresentationText>
                     Passionné par le développement web, j'ai suivi une formation complète en développement fullstack qui m'a permis d'acquérir une solide base technique. Depuis, je continue mon apprentissage par l'autoformation, explorant constamment de nouvelles technologies et approches de développement.
