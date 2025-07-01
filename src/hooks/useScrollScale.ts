@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 export const useScrollScale = (ref: React.RefObject<HTMLElement>) => {
   const [scale, setScale] = useState(1);
-  const { ref: inViewRef, inView } = useInView({
+  const { inView } = useInView({
     threshold: 0.1,
     triggerOnce: false
   });
@@ -14,7 +14,6 @@ export const useScrollScale = (ref: React.RefObject<HTMLElement>) => {
       
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      const elementPosition = ref.current.getBoundingClientRect();
       
       // Si l'élément est visible
       if (inView) {
