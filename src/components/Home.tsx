@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import webDesign from '../assets/web-design.webp';
 import { motion } from 'framer-motion';
 import avatar from "../assets/avatar.webp";
-import { useScrollScale } from '../hooks/useScrollScale';
 
 const HomeContainer = styled.div`
     min-height: 100vh;
