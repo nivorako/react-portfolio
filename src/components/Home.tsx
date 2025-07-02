@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import webDesign from '../assets/web-design.webp';
 import { motion } from 'framer-motion';
 import avatar from "../assets/avatar.webp";
+import ProjectsTeaser from './ProjectsTeaser';
 
 const HomeContainer = styled.div`
     min-height: 100vh;
@@ -190,97 +191,97 @@ const Home = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-    return (
-        <HomeContainer>
-            <div
-                style={{
-                    fontSize: "var(--font-size-4xl)",
-                    marginTop: '6rem',
-                    color: 'var(--textSecondary)',
-                    
-                }} 
-            >
-                Bienvenue sur mon portfolio !  Je m appelle :
-            </div>
-            <Title>Nivo RAKOTO</Title>
-            <Subtitle>Développeur Web passionné</Subtitle>
+    
+  return (
+    <>
+      <HomeContainer id="home">
+        <div
+          style={{
+            fontSize: "var(--font-size-4xl)",
+            marginTop: '6rem',
+            color: 'var(--textSecondary)',
+          }} 
+        >
+          Bienvenue sur mon portfolio ! Je m'appelle :
+        </div>
+        <Title>Nivo RAKOTO</Title>
+        <Subtitle>Développeur Web passionné</Subtitle>
 
-            <ProfileSection>
-                <Avatar 
-                    src={avatar} 
-                    alt="Nivo-RAKOTO"
-                    animate={{ 
-                        scale: [1, 1.1, 1],
-                    }}
-                    transition={{ 
-                        duration: 2,
-                        ease: 'easeInOut',
-                        repeat: Infinity,
-                        repeatType: 'reverse', 
-                    }}
-                />
-                <Description>
-                    Transformant des idées en réalité numérique, je crée des applications web modernes et performantes, alliant créativité et innovation technique.
-                </Description>
-                <Button>Voir mes projets</Button>
-            </ProfileSection>
+        <ProfileSection>
+          <Avatar 
+            src={avatar} 
+            alt="Nivo-RAKOTO"
+            animate={{ 
+              scale: [1, 1.1, 1],
+            }}
+            transition={{ 
+              duration: 2,
+              ease: 'easeInOut',
+              repeat: Infinity,
+              repeatType: 'reverse', 
+            }}
+          />
+          <Description>
+            Transformant des idées en réalité numérique, je crée des applications web modernes et performantes, alliant créativité et innovation technique.
+          </Description>
+          <Button>Voir mes projets</Button>
+        </ProfileSection>
 
-            <SkillsSection>
-                <SkillCard
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: scale }}
-                    whileHover={{ scale: 1.1 }}
-                    exit={{ scale: scale }} 
-                    viewport={{ amount: 0.5 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                    <SkillIcon><FaReact /></SkillIcon>
-                    <SkillTitle>Frontend Expert</SkillTitle>
-                    <SkillDescription>React, TypeScript, Next.js - Applications web modernes et réactives</SkillDescription>
-                </SkillCard>
-                
-                <SkillCard
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: scale }}
-                    whileHover={{ scale: 1.1 }}
-                    exit={{ scale: scale }} 
-                    viewport={{ amount: 0.5 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                    <SkillIcon><FaNodeJs /></SkillIcon>
-                    <SkillTitle>Backend Maîtrisé</SkillTitle>
-                    <SkillDescription>Express.js, MongoDB - Architecture robuste et performante</SkillDescription>
-                </SkillCard>
-                
-                <SkillCard
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: scale }}
-                    whileHover={{ scale: 1.1 }}
-                    exit={{ scale: scale }} 
-                    viewport={{ amount: 0.5 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                    <SkillIcon><FaGithub /></SkillIcon>
-                    <SkillTitle>DevOps Pratiqué</SkillTitle>
-                    <SkillDescription>Github - Gestion de versions et déploiement continu</SkillDescription>
-                </SkillCard>
-            </SkillsSection>
+        <SkillsSection>
+          <SkillCard
+            initial={{ scale: 0 }}
+            whileInView={{ scale: scale }}
+            whileHover={{ scale: 1.1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <SkillIcon><FaReact /></SkillIcon>
+            <SkillTitle>Frontend Expert</SkillTitle>
+            <SkillDescription>React, TypeScript, Next.js - Applications web modernes et réactives</SkillDescription>
+          </SkillCard>
+          
+          <SkillCard
+            initial={{ scale: 0 }}
+            whileInView={{ scale: scale }}
+            whileHover={{ scale: 1.1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <SkillIcon><FaNodeJs /></SkillIcon>
+            <SkillTitle>Backend Maîtrisé</SkillTitle>
+            <SkillDescription>Express.js, MongoDB - Architecture robuste et performante</SkillDescription>
+          </SkillCard>
+          
+          <SkillCard
+            initial={{ scale: 0 }}
+            whileInView={{ scale: scale }}
+            whileHover={{ scale: 1.1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <SkillIcon><FaGithub /></SkillIcon>
+            <SkillTitle>DevOps Pratiqué</SkillTitle>
+            <SkillDescription>Github - Gestion de versions et déploiement continu</SkillDescription>
+          </SkillCard>
+        </SkillsSection>
 
-            <PresentationContainer
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                viewport={{ amount: 0.5 }}
-            >
-                <PresentationImage src={webDesign} alt="Formation et développement" />
-                <PresentationText>
-                    Passionné par le développement web, j'ai suivi une formation complète en développement fullstack qui m'a permis d'acquérir une solide base technique. Depuis, je continue mon apprentissage par l'autoformation, explorant constamment de nouvelles technologies et approches de développement.
-                </PresentationText>
-                <PresentationButton to="/about">En savoir plus</PresentationButton>
-            </PresentationContainer>
-        
-        </HomeContainer>
-    );
+        <PresentationContainer
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          viewport={{ amount: 0.5 }}
+        >
+          <PresentationImage src={webDesign} alt="Formation et développement" />
+          <PresentationText>
+            Passionné par le développement web, j'ai suivi une formation complète en développement fullstack qui m'a permis d'acquérir une solide base technique. Depuis, je continue mon apprentissage par l'autoformation, explorant constamment de nouvelles technologies et approches de développement.
+          </PresentationText>
+          <PresentationButton to="/about">En savoir plus</PresentationButton>
+        </PresentationContainer>
+      </HomeContainer>
+
+      <ProjectsTeaser />
+    </>
+  );
 };
 
 export default Home;
