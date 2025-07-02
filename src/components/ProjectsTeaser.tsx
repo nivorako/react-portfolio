@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+
 import weare2getherImg from '../assets/wearetogether.png';
 import vtcImg from '../assets/VTC.png';
 
