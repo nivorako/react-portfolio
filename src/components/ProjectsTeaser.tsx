@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
+import { motion } from 'framer-motion';
 import weare2getherImg from '../assets/wearetogether.png';
 import vtcImg from '../assets/VTC.png';
 
@@ -26,7 +26,7 @@ const ProjectsGrid = styled.div`
     margin: 0 auto;
 `;
 
-const ProjectCard = styled.div`
+const ProjectCard = styled(motion.div)`
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     overflow: hidden;
@@ -68,19 +68,26 @@ const ProjectLink = styled.a`
 const ProjectSkills = styled.ul`
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
     gap: 0.5rem;
-    margin: 1rem 0;
 `;
 
 const SkillTag = styled.li`
+    width: auto;
+    min-width: 80px;
     background: var(--secondary);
     color: var(--text);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.8rem;
+    text-align: center; 
+    margin-bottom: 1rem;  
 `;
 
-const ViewMoreButton = styled(Link)`
+const ViewMoreButton = styled(Link)` 
     display: block;
     width: max-content;
     margin: 3rem auto 0;
@@ -126,7 +133,13 @@ const ProjectsTeaser = () => {
             <SectionTitle>Mes Projets Récents</SectionTitle>
             <ProjectsGrid>
                 {projects.map((project, index) => (
-                    <ProjectCard key={index}>
+                    <ProjectCard 
+                        key={index}
+                        initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        viewport={{ amount: 0.5 }}
+                    >
                         <ProjectImage 
                             src={project.image} 
                             alt={`Capture d'écran du projet ${project.title}`} 
@@ -141,10 +154,11 @@ const ProjectsTeaser = () => {
                                     rel="noopener noreferrer"
                                     aria-label={`Voir le projet ${project.title}`}
                                 >
+                                    <span style={{ marginRight: '6px' }}>Visiter le site</span>
                                     <FaExternalLinkAlt />
                                 </ProjectLink>
                             </ProjectTitle>
-                            <p>{project.description}</p>
+                            <p style={{ color: 'var(--text)' }}>{project.description}</p>
                             <ProjectSkills>
                                 {project.skills.map((skill, i) => (
                                     <SkillTag key={i}>{skill}</SkillTag>

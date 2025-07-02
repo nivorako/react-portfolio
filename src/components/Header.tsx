@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { theme } from "../theme";
-
+import { Link } from "react-router-dom";
 interface ToggleButtonProps {
     "data-isdark": boolean;
     onClick: () => void;
@@ -120,7 +120,10 @@ const Header = () => {
             transition={{ duration: 0.5 }}
         >
             <Nav>
-                <Logo>Nivo-RAKOTO</Logo>
+                <Link to="/">
+                    <Logo>Nivo-RAKOTO</Logo>
+                </Link>
+                
                 <ToggleButton data-isdark={isDark} onClick={toggleTheme}>
                     <div className="slider" />
                 </ToggleButton>

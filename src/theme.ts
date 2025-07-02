@@ -10,6 +10,7 @@ export const theme = {
         border: "#E2E8F0",
         shadow: "rgba(0, 0, 0, 0.05)",
         accent: "#3B82F6",
+    
         fontFamily: "'Inter', sans-serif",
         fontSize: {
             xs: "0.75rem",
@@ -44,6 +45,7 @@ export const theme = {
         border: "#334155",
         shadow: "rgba(0, 0, 0, 0.3)",
         accent: "#3B82F6",
+       
         fontFamily: "'Pacifico', cursive",
         fontSize: {
             xs: "0.75rem",

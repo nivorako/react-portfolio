@@ -272,10 +272,14 @@ const Home = () => {
           viewport={{ amount: 0.5 }}
         >
           <PresentationImage src={webDesign} alt="Formation et développement" />
-          <PresentationText>
-            Passionné par le développement web, j'ai suivi une formation complète en développement fullstack qui m'a permis d'acquérir une solide base technique. Depuis, je continue mon apprentissage par l'autoformation, explorant constamment de nouvelles technologies et approches de développement.
-          </PresentationText>
-          <PresentationButton to="/about">En savoir plus</PresentationButton>
+            <PresentationText>
+                Passionné par le développement web, j’aide 
+                les entreprises à transformer leurs idées en solutions 
+                web percutantes. Curieux et toujours à la pointe, 
+                je développe des outils sur-mesure qui allient 
+                performance, design et impact.
+            </PresentationText>
+            <PresentationButton to="/about">En savoir plus</PresentationButton>
         </PresentationContainer>
       </HomeContainer>
 
