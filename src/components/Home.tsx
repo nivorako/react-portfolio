@@ -59,6 +59,7 @@ const PresentationImage = styled.img`
 `;
 
 const PresentationText = styled.p`
+    max-width: 600px;
     font-size: 1.1rem;
     color: var(--textSecondary);
     margin-bottom: 2rem;
@@ -222,10 +223,27 @@ const Home = () => {
             }}
           />
           <Description>
-            Transformant des idées en réalité numérique, je crée des applications web modernes et performantes, alliant créativité et innovation technique.
+            Je transforme vos idées en réalité numérique, je crée des applications web modernes et performantes, alliant créativité et innovation technique.
           </Description>
           <Button>Voir mes projets</Button>
         </ProfileSection>
+
+        <PresentationContainer
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          viewport={{ amount: 0.5 }}
+        >
+          <PresentationImage src={webDesign} alt="Formation et développement" />
+          <PresentationText>
+              Passionné par le développement web, j’aide 
+              les entreprises à transformer leurs idées en solutions 
+              web percutantes. Curieux et toujours à la pointe, 
+              je développe des outils sur-mesure qui allient 
+              performance, design et impact.
+          </PresentationText>
+          <PresentationButton to="/about">En savoir plus</PresentationButton>
+        </PresentationContainer>
 
         <SkillsSection>
           <SkillCard
@@ -264,23 +282,6 @@ const Home = () => {
             <SkillDescription>Github - Gestion de versions et déploiement continu</SkillDescription>
           </SkillCard>
         </SkillsSection>
-
-        <PresentationContainer
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          viewport={{ amount: 0.5 }}
-        >
-          <PresentationImage src={webDesign} alt="Formation et développement" />
-            <PresentationText>
-                Passionné par le développement web, j’aide 
-                les entreprises à transformer leurs idées en solutions 
-                web percutantes. Curieux et toujours à la pointe, 
-                je développe des outils sur-mesure qui allient 
-                performance, design et impact.
-            </PresentationText>
-            <PresentationButton to="/about">En savoir plus</PresentationButton>
-        </PresentationContainer>
       </HomeContainer>
 
       <ProjectsTeaser />

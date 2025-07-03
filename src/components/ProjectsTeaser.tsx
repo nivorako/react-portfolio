@@ -66,31 +66,16 @@ const ProjectLink = styled.a`
 `;
 
 const ProjectSkills = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 0.5rem;
-`;
-
-const SkillTag = styled.li`
-    width: auto;
-    min-width: 80px;
-    background: var(--secondary);
     color: var(--text);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    text-align: center; 
-    margin-bottom: 1rem;  
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
 `;
 
 const ViewMoreButton = styled(Link)` 
     display: block;
     width: max-content;
-    margin: 3rem auto 0;
+    margin: 3rem auto 0; 
     padding: 1rem 2rem;
     font-size: 1.1rem;
     background: var(--secondary);
@@ -115,16 +100,16 @@ const ProjectsTeaser = () => {
         {
             title: "WeAre2gether",
             description: "Site pour une association de danse avec espace administrateur",
-            skills: ["Redux", "Material UI", "Back4App", "Admin Panel"],
+            skills: "Création d’un blog interactif avec authentification, publication de photos et commentaires. Développement d’un espace admin pour gérer le contenu du site de manière autonome. 👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs.",
             image: weare2getherImg,
-            url: "https://weare2gether.vercel.app/"
+            url: "https://weare2gether.vercel.app/",
         },
         {
             title: "VTC",
             description: "Application de réservation de véhicules avec chauffeur",
-            skills: ["Node.js", "Express", "MongoDB", "Stripe"],
+            skills: "Création d’un design moderne avec une UX fluide. Intégration de Stripe pour les paiements, réservation de trajets avec carte interactive. Génération de devis/factures, envoi de messages via formulaire ou WhatsApp. 💡 Connexion sécurisée et gestion serveur avec Node/Express/MongoDB.",
             image: vtcImg,
-            url: "https://vtc-mu.vercel.app/"
+            url: "https://vtc-mu.vercel.app/",          
         }
     ];
 
@@ -160,10 +145,12 @@ const ProjectsTeaser = () => {
                             </ProjectTitle>
                             <p style={{ color: 'var(--text)' }}>{project.description}</p>
                             <ProjectSkills>
-                                {project.skills.map((skill, i) => (
-                                    <SkillTag key={i}>{skill}</SkillTag>
-                                ))}
+                                {/* {project.skills.map((s, i) => (
+                                    <SkillTag key={i}>{s}</SkillTag>
+                                ))} */}
+                                {project.skills}
                             </ProjectSkills>
+                            
                         </ProjectContent>
                     </ProjectCard>
                 ))}
