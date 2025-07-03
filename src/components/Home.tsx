@@ -6,6 +6,7 @@ import webDesign from '../assets/web-design.webp';
 import { motion } from 'framer-motion';
 import avatar from "../assets/avatar.webp";
 import ProjectsTeaser from './ProjectsTeaser';
+// import { useRef } from 'react';
 
 const HomeContainer = styled.div`
     min-height: 100vh;
@@ -172,6 +173,100 @@ const SkillDescription = styled.p`
     font-size: 0.9rem;
 `;
 
+const CtaSection = styled.section`
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: var(--background);
+`;
+
+const CtaContent = styled.div`
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  mix-blend-mode: lighten;
+`;
+
+const FloatingCircle = styled(motion.div)`
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--primary), var(--secondary));
+  z-index: 1;
+  pointer-events: none;
+  aspect-ratio: 1;
+  min-width: 300px;
+  min-height: 300px;
+  filter: brightness(1.1);
+  opacity: 0.9;
+`;
+
+const CtaTitle = styled.h2`
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    white 0%,
+    white 60%,
+    var(--textSecondary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  z-index: 2;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+`;
+
+const CtaSubtitle = styled.p`
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.9) 60%,
+    var(--textSecondary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  z-index: 2;
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+`;
+
+const CtaButton = styled(Link)`
+  padding: 0.8rem 2rem;
+  background: white;
+  color: var(--primary);
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+`;
+
 const Home = () => {
   const [scale, setScale] = useState(1);
 
@@ -235,7 +330,19 @@ const Home = () => {
           viewport={{ amount: 0.5 }}
         >
           <PresentationImage src={webDesign} alt="Formation et développement" />
+      
           <PresentationText>
+            <h3 
+              style={{ 
+                color: 'var(--textSecondary)',
+                width: '100%',
+                textAlign: 'left',
+                margin: "0",
+                padding: "0"
+              }}
+            >
+              Mon Histoire :
+            </h3>
               Passionné par le développement web, j’aide 
               les entreprises à transformer leurs idées en solutions 
               web percutantes. Curieux et toujours à la pointe, 
@@ -285,6 +392,27 @@ const Home = () => {
       </HomeContainer>
 
       <ProjectsTeaser />
+      
+      <CtaSection>
+        <CtaContent>
+          <CtaTitle>Avez-vous un projet web en tête ?</CtaTitle>
+          <CtaSubtitle>Discutons-en</CtaSubtitle>
+          <CtaButton to="/contact">Me contacter</CtaButton>
+        </CtaContent>
+        <FloatingCircle
+          initial={{ x: 0, y: 0 }}
+          animate={{
+            x: [0, 50, 0, -50, 0],
+            y: [0, 30, 0, -30, 0],
+            scale: [1, 1.05, 1, 1.03, 1]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </CtaSection>
     </>
   );
 };
