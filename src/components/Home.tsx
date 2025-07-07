@@ -59,12 +59,13 @@ const PresentationImage = styled.img`
     }
 `;
 
-const PresentationText = styled.p`
+const PresentationText = styled.div`
     max-width: 600px;
     font-size: 1.1rem;
     color: var(--textSecondary);
     margin-bottom: 2rem;
     line-height: 1.6;
+    text-align: left;
 `;
 
 const PresentationButton = styled(Link)`
@@ -126,7 +127,7 @@ const Description = styled.p`
     font-size: 1.1rem;
     color: var(--textSecondary);
     max-width: 600px;
-    text-align: center;
+    text-align: left;
 `;
 
 const SkillsSection = styled.div`
@@ -333,11 +334,13 @@ const Home = () => {
             >
               Mon Histoire :
             </h3>
+            <p>
               Passionné par le développement web, j’aide 
               les entreprises à transformer leurs idées en solutions 
               web percutantes. Curieux et toujours à la pointe, 
               je développe des outils sur-mesure qui allient 
               performance, design et impact.
+            </p>  
           </PresentationText>
           <PresentationButton to="/about">En savoir plus</PresentationButton>
         </PresentationContainer>

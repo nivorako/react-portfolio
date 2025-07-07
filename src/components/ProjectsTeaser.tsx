@@ -54,6 +54,10 @@ const ProjectTitle = styled.h3`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 768px) {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
 `;
 
 const ProjectLink = styled.a`
@@ -69,7 +73,24 @@ const ProjectSkills = styled.ul`
     color: var(--text);
     width: 100%;
     text-align: left;
-    padding-left: 0;
+    padding: 0;
+    list-style: none;
+    margin: 0.5rem 0;
+`;
+
+const SkillTag = styled.li`
+    display: block;
+    with: 100%;
+    padding: 0.2rem 0.5rem; 
+    margin: 0.5rem; 
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: var(--text);
+    font-size: 0.9rem;
+   word-wrap: break-word;
+    white-space: normal;
+    text-align: left;
+    box-sizing: border-box;
 `;
 
 const ViewMoreButton = styled(Link)` 
@@ -100,14 +121,14 @@ const ProjectsTeaser = () => {
         {
             title: "WeAre2gether",
             description: "Site pour une association de danse avec espace administrateur",
-            skills: "Création d’un blog interactif avec authentification, publication de photos et commentaires. Développement d’un espace admin pour gérer le contenu du site de manière autonome. 👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs.",
+            skills: ["Création d’un blog interactif avec authentification,", "Publication de photos et commentaires.", "Développement d’un espace admin pour gérer le contenu du site de manière autonome.", "👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs."],
             image: weare2getherImg,
             url: "https://weare2gether.vercel.app/",
         },
         {
             title: "VTC",
             description: "Application de réservation de véhicules avec chauffeur",
-            skills: "Création d’un design moderne avec une UX fluide. Intégration de Stripe pour les paiements, réservation de trajets avec carte interactive. Génération de devis/factures, envoi de messages via formulaire ou WhatsApp. 💡 Connexion sécurisée et gestion serveur avec Node/Express/MongoDB.",
+            skills: ["Création d’un design moderne avec une UX fluide.", "Intégration de Stripe pour les paiements.", "Réservation de trajets avec carte interactive.", "Génération de devis/factures.", "Envoi de messages via formulaire ou WhatsApp.", "💡 Connexion sécurisée et gestion serveur avec Node/Express/MongoDB."],
             image: vtcImg,
             url: "https://vtc-mu.vercel.app/",          
         }
@@ -143,12 +164,18 @@ const ProjectsTeaser = () => {
                                     <FaExternalLinkAlt />
                                 </ProjectLink>
                             </ProjectTitle>
-                            <p style={{ color: 'var(--text)' }}>{project.description}</p>
+                            <p style={{
+                                color: 'var(--text)',
+                                marginBottom: '2rem',
+                                fontSize: '1.1rem',
+                                }}
+                            >
+                                {project.description}
+                            </p>
                             <ProjectSkills>
-                                {/* {project.skills.map((s, i) => (
+                                {project.skills.map((s, i) => (
                                     <SkillTag key={i}>{s}</SkillTag>
-                                ))} */}
-                                {project.skills}
+                                ))}
                             </ProjectSkills>
                             
                         </ProjectContent>
