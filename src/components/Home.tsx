@@ -190,10 +190,10 @@ const CtaContent = styled.div`
   text-align: center;
   padding: 4rem 2rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   align-items: center;
-  mix-blend-mode: lighten;
 `;
+
 
 const FloatingCircle = styled(motion.div)`
   position: absolute;
@@ -212,12 +212,7 @@ const CtaTitle = styled.h2`
   font-size: 2.5rem;
   margin-bottom: 1rem;
   font-weight: 700;
-  background: linear-gradient(
-    to right,
-    white 0%,
-    white 60%,
-    var(--textSecondary) 100%
-  );
+  background: var(--text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -232,12 +227,7 @@ const CtaTitle = styled.h2`
 const CtaSubtitle = styled.p`
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.9) 60%,
-    var(--textSecondary) 100%
-  );
+  background: var(--text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -389,29 +379,30 @@ const Home = () => {
             <SkillDescription>Github - Gestion de versions et déploiement continu</SkillDescription>
           </SkillCard>
         </SkillsSection>
+
       </HomeContainer>
 
       <ProjectsTeaser />
-      
+
       <CtaSection>
-        <CtaContent>
-          <CtaTitle>Avez-vous un projet web en tête ?</CtaTitle>
-          <CtaSubtitle>Discutons-en</CtaSubtitle>
-          <CtaButton to="/contact">Me contacter</CtaButton>
-        </CtaContent>
-        <FloatingCircle
-          initial={{ x: 0, y: 0 }}
-          animate={{
-            x: [0, 50, 0, -50, 0],
-            y: [0, 30, 0, -30, 0],
-            scale: [1, 1.05, 1, 1.03, 1]
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+          <CtaContent>
+            <CtaTitle>Avez-vous un projet web en tête ?</CtaTitle>
+            <CtaSubtitle>Discutons-en</CtaSubtitle>
+            <CtaButton to="/contact">Me contacter</CtaButton>
+          </CtaContent>
+          <FloatingCircle
+            initial={{ x: 0, y: 0 }}
+            animate={{
+              x: [0, 50, 0, -50, 0],
+              y: [0, 30, 0, -30, 0],
+              scale: [1, 1.05, 1, 1.03, 1]
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
       </CtaSection>
     </>
   );
