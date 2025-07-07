@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from "./components/Header";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import About from "./components/About";
+import About from "./pages/About";
 import { theme } from "./theme";
 
 function App() {

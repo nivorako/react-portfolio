@@ -36,18 +36,7 @@ const About = () => {
       });
     console.log(inView); 
     return (
-        <AboutContainer>
-            <div
-                
-                style={{
-                    marginTop: '6rem',
-                    height: '100vh',
-                    width: '100%',
-                    backgroundColor: 'var(--secondary)',
-                }} 
-            >
-                <h1>À propos de moi deux</h1>   
-            </div>
+        <AboutContainer>            
  
             <div
                 ref={ref}
@@ -61,17 +50,6 @@ const About = () => {
                 )}
                 <p>Je suis un développeur fullstack passionné par la création d'applications web modernes et réactives. Après avoir suivi une formation complète en développement web, j'ai continué mon apprentissage par l'autoformation, explorant constamment de nouvelles technologies et approches de développement.</p>
                 <p>Ma formation initiale m'a permis d'acquérir une solide base en développement web, que je complète régulièrement grâce à l'apprentissage continu. Je suis particulièrement intéressé par les technologies frontend et backend modernes, et je m'efforce de rester à jour avec les dernières tendances du développement web.</p>
-            </div>
-            
-            <div                
-                style={{
-                    marginTop: '6rem',
-                    height: '100vh',
-                    width: '100%',
-                    backgroundColor: 'var(--secondary)',
-                }} 
-            >
-                <h1>À propos de moi deux</h1>   
             </div>
         </AboutContainer>
     );
