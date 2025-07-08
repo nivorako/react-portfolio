@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { theme } from "../theme";
 import { Link } from "react-router-dom";
 interface HeaderProps {
     onToggleTheme: () => void;
