@@ -1,3 +1,42 @@
+import 'styled-components';
+
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    primary: string;
+    secondary: string;
+    background: string;
+    surface: string;
+    toggleBTN: string;
+    text: string;
+    textSecondary: string;
+    border: string;
+    shadow: string;
+    accent: string;
+    fontFamily: string;
+    fontSize: {
+      xs: string;
+      sm: string;
+      base: string;
+      lg: string;
+      xl: string;
+      '2xl': string;
+      '3xl': string;
+      '4xl': string;
+      '5xl': string;
+      '6xl': string;
+    };
+    fontWeight: {
+      light: number;
+      normal: number;
+      medium: number;
+      semibold: number;
+      bold: number;
+      extrabold: number;
+      black: number;
+    };
+  }
+}
+
 export const theme = {
     light: {
         primary: "#4F46E5",

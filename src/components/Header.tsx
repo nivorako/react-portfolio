@@ -3,6 +3,11 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { theme } from "../theme";
 import { Link } from "react-router-dom";
+interface HeaderProps {
+    onToggleTheme: () => void;
+    isDark: boolean;
+}
+
 interface ToggleButtonProps {
     "data-isdark": boolean;
     onClick: () => void;
@@ -82,35 +87,7 @@ const ToggleButton = styled.button<ToggleButtonProps>`
     }
 `;
 
-const Header = () => {
-
-    const [isDark, setIsDark] = useState(() => {
-        // Récupérer le thème depuis le localStorage ou utiliser la valeur par défaut
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        return savedTheme === 'dark';
-    });
-
-    const toggleTheme = () => {
-        const root = document.documentElement;
-        const newIsDark = !isDark;
-        
-        // Mettre à jour l'état local
-        setIsDark(newIsDark);
-
-         // Sauvegarder le thème dans le localStorage
-         localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
-        
-         // Mettre à jour les variables CSS
-         root.style.setProperty('--is-dark', newIsDark ? 'true' : 'false');
-         const currentTheme = newIsDark ? theme.dark : theme.light;
-         
-         // Appliquer toutes les variables CSS du thème
-         Object.entries(currentTheme).forEach(([key, value]) => {
-             if (typeof value === 'string' && !key.startsWith('font')) {
-                 root.style.setProperty(`--${key}`, value);
-             }
-         });
-     };
+const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDark }) => {
     
 
     return (
@@ -124,7 +101,7 @@ const Header = () => {
                     <Logo>Nivo-RAKOTO</Logo>
                 </Link>
                 
-                <ToggleButton data-isdark={isDark} onClick={toggleTheme}>
+                <ToggleButton data-isdark={isDark} onClick={onToggleTheme}>
                     <div className="slider" />
                 </ToggleButton>
             </Nav>
