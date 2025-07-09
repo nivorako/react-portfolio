@@ -4,6 +4,9 @@ import * as yup from 'yup';
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 import styled from 'styled-components';
 
+// En haut du fichier, ajoutez l'import d'EmailJS
+import emailjs from '@emailjs/browser';
+
 const ContactContainer = styled.div`
     margin: 0 auto ;
     padding: 5rem 2rem ;
@@ -242,7 +245,8 @@ export default function Contact() {
             <ContactForm>
 
                 <Subtitle>
-                    <span>Quelle est votre histoire ?</span>  Discutons ensemble. Toujours disponible pour des beaux projets ou des opportunités professionnelles.
+                    <span>Quelle est votre histoire ?</span>  
+                    Discutons ensemble. Toujours disponible pour de beaux projets ou des opportunités professionnelles.
                 </Subtitle>
 
                 <Form onSubmit={handleSubmit(onSubmit)}>

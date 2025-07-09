@@ -12,6 +12,7 @@
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,md}\""
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^5.1.1",
     "@types/yup": "^0.29.14",
     "framer-motion": "^12.16.0",
