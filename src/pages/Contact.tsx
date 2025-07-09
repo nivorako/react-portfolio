@@ -9,6 +9,8 @@ const ContactContainer = styled.div`
     padding: 5rem 2rem ;
     min-height: 100vh;
     width: 100%;  
+    max-width: 100%;
+    overflow-x: hidden;
     color: ${({ theme }) => theme.text};
     background-color: ${({ theme }) => theme.background};
     box-sizing: border-box;
@@ -31,6 +33,8 @@ const ContactContainer = styled.div`
 `;
 
 const ContactGrid = styled.div`
+    width: 100%;
+    max-width: 100%;
     display: flex;
     align-items: stretch;
     justify-content: center;
@@ -59,6 +63,7 @@ const Subtitle = styled.p`
 
 const ContactInfo = styled.div`
     width: 50%;
+    max-width: 50%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -76,6 +81,7 @@ const ContactInfo = styled.div`
     }
     @media (max-width: 768px) {
         width: 80%;
+        max-width: 80%;
         margin: 0 auto;
     }
 `;

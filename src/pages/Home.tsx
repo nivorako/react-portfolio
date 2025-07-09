@@ -9,6 +9,8 @@ import ProjectsTeaser from '../components/ProjectsTeaser';
 // import { useRef } from 'react';
 
 const HomeContainer = styled.div`
+    max-width: 100vw;
+    overflow-x: hidden;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -16,9 +18,11 @@ const HomeContainer = styled.div`
     align-items: center;
     text-align: center;
     padding: 2rem;
+    box-sizing: border-box;
     background: var(--background);
     @media (max-width: 768px) {
-        padding: 4rem 2rem;
+        
+        padding: 4rem 1rem;
     }
 `;
 
@@ -36,14 +40,16 @@ const Subtitle = styled.p`
 `;
 
 const PresentationContainer = styled(motion.div)`
-    max-width: 1200px;
-    margin: 4rem auto;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2rem 1rem;
+    width: calc(100% - 2rem);
     padding: 2rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
     gap: 2rem;
 `;
@@ -175,14 +181,17 @@ const SkillDescription = styled.p`
 `;
 
 const CtaSection = styled.section`
-  min-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 2rem;
-  background: var(--background);
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    background: var(--background);
 `;
 
 const CtaContent = styled.div`
