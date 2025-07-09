@@ -392,8 +392,6 @@ const Home = () => {
                     </SkillCard>
                 </SkillsSection>
 
-            </HomeContainer>
-
             <ProjectsTeaser />
 
             <CtaSection>
@@ -417,6 +415,7 @@ const Home = () => {
                     }}
                 />
             </CtaSection>
+            </HomeContainer>
         </>
     );
 };

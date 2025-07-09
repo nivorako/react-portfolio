@@ -7,8 +7,14 @@ import weare2getherImg from '../assets/wearetogether.png';
 import vtcImg from '../assets/VTC.png';
 
 const ProjectsSection = styled.section`
-    padding: 5rem 2rem;
+    padding: 5rem 1rem;
     background: var(--background);
+    width: 100%;
+    box-sizing: border-box;
+    
+    @media (max-width: 480px) {
+        padding: 3rem 0.5rem;
+    }
 `;
 
 const SectionTitle = styled.h2`
@@ -20,10 +26,18 @@ const SectionTitle = styled.h2`
 
 const ProjectsGrid = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
 `;
 
 const ProjectCard = styled(motion.div)`
@@ -31,9 +45,19 @@ const ProjectCard = styled(motion.div)`
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    @media (max-width: 480px) {
+        margin-bottom: 1.5rem;
+        max-width: 100%;
     }
 `;
 
