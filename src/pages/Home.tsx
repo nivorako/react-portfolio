@@ -244,7 +244,7 @@ const CtaButton = styled(Link)`
   padding: 0.8rem 2rem;
   background: white;
   color: var(--primary);
-  border: none;
+  border: 1px solid var(--primary);
   border-radius: 50px;
   font-size: 1.1rem;
   font-weight: 600;

@@ -8,13 +8,10 @@ const ContactContainer = styled.div`
     margin: 0 auto ;
     padding: 5rem 2rem ;
     min-height: 100vh;
-    width: 100%;
+    width: 100%;  
     color: ${({ theme }) => theme.text};
     background-color: ${({ theme }) => theme.background};
     box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     label {
         color: ${({ theme }) => theme.text};
     }   
@@ -29,22 +26,23 @@ const ContactContainer = styled.div`
         }
     }
     @media (max-width: 768px) {
-        padding: 10rem 2rem 2rem;
+        padding: 10rem 0rem 2rem;
     }
 `;
 
 const ContactGrid = styled.div`
     display: flex;
-    align-items: center;  /* Centre verticalement */
-    justify-content: space-between;  /* Espacement égal entre les éléments */
+    align-items: stretch;
+    justify-content: center;
     gap: 4rem;  /* Espacement entre les colonnes */
-    margin: 0 auto;
+    min-height: 60vh;
     ;
     
     @media (max-width: 768px) { 
         flex-direction: column;
         align-items: stretch;
         gap: 2rem;
+        min-height: auto;
     }
 `;
 
@@ -60,10 +58,25 @@ const Subtitle = styled.p`
 `;
 
 const ContactInfo = styled.div`
-    flex: 1;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 3rem;
+    gap: 2rem;
+    // background-color: ${({ theme }) => theme.surface};
+    // border-radius: 8px;
+    // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
     h2 {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    @media (max-width: 768px) {
+        width: 80%;
+        margin: 0 auto;
     }
 `;
 
@@ -80,9 +93,13 @@ const ContactItem = styled.div`
 `;
 
 const ContactForm = styled.div`
-    flex: 1;
-    width: 100%;
+   // flex: 1;
+    width: 50%;
     box-sizing: border-box;
+    @media (max-width: 768px) {
+        width: 90%;
+        margin: 0 auto;
+    }
 `;
 
 const Form = styled.form`
