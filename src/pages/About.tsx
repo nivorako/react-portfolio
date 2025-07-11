@@ -107,7 +107,18 @@ const Paragraph = styled.p`
     margin-bottom: 1.5rem;
 `;
 
-
+/**
+ * The About component is a functional React component that provides an overview
+ * of a developer's background and skills. It utilizes the `useInView` hook from
+ * the `react-intersection-observer` library to animate text content when it
+ * comes into view.
+ * 
+ * The component renders an `AboutContainer` which includes a title, an image
+ * with animated lines, and descriptive paragraphs about the developer's
+ * passion for fullstack development, UX/UI, and backend architecture. The
+ * component is styled using styled-components for a responsive and visually
+ * appealing design.
+ */
 const About = () => {
     const { ref, inView } = useInView({
         triggerOnce: true,

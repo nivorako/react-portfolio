@@ -267,12 +267,33 @@ const CtaButton = styled(Link)`
   }
 `;
 
+/**
+ * Smooth-scrolls to the element with id "projects".
+ * Intended to be used as an event handler.
+ */
 const scrollToSection = () => {
     const element = document.getElementById('projects');
     element?.scrollIntoView({ behavior: 'smooth' });
     console.log('Projects section');
 }
 
+/**
+ * La page d'accueil, qui affiche une bannière, un sommaire, des compétences, des projets et un appel à action.
+ * 
+ * @returns {JSX.Element} La page d'accueil.
+ * 
+ * @example
+ * import React from 'react';
+ * import Home from './Home';
+ * 
+ * const App = () => {
+ *     return (
+ *         <Home />
+ *     );
+ * };
+ * 
+ * export default App;
+ */
 const Home = () => {
     const [scale, setScale] = useState(1);
 
