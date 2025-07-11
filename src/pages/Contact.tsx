@@ -7,14 +7,6 @@ import styled from 'styled-components';
 // En haut du fichier, ajoutez l'import d'EmailJS
 import emailjs from '@emailjs/browser';
 
-<<<<<<< HEAD
-=======
-// Ajoutez ces constantes avec vos identifiants EmailJS
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
->>>>>>> email
 const ContactContainer = styled.div`
     margin: 0 auto ; 
     padding: 5rem 2rem ;
@@ -236,16 +228,16 @@ export default function Contact() {
         };
     
         console.log('Envoi du message avec les paramètres:', {
-          service_id: EMAILJS_SERVICE_ID,
-          template_id: EMAILJS_TEMPLATE_ID,
-          user_id: EMAILJS_PUBLIC_KEY
+          service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         });
         
         const response = await emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
           templateParams,
-          EMAILJS_PUBLIC_KEY
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         );
         
         console.log('Réponse du serveur:', response);

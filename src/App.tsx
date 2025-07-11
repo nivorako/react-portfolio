@@ -1,26 +1,12 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import { theme } from "./theme";
-<<<<<<< HEAD
-import Contact from "./pages/Contact";// Composant pour le défilement vers le haut
-import { useLocation } from "react-router-dom";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null; 
-=======
-import Contact from "./pages/Contact"; 
-import { useLocation } from "react-router-dom";
+import Contact from "./pages/Contact";
 
 function ScrollToTop() {
     const { pathname } = useLocation();
@@ -28,7 +14,6 @@ function ScrollToTop() {
         window.scrollTo(0, 0);
     }, [pathname]);
     return null;
->>>>>>> email
 }
 
 function App() {
