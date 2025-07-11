@@ -267,6 +267,12 @@ const CtaButton = styled(Link)`
   }
 `;
 
+const scrollToSection = () => {
+    const element = document.getElementById('projects');
+    element?.scrollIntoView({ behavior: 'smooth' });
+    console.log('Projects section');
+}
+
 const Home = () => {
     const [scale, setScale] = useState(1);
 
@@ -320,7 +326,7 @@ const Home = () => {
                 <Description>
                     Je transforme vos idées en réalité numérique, je crée des applications web modernes et performantes, alliant créativité et innovation technique.
                 </Description>
-                <Button>Voir mes projets</Button>
+                <Button onClick={scrollToSection}>Voir mes projets</Button>
                 </ProfileSection>
 
                 <PresentationContainer
@@ -394,7 +400,7 @@ const Home = () => {
 
             <ProjectsTeaser />
 
-            <CtaSection>
+            <CtaSection> 
                 <CtaContent>
                     <CtaTitle>MAINTENANT</CtaTitle>
                     <CtaTitle>Avez-vous un projet web en tête ?</CtaTitle>
