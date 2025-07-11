@@ -6,7 +6,16 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import { theme } from "./theme";
-import Contact from "./pages/Contact";
+import Contact from "./pages/Contact"; 
+import { useLocation } from "react-router-dom";
+
+function ScrollToTop() {
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    return null;
+}
 
 function App() {
     const [currentTheme, setCurrentTheme] = useState(theme.light);
@@ -50,8 +59,10 @@ function App() {
         <ThemeProvider theme={currentTheme}>
             <Router>
                 <>
+                    <ScrollToTop />
                     <Header onToggleTheme={toggleTheme} isDark={currentTheme === theme.dark} />
                     <main>
+                        
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/about" element={<About />} />
