@@ -7,8 +7,16 @@ import styled from 'styled-components';
 // En haut du fichier, ajoutez l'import d'EmailJS
 import emailjs from '@emailjs/browser';
 
+<<<<<<< HEAD
+=======
+// Ajoutez ces constantes avec vos identifiants EmailJS
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+>>>>>>> email
 const ContactContainer = styled.div`
-    margin: 0 auto ;
+    margin: 0 auto ; 
     padding: 5rem 2rem ;
     min-height: 100vh;
     width: 100%;  
@@ -216,11 +224,50 @@ export default function Contact() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    // Ici vous pouvez ajouter la logique pour envoyer le formulaire
-    alert('Message envoyé avec succès !');
-    reset();
+  const onSubmit = async (data: FormData) => {
+    console.log('Données du formulaire:', data);
+    try {
+        const templateParams = {
+          from_name: data.firstName,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+          to_name: "Nivo",
+        };
+    
+        console.log('Envoi du message avec les paramètres:', {
+          service_id: EMAILJS_SERVICE_ID,
+          template_id: EMAILJS_TEMPLATE_ID,
+          user_id: EMAILJS_PUBLIC_KEY
+        });
+        
+        const response = await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          templateParams,
+          EMAILJS_PUBLIC_KEY
+        );
+        
+        console.log('Réponse du serveur:', response);
+        
+        if (response.status === 200) {
+          alert('Message envoyé avec succès !');
+          reset();
+        } else {
+          throw new Error(`Erreur ${response.status} lors de l'envoi du message`);
+        }
+      } catch (error) {
+        console.error('Erreur détaillée:', error);
+        if (error instanceof Error) {
+          if (error.message.includes('412')) {
+            alert('Erreur d\'authentification avec le service d\'email. Veuillez vérifier la configuration du service EmailJS.');
+          } else {
+            alert(`Erreur: ${error.message}`);
+          }
+        } else {
+          alert('Une erreur inconnue est survenue lors de l\'envoi du message.');
+        }
+      }
   };
 
   return (
@@ -279,7 +326,6 @@ export default function Contact() {
                         {...register('email')}
                         className={errors.email ? 'error' : ''}
                     />
-
                     {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
                     
                     <TextArea 
@@ -287,9 +333,7 @@ export default function Contact() {
                         {...register('message')}
                         className={errors.message ? 'error' : ''}
                     />
-
                     {errors.message && <ErrorMessage>{errors.message.message}</ErrorMessage>}
-                    
                     
                     <Button type="submit">ENVOYER</Button>
                 </Form>

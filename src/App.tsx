@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import { theme } from "./theme";
+<<<<<<< HEAD
 import Contact from "./pages/Contact";// Composant pour le défilement vers le haut
 import { useLocation } from "react-router-dom";
 
@@ -17,6 +18,17 @@ function ScrollToTop() {
   }, [pathname]);
 
   return null; 
+=======
+import Contact from "./pages/Contact"; 
+import { useLocation } from "react-router-dom";
+
+function ScrollToTop() {
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    return null;
+>>>>>>> email
 }
 
 function App() {
@@ -64,6 +76,7 @@ function App() {
                     <ScrollToTop />
                     <Header onToggleTheme={toggleTheme} isDark={currentTheme === theme.dark} />
                     <main>
+                        
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/about" element={<About />} />
