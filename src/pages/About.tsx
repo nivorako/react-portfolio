@@ -10,6 +10,9 @@ const AboutContainer = styled.div`
     padding: 2rem 2rem;
     background: var(--background);
     color: var(--text);
+    @media (max-width: 768px) {
+        margin-top: 4rem;
+    
 `;
 
 const Content = styled.div`
@@ -34,6 +37,7 @@ const Title = styled.h1`
 `;
 
 const ContentWrapper = styled.div`
+    max-width: 800px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -46,8 +50,8 @@ const ContentWrapper = styled.div`
 
 const Line = styled(motion.div)`
     position: absolute;
-    left: 0;
-    height: 2px;
+    right: 0;
+    height: 1px;
     background: var(--primary);
     z-index: 1;
 `;
@@ -58,7 +62,7 @@ const ImageContainer = styled.div`
     margin: 1.5rem;
     position: relative;
     width: 50%;
-    padding: 80px 0;
+    padding: 50px 0;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -138,21 +142,18 @@ const About = () => {
                             }}
                             transition={{
                                 duration: 1.5,
-                                repeat: Infinity,
-                                repeatType: 'reverse',
-                                ease: 'easeInOut'
+                                ease: 'easeInOut',
+                                delay: 0.3
                             }}
                         />
                         <ProfileImage src={devImage} alt="Développeur web" />
                         <Line
                             style={{ bottom: 0, width: '0%' }}
                             animate={{
-                                width: '50%',
+                                width: '90%',
                             }}
                             transition={{
                                 duration: 1.5,
-                                //repeat: Infinity,
-                                //repeatType: 'reverse',
                                 ease: 'easeInOut',
                                 delay: 0.3
                             }}
@@ -160,15 +161,29 @@ const About = () => {
                     </ImageContainer>
                     <TextContainer ref={ref} inView={inView}>
                         <TextContent>
-                            <Paragraph>Je suis un développeur fullstack passionné, 
+                            {/* <Paragraph>Je suis un développeur fullstack passionné, 
                                 animé par la volonté de créer des expériences web modernes, 
                                 réactives et intuitives. Après avoir suivi une formation 
                                 complète en développement web, j'ai poursuivi 
                                 mon apprentissage en autodidacte, m'immergeant dans 
                                 des projets concrets et explorant en profondeur les nouvelles 
                                 tendances technologiques.
+                            </Paragraph> 
+                            <Paragraph>Au fil du temps, j'ai développé une réelle sensibilité 
+                                pour les problématiques UX/UI, l'optimisation des performances, 
+                                et l'architecture backend. J'accorde une attention particulière 
+                                à l'écriture d'un code propre, modulaire et évolutif. Mon objectif 
+                                est toujours de construire des applications robustes, faciles à 
+                                maintenir, et centrées sur les besoins de l'utilisateur.
+                            </Paragraph> */}
+                            <Paragraph>👨‍💻 Développeur fullstack passionné, je conçois 
+                                des interfaces web modernes, performantes et centrées 
+                                sur l'utilisateur. 
                             </Paragraph>
-                            <Paragraph>Au fil du temps, j'ai développé une réelle sensibilité pour les problématiques UX/UI, l'optimisation des performances, et l'architecture backend. J'accorde une attention particulière à l'écriture d'un code propre, modulaire et évolutif. Mon objectif est toujours de construire des applications robustes, faciles à maintenir, et centrées sur les besoins de l'utilisateur.</Paragraph>
+                            <Paragraph>🎯 Autodidacte et curieux, je crée du code propre, 
+                                évolutif et optimisé, avec une attention particulière à l’UX/UI 
+                                et à l’architecture backend.
+                            </Paragraph>
                             <Paragraph>J'aime relever de nouveaux défis techniques et collaborer sur des projets ambitieux. </Paragraph>
                         </TextContent>
                     </TextContainer>
