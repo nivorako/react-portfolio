@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import { theme } from "./theme";
-import Contact from "./pages/Contact";
+import Contact from "./pages/NewContact";
 
 function ScrollToTop() {
     const { pathname } = useLocation();

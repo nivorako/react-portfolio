@@ -22,9 +22,7 @@ const HeaderContainer = styled(motion.header)`
     justify-content: space-between;
     align-items: center;
     background: transparent;
-    backdrop-filter: blur(5px);
     z-index: 1000;
-    box-shadow: 0 2px 10px var(--shadow);
     @media (max-width: 1224px) {
         padding: 0 1rem;
     }
@@ -34,13 +32,14 @@ const HeaderContainer = styled(motion.header)`
 `;
 
 const Nav = styled.nav`
-    max-width: 1200px;
+    max-width: 100%;
     width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 3rem;
+    backdrop-filter: blur(5px);
     @media (max-width: 768px) {
         flex-direction: column;
         gap: 1rem;

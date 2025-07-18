@@ -11,7 +11,7 @@ const AboutContainer = styled.div`
     background: var(--background);
     color: var(--text);
     @media (max-width: 768px) {
-        margin-top: 4rem;
+        padding-top: 6rem;
     
 `;
 
