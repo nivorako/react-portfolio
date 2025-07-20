@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './globalStyles';
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
@@ -56,12 +57,12 @@ function App() {
 
     return (
         <ThemeProvider theme={currentTheme}>
+            <GlobalStyles />
             <Router>
-                <>
+                <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
                     <ScrollToTop />
                     <Header onToggleTheme={toggleTheme} isDark={currentTheme === theme.dark} />
-                    <main>
-                        
+                    <main style={{ flex: '1 0 auto', width: '100%' }}>
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/about" element={<About />} />
@@ -69,7 +70,7 @@ function App() {
                         </Routes>
                     </main>
                     <Footer />
-                </>
+                </div>
             </Router>
         </ThemeProvider>
     );

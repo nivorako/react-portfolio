@@ -1,14 +1,11 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import {FaSun, FaMoon} from 'react-icons/fa';
+
 interface HeaderProps {
     onToggleTheme: () => void;
     isDark: boolean;
-}
-
-interface ToggleButtonProps {
-    "data-isdark": boolean;
-    onClick: () => void;
 }
 
 const HeaderContainer = styled(motion.header)`
@@ -16,33 +13,33 @@ const HeaderContainer = styled(motion.header)`
     top: 0;
     left: 0;
     right: 0;
-    padding: 0 20px;
+    padding: 1rem;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: flex; 
+    justify-content: center;
     align-items: center;
     background: transparent;
     z-index: 1000;
+    backdrop-filter: blur(5px); 
     @media (max-width: 1224px) {
         padding: 0 1rem;
     }
     @media (max-width: 768px) {
-        padding: 0.5rem 0.75rem;
+        padding: 0.5rem 0.75rem; 
     }
 `;
 
 const Nav = styled.nav`
-    max-width: 100%;
+    max-width: 1440px;
     width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 0 3rem;
-    backdrop-filter: blur(5px);
+    padding: 1rem 3rem;
     @media (max-width: 768px) {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1rem; 
     }
 `;
 
@@ -53,34 +50,21 @@ font-family: 'Pacifico', cursive;
     color: var(--text);
 `;
 
-const ToggleButton = styled.button<ToggleButtonProps>`
-    background: none; 
+const ThemeToggle = styled.button`
+    background: none;
     border: none;
     cursor: pointer;
     padding: 8px;
-    position: relative;
-    width: 60px;
-    height: 30px;
-    border-radius: 15px;
-    background-color: var(--text);
-    transition: background-color 0.3s;
-
-    &:before {
-        content: '';
-        position: absolute;
-        top: 4px;
-        left: 4px;
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background-color: var(--primary);
-        transition: transform 0.3s;
-    }
-
-    &[data-isdark="true"] {
-        &:before {
-            transform: translateX(28px);
-        }
+    font-size: 1.5rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, color 0.3s;
+    
+    &:hover {
+        transform: scale(1.1);
+        color: var(--primary);
     }
 `;
 
@@ -98,9 +82,9 @@ const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDark }) => {
                     <Logo>Nivo-RAKOTO</Logo>
                 </Link>
                 
-                <ToggleButton data-isdark={isDark} onClick={onToggleTheme}>
-                    <div className="slider" />
-                </ToggleButton>
+                <ThemeToggle data-isdark={isDark} onClick={onToggleTheme} >
+                    {isDark ? <FaSun /> : <FaMoon />}
+                </ThemeToggle>
             </Nav>
         </HeaderContainer>
     );

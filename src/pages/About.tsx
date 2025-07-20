@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 
 // Styled Components
 const AboutContainer = styled.div`
+    width: 100%;
+    margin: 0 auto;
     min-height: 100vh;
     padding: 2rem 2rem;
     background: var(--background);

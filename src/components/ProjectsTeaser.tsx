@@ -4,9 +4,11 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import weare2getherImg from '../assets/wearetogether.png';
-import vtcImg from '../assets/VTC.png';
+import vtcImg from '../assets/VTC.png'; 
 
 const ProjectsSection = styled.section`
+    width: 100%;
+    margin: 0 auto;
     padding: 5rem 1rem;
     background: var(--background);
     width: 100%;
@@ -168,7 +170,7 @@ const ProjectsTeaser = () => {
                         initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        viewport={{ amount: 0.5 }}
+                        viewport={{ amount: 0.2 }}
                     >
                         <ProjectImage 
                             src={project.image} 

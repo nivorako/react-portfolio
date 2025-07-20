@@ -9,7 +9,8 @@ import ProjectsTeaser from '../components/ProjectsTeaser';
 // import { useRef } from 'react';
 
 const HomeContainer = styled.div`
-    max-width: 100vw;
+    width: 100%;
+    margin: 0 auto;
     overflow-x: hidden;
     min-height: 100vh;
     display: flex;
@@ -331,54 +332,54 @@ const Home = () => {
                 <Subtitle>Développeur Web passionné</Subtitle>
 
                 <ProfileSection>
-                <Avatar 
-                    src={avatar} 
-                    alt="Nivo-RAKOTO"
-                    animate={{ 
-                    scale: [1, 1.1, 1],
-                    }}
-                    transition={{ 
-                    duration: 2,
-                    ease: 'easeInOut',
-                    repeat: Infinity,
-                    repeatType: 'reverse', 
-                    }}
-                />
-                <Description>
-                    Je transforme vos idées en réalité numérique, je crée des applications web modernes et performantes, alliant créativité et innovation technique.
-                </Description>
-                <Button onClick={scrollToSection}>Voir mes projets</Button>
+                    <Avatar 
+                        src={avatar} 
+                        alt="Nivo-RAKOTO"
+                        animate={{ 
+                        scale: [1, 1.1, 1],
+                        }}
+                        transition={{ 
+                        duration: 2,
+                        ease: 'easeInOut',
+                        repeat: Infinity,
+                        repeatType: 'reverse', 
+                        }}
+                    />
+                    <Description>
+                        Je transforme vos idées en réalité numérique, je crée des applications web modernes et performantes, alliant créativité et innovation technique.
+                    </Description>
+                    <Button onClick={scrollToSection}>Voir mes projets</Button>
                 </ProfileSection>
 
                 <PresentationContainer
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                viewport={{ amount: 0.5 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    viewport={{ amount: 0.5 }}
                 >
-                <PresentationImage src={webDesign} alt="Formation et développement" />
+                    <PresentationImage src={webDesign} alt="Formation et développement" />
             
-                <PresentationText>
-                    <h3 
-                    style={{ 
-                        color: 'var(--textSecondary)',
-                        width: '100%',
-                        textAlign: 'left',
-                        margin: "0",
-                        padding: "0"
-                    }}
-                    >
-                        Mon Histoire :
-                    </h3>
-                    <p>
-                        Passionné par le développement web, j’aide 
-                        les entreprises à transformer leurs idées en solutions 
-                        web percutantes. Curieux et toujours à la pointe, 
-                        je développe des outils sur-mesure qui allient 
-                        performance, design et impact.
-                    </p>  
-                </PresentationText>
-                <PresentationButton to="/about">En savoir plus</PresentationButton>
+                    <PresentationText>
+                        <h3 
+                        style={{ 
+                            color: 'var(--textSecondary)',
+                            width: '100%',
+                            textAlign: 'left',
+                            margin: "0",
+                            padding: "0"
+                        }}
+                        >
+                            Mon Histoire :
+                        </h3>
+                        <p>
+                            Passionné par le développement web, j’aide 
+                            les entreprises à transformer leurs idées en solutions 
+                            web percutantes. Curieux et toujours à la pointe, 
+                            je développe des outils sur-mesure qui allient 
+                            performance, design et impact.
+                        </p>  
+                    </PresentationText>
+                    <PresentationButton to="/about">En savoir plus</PresentationButton>
                 </PresentationContainer>
 
                 <SkillsSection>
@@ -419,29 +420,29 @@ const Home = () => {
                     </SkillCard>
                 </SkillsSection>
 
-            <ProjectsTeaser />
+                <ProjectsTeaser />
 
-            <CtaSection> 
-                <CtaContent>
-                    <CtaTitle>MAINTENANT</CtaTitle>
-                    <CtaTitle>Avez-vous un projet web en tête ?</CtaTitle>
-                    <CtaSubtitle>Discutons-en</CtaSubtitle>
-                    <CtaButton to="/contact">Me contacter</CtaButton>
-                </CtaContent>
-                <FloatingCircle
-                    initial={{ x: 0, y: 0 }}
-                    animate={{
-                    x: [0, 100, 0, -100, 0],
-                    y: [0, 30, 0, -30, 0],
-                    scale: [1, 1.05, 1, 1.03, 1]
-                    }}
-                    transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                    }}
-                />
-            </CtaSection>
+                <CtaSection> 
+                    <CtaContent>
+                        <CtaTitle>MAINTENANT</CtaTitle>
+                        <CtaTitle>Avez-vous un projet web en tête ?</CtaTitle>
+                        <CtaSubtitle>Discutons-en</CtaSubtitle>
+                        <CtaButton to="/contact">Me contacter</CtaButton>
+                    </CtaContent>
+                    <FloatingCircle
+                        initial={{ x: 0, y: 0 }}
+                        animate={{
+                        x: [0, 100, 0, -100, 0],
+                        y: [0, 30, 0, -30, 0],
+                        scale: [1, 1.05, 1, 1.03, 1]
+                        }}
+                        transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                        }}
+                    />
+                </CtaSection>
             </HomeContainer>
         </>
     );

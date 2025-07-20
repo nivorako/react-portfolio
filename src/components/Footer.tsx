@@ -2,10 +2,12 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const FooterContainer = styled(motion.footer)`
-    background: var(--surface);
-    color: var(--text);
-    padding: 2rem;
+    width: 100%;
+    background: ${({ theme }) => theme.surface};
+    color: ${({ theme }) => theme.text};
+    padding: 2rem 1rem;
     text-align: center;
+    margin-top: auto;
 `;
 
 const SocialLinks = styled.div`

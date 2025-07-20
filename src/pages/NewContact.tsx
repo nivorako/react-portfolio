@@ -4,12 +4,11 @@ import * as yup from 'yup';
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 import styled from 'styled-components';
 
-const ContactContainer = styled.div`
+const ContactContainer = styled.div` 
     margin: 0 auto;
     padding: 4rem 2rem;
     min-height: 100vh;
     width: 100%;
-    //max-width: 1440px;
     overflow-x: hidden;
     color: ${({ theme }) => theme.text};
     background-color: ${({ theme }) => theme.background};
@@ -233,6 +232,7 @@ const SuccessMessage = styled.div`
     margin-bottom: 1rem;
     width: 100%;
     text-align: center;
+    box-sizing: border-box;
 `;
 
 const ErrorAlert = styled.div`
@@ -302,7 +302,7 @@ export default function NewContact() {
             reset();
             
             // Show success message to user
-            alert('Votre message a été envoyé avec succès !');
+            // alert('Votre message a été envoyé avec succès !');
             
             return responseData;
         } catch (error) {
