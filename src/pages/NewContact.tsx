@@ -272,27 +272,17 @@ export default function NewContact() {
     });
 
     const onSubmit = async (data: FormData) => {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-
         try {
-            const response = await fetch(`${apiUrl}/api/send-email`, {
+            const response = await fetch('/api/sendEmail', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    from: 'onboarding@resend.dev',
-                    to: 'nivo.rakoto@yahoo.fr',
-                    subject: `Nouveau message de ${data.firstName}: ${data.subject}`,
-                    text: `De: ${data.firstName} <${data.email}>\n\n${data.message}`,
-                    html: `
-                        <h2>Nouveau message de ${data.firstName}</h2>
-                        <p><strong>Email:</strong> ${data.email}</p>
-                        <p><strong>Sujet:</strong> ${data.subject}</p>
-                        <h3>Message:</h3>
-                        <p>${data.message.replace(/\n/g, '<br>')}</p>
-                    `,
-                    replyTo: data.email,
+                    firstName: data.firstName,
+                    email: data.email,
+                    subject: data.subject,
+                    message: data.message,
                 }),
             });
 
