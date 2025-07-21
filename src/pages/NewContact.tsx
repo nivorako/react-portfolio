@@ -296,15 +296,22 @@ export default function NewContact() {
                 }),
             });
 
-            const responseData = await response.json();
+            const responseText = await response.text();
 
             if (!response.ok) {
-                const errorMessage = responseData.details || responseData.error || 'Une erreur est survenue';
-                setError('root', { type: 'manual', message: errorMessage });
+                console.error('Server responded with an error:', response.status, responseText);
+                setError('root', { type: 'manual', message: `Erreur du serveur: ${responseText}` });
                 return;
             }
 
-            reset();
+            try {
+                const responseData = JSON.parse(responseText);
+                console.log('Message envoyé avec succès:', responseData);
+                reset();
+            } catch (e) {
+                console.error('Failed to parse JSON. Server response:', responseText);
+                setError('root', { type: 'manual', message: 'Réponse invalide du serveur. Vérifiez la console du navigateur.' });
+            }
 
         } catch (error) {
             let errorMessage = 'Une erreur réseau est survenue. Le serveur est-il en ligne?';
