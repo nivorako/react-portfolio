@@ -1,3 +1,4 @@
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -254,20 +255,27 @@ const schema = yup.object().shape({
 type FormData = yup.InferType<typeof schema>;
 
 export default function NewContact() {
-    const {
+        const {
         register,
         handleSubmit,
+        reset,
+        setError,
         formState: { errors, isSubmitting, isSubmitSuccessful },
-        reset
     } = useForm<FormData>({
         resolver: yupResolver(schema),
+        defaultValues: {
+            firstName: '',
+            email: '',
+            subject: '',
+            message: '',
+        },
     });
 
     const onSubmit = async (data: FormData) => {
-        console.log('Données du formulaire:', data);
-        
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
         try {
-            const response = await fetch('http://localhost:3001/api/send-email', {
+            const response = await fetch(`${apiUrl}/api/send-email`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -289,23 +297,21 @@ export default function NewContact() {
             });
 
             const responseData = await response.json();
-            
+
             if (!response.ok) {
-                console.error('Server error response:', responseData);
-                const errorMessage = responseData.details || responseData.error || 'Une erreur est survenue lors de l\'envoi du message';
-                throw new Error(errorMessage);
+                const errorMessage = responseData.details || responseData.error || 'Une erreur est survenue';
+                setError('root', { type: 'manual', message: errorMessage });
+                return;
             }
 
-            console.log('Message envoyé avec succès:', responseData);
             reset();
-            
-            // Show success message to user
-            // alert('Votre message a été envoyé avec succès !');
-            
-            return responseData;
+
         } catch (error) {
-            console.error('Erreur lors de l\'envoi du message:', error);
-            throw error;
+            let errorMessage = 'Une erreur réseau est survenue. Le serveur est-il en ligne?';
+            if (error instanceof Error) {
+                errorMessage = error.message;
+            }
+            setError('root', { type: 'manual', message: errorMessage });
         }
     };
 

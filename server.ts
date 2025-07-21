@@ -9,8 +9,15 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // CORS configuration
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'https://new-portfolio-4bsv.vercel.app',
+  process.env.FRONTEND_URL // Add your production frontend URL from .env
+].filter(Boolean); // Filter out undefined values
+
 const corsOptions = {
-  origin: ['http://localhost:5173', 'http://localhost:5174', 'https://new-portfolio-4bsv.vercel.app/'], // Add your frontend URL
+  origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -25,17 +32,6 @@ app.options('*', cors(corsOptions));
 
 // Route pour l'envoi d'email
 app.post('/api/send-email', async (req, res) => {
-  // Set CORS headers for the response
-  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.header('Access-Control-Allow-Credentials', 'true');
-
-  // Handle preflight
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
   try {
     const { from, to, subject, text, html, replyTo } = req.body;
     
