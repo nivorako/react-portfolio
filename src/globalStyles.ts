@@ -10,12 +10,12 @@ export const GlobalStyles = createGlobalStyle`
   html, body, #root {
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
   }
 
   body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     font-family: ${({ theme }) => theme.fontFamily}, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
@@ -23,12 +23,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   #root {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
   }
 
-  main {
+  #root > main:not(.contact-page) {
     flex: 1;
     width: 100%;
     max-width: 1440px;

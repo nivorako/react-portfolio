@@ -4,13 +4,14 @@ import * as yup from 'yup';
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 import styled from 'styled-components';
 
-const ContactContainer = styled.div` 
+const ContactContainer = styled.main.attrs({ className: 'contact-page' })` 
     margin: 0 auto;
     padding: 4rem 2rem;
-    min-height: 100vh;
+    min-height: 100vh; 
     width: 100%;
+    max-width: 100% !important; // S'assurer que le max-width du global ne s'applique pas
     overflow-x: hidden;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.text}; 
     background-color: ${({ theme }) => theme.background};
     box-sizing: border-box;
     display: flex;
@@ -33,11 +34,11 @@ const ContactContainer = styled.div`
     }
     
     @media (max-width: 768px) {
-        padding: 6rem 1rem 2rem;
+        padding: 8rem 0rem 2rem;
     }
 `;
 
-const ContactGrid = styled.div`
+const ContactGrid = styled.div` 
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -54,7 +55,7 @@ const ContactGrid = styled.div`
         align-items: center;
         gap: 3rem;
         min-height: auto;
-        padding: 4rem;
+        padding: 1rem;
     }
 `;
 
@@ -91,19 +92,16 @@ const ContactInfo = styled.div`
         color: ${({ theme }) => theme.primary};
     }
     
-    @media (max-width: 1024px) {
-        padding: 1rem;
-    }
-    
     @media (max-width: 768px) {
         width: 100%;
         max-width: 100%;
-        padding: 4rem;
-        padding-left: 7rem;
+        padding: 0;
+        padding-left: 0;
         align-items: flex-start;
         //text-align: center;
         
         h2 {
+            font-size: 2rem;
             text-align: left;
         }
     }
@@ -135,11 +133,11 @@ const ContactForm = styled.div`
     @media (max-width: 768px) {
         width: 100%;
         max-width: 100%;
-        padding: 1.5rem;
+        padding: .5rem;
         margin: 0;
     }
 `;
-
+ 
 const Form = styled.form`
     width: 100%;
     display: flex;

@@ -43,9 +43,9 @@ const Subtitle = styled.p`
 const PresentationContainer = styled(motion.div)`
     width: 100%;
     box-sizing: border-box;
-    margin: 2rem 1rem;
+    margin: 2rem 0rem;
     width: calc(100% - 2rem);
-    padding: 2rem;
+    padding: 2rem 0;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -53,6 +53,10 @@ const PresentationContainer = styled(motion.div)`
     flex-direction: column; 
     align-items: center;
     gap: 2rem;
+    @media (max-width: 768px) {
+        padding: 1rem;
+        width: 100%;
+    }
 `;
 
 const PresentationImage = styled.img`
@@ -142,7 +146,7 @@ const SkillsSection = styled.div`
     flex-direction: column;
     gap: 2rem;
     margin: 2rem 0;
-    padding: 0 1rem;
+    padding: 0;
     width: 100%;
 
     @media (min-width: 768px) {
@@ -191,9 +195,13 @@ const CtaSection = styled.section`
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 2rem;
+    padding: 2rem 0;
     background: var(--background);
-`;
+    @media (max-width: 768px) {
+        padding: 3rem 0;
+        margin: 2rem 0 0;
+    }
+`; 
 
 const CtaContent = styled.div`
   position: relative;
@@ -251,6 +259,7 @@ const CtaSubtitle = styled.p`
 `;
 
 const CtaButton = styled(Link)`
+  margin-top: 8rem;
   padding: 0.8rem 2rem;
   background: white;
   color: var(--primary);

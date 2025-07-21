@@ -59,8 +59,9 @@ function App() {
         <ThemeProvider theme={currentTheme}>
             <GlobalStyles />
             <Router>
+                <ScrollToTop />
                 <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-                    <ScrollToTop />
+                    
                     <Header onToggleTheme={toggleTheme} isDark={currentTheme === theme.dark} />
                     <main style={{ flex: '1 0 auto', width: '100%' }}>
                         <Routes>
