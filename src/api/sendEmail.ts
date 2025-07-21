@@ -11,11 +11,11 @@ export async function sendEmail(data: {
   html: string;
   replyTo: string;
 }) {
-  if (!process.env.VITE_RESEND_API_KEY) {
+  if (!process.env.RESEND_API_KEY) {
     throw new Error('Resend API key is not configured');
   }
 
-  const resend = new Resend(process.env.VITE_RESEND_API_KEY);
+  const resend = new Resend(process.env.RESEND_API_KEY);
   
   try {
     const { data: result, error } = await resend.emails.send({
