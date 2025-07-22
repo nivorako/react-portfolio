@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
-import dotenv from 'dotenv';
+//import dotenv from 'dotenv';
 
-dotenv.config();
+//dotenv.config();
 
 export async function sendEmail(data: {
   from: string;
