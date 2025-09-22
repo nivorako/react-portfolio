@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import weare2getherImg from '../assets/wearetogether.png';
 import vtcImg from '../assets/VTC.png'; 
+import w2gImg from '../assets/w2g.png';
 
 const ProjectsSection = styled.section`
     width: 100%;
@@ -146,11 +147,11 @@ const ViewMoreButton = styled(Link)`
 const ProjectsTeaser = () => {
     const projects = [
         {
-            title: "WeAre2gether",
+            title: "W2G",
             description: "Site pour une association de danse avec espace administrateur",
             skills: ["Création d’un blog interactif avec authentification,", "Publication de photos et commentaires.", "Développement d’un espace admin pour gérer le contenu du site de manière autonome.", "👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs."],
-            image: weare2getherImg,
-            url: "https://weare2gether.vercel.app/",
+            image: w2gImg,
+            url: "https://w2g-delta.vercel.app/",
         },
         {
             title: "VTC",
@@ -158,6 +159,13 @@ const ProjectsTeaser = () => {
             skills: ["Création d’un design moderne avec une UX fluide.", "Intégration de Stripe pour les paiements.", "Réservation de trajets avec carte interactive.", "Génération de devis/factures.", "Envoi de messages via formulaire ou WhatsApp.", "💡 Connexion sécurisée et gestion serveur avec Node/Express/MongoDB."],
             image: vtcImg,
             url: "https://vtc-mu.vercel.app/",          
+        },
+        {
+            title: "WeAre2gether",
+            description: "Site pour une association de danse avec espace administrateur",
+            skills: ["Création d’un blog interactif avec authentification,", "Publication de photos et commentaires.", "Développement d’un espace admin pour gérer le contenu du site de manière autonome.", "👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs."],
+            image: weare2getherImg,
+            url: "https://weare2gether.vercel.app/",
         }
     ];
 
