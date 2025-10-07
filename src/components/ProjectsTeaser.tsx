@@ -148,7 +148,7 @@ const ProjectsTeaser = () => {
     const projects = [
         {
             title: "W2G",
-            description: "Site pour une association de danse avec espace administrateur",
+            description: "Refonte complet du site Weare Together",
             skills: ["Création d’un blog interactif avec authentification,", "Publication de photos et commentaires.", "Développement d’un espace admin pour gérer le contenu du site de manière autonome.", "👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs."],
             image: w2gImg,
             url: "https://w2g-delta.vercel.app/",
