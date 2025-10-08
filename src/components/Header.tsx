@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDark }) => {
         >
             <Nav>
                 <Link to="/">
-                    <Logo>Nivo-RAKOTO</Logo>
+                    <Logo>Nivo-RAKOTOooos</Logo>
                 </Link>
                 
                 <ThemeToggle data-isdark={isDark} onClick={onToggleTheme} >
