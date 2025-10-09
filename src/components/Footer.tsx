@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { COMMIT_HASH, COMMIT_DATE } from "../lib/buildInfo.js";
+import { COMMIT_SUBJECT, COMMIT_DATE } from "../lib/buildInfo.js";
 
 const FooterContainer = styled(motion.footer)`
     width: 100%;
@@ -54,7 +54,7 @@ const Footer = () => {
                 réservés.
             </p>
             <Meta>
-                Commit: {COMMIT_HASH} · {new Date(COMMIT_DATE).toLocaleString()}
+                Message: {COMMIT_SUBJECT} · {new Date(COMMIT_DATE).toLocaleString()}
             </Meta>
         </FooterContainer>
     );
