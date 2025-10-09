@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { COMMIT_HASH, COMMIT_DATE } from "../lib/buildInfo.js";
 
 const FooterContainer = styled(motion.footer)`
     width: 100%;
@@ -24,6 +25,12 @@ const SocialLink = styled(motion.a)`
     }
 `;
 
+const Meta = styled.p`
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--textSecondary);
+`;
+
 const Footer = () => {
     return (
         <FooterContainer
@@ -46,6 +53,9 @@ const Footer = () => {
                 &copy; {new Date().getFullYear()} Nivo-RAKOTO. Tous droits
                 réservés.
             </p>
+            <Meta>
+                Commit: {COMMIT_HASH} · {new Date(COMMIT_DATE).toLocaleString()}
+            </Meta>
         </FooterContainer>
     );
 };

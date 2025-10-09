@@ -1,27 +1,28 @@
 {
-  "name": "new-portfolio",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "server": "tsx server.ts",
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md}\"",
-    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,md}\""
-  },
-  "engines": {
-    "node": "22.x"
-  },
+    "name": "new-portfolio",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+      "predev": "node scripts/genBuildInfo.mjs",
+      "dev": "vite",
+      "server": "tsx server.ts",
+      "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
+      "prebuild": "node scripts/genBuildInfo.mjs",
+      "build": "tsc -b && vite build",
+      "lint": "eslint .",
+      "preview": "vite preview",
+      "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md}\"",
+      "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,md}\""
+    },
+    "engines": {
+      "node": "22.x"
+    },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^5.1.1",
     "@types/yup": "^0.29.14",
     "@vercel/node": "^5.3.6",
-    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
