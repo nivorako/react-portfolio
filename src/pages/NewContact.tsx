@@ -1,57 +1,57 @@
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import styled from "styled-components";
 
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
-import styled from 'styled-components';
-
-const ContactContainer = styled.main.attrs({ className: 'contact-page' })` 
+const ContactContainer = styled.main.attrs({ className: "contact-page" })`
     margin: 0 auto;
     padding: 4rem 2rem;
-    min-height: 100vh; 
+    min-height: 100vh;
     width: 100%;
     max-width: 100% !important; // S'assurer que le max-width du global ne s'applique pas
     overflow-x: hidden;
-    color: ${({ theme }) => theme.text}; 
+    color: ${({ theme }) => theme.text};
     background-color: ${({ theme }) => theme.background};
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     label {
         color: ${({ theme }) => theme.text};
-    }   
-    
-    input, textarea {
+    }
+
+    input,
+    textarea {
         background-color: ${({ theme }) => theme.surface};
         color: ${({ theme }) => theme.text};
         border: 1px solid ${({ theme }) => theme.border};
-        
+
         &::placeholder {
             color: ${({ theme }) => theme.textSecondary};
             opacity: 0.7;
         }
     }
-    
+
     @media (max-width: 768px) {
         padding: 8rem 0rem 2rem;
     }
 `;
 
-const ContactGrid = styled.div` 
+const ContactGrid = styled.div`
     width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 4rem;
     min-height: 60vh;
-    
+
     @media (max-width: 1024px) {
         gap: 2rem;
     }
-    
-    @media (max-width: 768px) { 
+
+    @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
         gap: 3rem;
@@ -65,7 +65,7 @@ const Subtitle = styled.p`
     margin-bottom: 3rem;
     max-width: 800px;
     line-height: 1.6;
-    
+
     & > span {
         color: ${({ theme }) => theme.primary};
         font-weight: 600;
@@ -84,7 +84,7 @@ const ContactInfo = styled.div`
     padding: 4rem;
     padding-left: 4rem;
     gap: 2rem;
-    
+
     h2 {
         font-size: 2.5rem;
         margin: 0 0 2rem 0;
@@ -92,7 +92,7 @@ const ContactInfo = styled.div`
         text-align: left;
         color: ${({ theme }) => theme.primary};
     }
-    
+
     @media (max-width: 768px) {
         width: 100%;
         max-width: 100%;
@@ -100,7 +100,7 @@ const ContactInfo = styled.div`
         padding-left: 0;
         align-items: flex-start;
         //text-align: center;
-        
+
         h2 {
             font-size: 2rem;
             text-align: left;
@@ -112,7 +112,7 @@ const ContactItem = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
-    
+
     svg {
         font-size: 1.5rem;
         margin-right: 1rem;
@@ -126,19 +126,19 @@ const ContactForm = styled.div`
     box-sizing: border-box;
     padding: 2rem;
     border-radius: 8px;
-    
+
     @media (max-width: 1024px) {
         padding: 1.5rem;
     }
-    
+
     @media (max-width: 768px) {
         width: 100%;
         max-width: 100%;
-        padding: .5rem;
+        padding: 0.5rem;
         margin: 0;
     }
 `;
- 
+
 const Form = styled.form`
     width: 100%;
     display: flex;
@@ -170,7 +170,7 @@ const Input = styled.input`
     color: ${({ theme }) => theme.text};
     font-size: 1rem;
     transition: border-color 0.3s ease;
-    
+
     &:focus {
         outline: none;
         border-color: ${({ theme }) => theme.primary};
@@ -190,7 +190,7 @@ const TextArea = styled.textarea`
     background: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
     transition: border-color 0.3s ease;
-    
+
     &:focus {
         outline: none;
         border-color: ${({ theme }) => theme.primary};
@@ -208,8 +208,10 @@ const Button = styled.button`
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
     &:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -246,16 +248,16 @@ const ErrorAlert = styled.div`
 `;
 
 const schema = yup.object().shape({
-    firstName: yup.string().required('Le prénom est requis'),
-    subject: yup.string().required('Le sujet est requis'),
-    email: yup.string().email('Email invalide').required('L\'email est requis'),
-    message: yup.string().required('Le message est requis'),
+    firstName: yup.string().required("Le prénom est requis"),
+    subject: yup.string().required("Le sujet est requis"),
+    email: yup.string().email("Email invalide").required("L'email est requis"),
+    message: yup.string().required("Le message est requis"),
 });
 
 type FormData = yup.InferType<typeof schema>;
 
 export default function NewContact() {
-        const {
+    const {
         register,
         handleSubmit,
         reset,
@@ -264,19 +266,19 @@ export default function NewContact() {
     } = useForm<FormData>({
         resolver: yupResolver(schema),
         defaultValues: {
-            firstName: '',
-            email: '',
-            subject: '',
-            message: '',
+            firstName: "",
+            email: "",
+            subject: "",
+            message: "",
         },
     });
 
     const onSubmit = async (data: FormData) => {
         try {
-            const response = await fetch('/api/sendEmail', {
-                method: 'POST',
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/sendEmail`, {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
                     firstName: data.firstName,
@@ -289,26 +291,40 @@ export default function NewContact() {
             const responseText = await response.text();
 
             if (!response.ok) {
-                console.error('Server responded with an error:', response.status, responseText);
-                setError('root', { type: 'manual', message: `Erreur du serveur: ${responseText}` });
+                console.error(
+                    "Server responded with an error:",
+                    response.status,
+                    responseText
+                );
+                setError("root", {
+                    type: "manual",
+                    message: `Erreur du serveur: ${responseText}`,
+                });
                 return;
             }
 
             try {
                 const responseData = JSON.parse(responseText);
-                console.log('Message envoyé avec succès:', responseData);
+                console.log("Message envoyé avec succès:", responseData);
                 reset();
             } catch (e) {
-                console.error('Failed to parse JSON. Server response:', responseText);
-                setError('root', { type: 'manual', message: 'Réponse invalide du serveur. Vérifiez la console du navigateur.' });
+                console.error(
+                    "Failed to parse JSON. Server response:",
+                    responseText
+                );
+                setError("root", {
+                    type: "manual",
+                    message:
+                        "Réponse invalide du serveur. Vérifiez la console du navigateur.",
+                });
             }
-
         } catch (error) {
-            let errorMessage = 'Une erreur réseau est survenue. Le serveur est-il en ligne?';
+            let errorMessage =
+                "Une erreur réseau est survenue. Le serveur est-il en ligne?";
             if (error instanceof Error) {
                 errorMessage = error.message;
             }
-            setError('root', { type: 'manual', message: errorMessage });
+            setError("root", { type: "manual", message: errorMessage });
         }
     };
 
@@ -321,7 +337,7 @@ export default function NewContact() {
                         <FiPhone />
                         <span>+33 6 12 34 56 78</span>
                     </ContactItem>
-                    <ContactItem> 
+                    <ContactItem>
                         <FiMail />
                         <span>contact@exemple.com</span>
                     </ContactItem>
@@ -333,66 +349,75 @@ export default function NewContact() {
 
                 <ContactForm>
                     <Subtitle>
-                        <span>Quelle est votre histoire ? </span>  
-                        Discutons ensemble. Toujours disponible pour de beaux projets ou des opportunités professionnelles.
+                        <span>Quelle est votre histoire ? </span>
+                        Discutons ensemble. Toujours disponible pour de beaux
+                        projets ou des opportunités professionnelles.
                     </Subtitle>
 
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         {isSubmitSuccessful && (
                             <SuccessMessage>
-                                Votre message a été envoyé avec succès ! Je vous répondrai dès que possible.
+                                Votre message a été envoyé avec succès ! Je vous
+                                répondrai dès que possible.
                             </SuccessMessage>
                         )}
-                        
+
                         {errors.root && (
-                            <ErrorAlert>
-                                {errors.root.message}
-                            </ErrorAlert>
+                            <ErrorAlert>{errors.root.message}</ErrorAlert>
                         )}
 
                         <InputGroup>
-
-                            <Input 
-                                type="text" 
-                                placeholder="Prénom" 
-                                {...register('firstName')}
-                                className={errors.firstName ? 'error' : ''}
-                            />                           
+                            <Input
+                                type="text"
+                                placeholder="Prénom"
+                                {...register("firstName")}
+                                className={errors.firstName ? "error" : ""}
+                            />
                             {errors.firstName && (
-                                <ErrorMessage>{errors.firstName.message}</ErrorMessage>
+                                <ErrorMessage>
+                                    {errors.firstName.message}
+                                </ErrorMessage>
                             )}
-                            
-                            <Input 
-                                type="email" 
-                                placeholder="Email" 
-                                {...register('email')}
-                                className={errors.email ? 'error' : ''}
+
+                            <Input
+                                type="email"
+                                placeholder="Email"
+                                {...register("email")}
+                                className={errors.email ? "error" : ""}
                             />
                             {errors.email && (
-                                <ErrorMessage>{errors.email.message}</ErrorMessage>
+                                <ErrorMessage>
+                                    {errors.email.message}
+                                </ErrorMessage>
                             )}
-                            
-                            <Input 
-                                type="text" 
-                                placeholder="Sujet" 
-                                {...register('subject')}
-                                className={errors.subject ? 'error' : ''}
-                                />
-                                {errors.subject && (
-                                    <ErrorMessage>{errors.subject.message}</ErrorMessage>
-                                )}
-                            
-                            <TextArea 
-                                placeholder="Votre message" 
-                                {...register('message')}
-                                className={errors.message ? 'error' : ''}
+
+                            <Input
+                                type="text"
+                                placeholder="Sujet"
+                                {...register("subject")}
+                                className={errors.subject ? "error" : ""}
+                            />
+                            {errors.subject && (
+                                <ErrorMessage>
+                                    {errors.subject.message}
+                                </ErrorMessage>
+                            )}
+
+                            <TextArea
+                                placeholder="Votre message"
+                                {...register("message")}
+                                className={errors.message ? "error" : ""}
                             />
                             {errors.message && (
-                                    <ErrorMessage>{errors.message.message}</ErrorMessage>
-                                )}
-                            
+                                <ErrorMessage>
+                                    {errors.message.message}
+                                </ErrorMessage>
+                            )}
+
                             <Button type="submit" disabled={isSubmitting}>
-                                {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                                {isSubmitting
+                                    ? "Envoi en cours..."
+                                    : "Envoyer le message"}
                             </Button>
                         </InputGroup>
                     </Form>

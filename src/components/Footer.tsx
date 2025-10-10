@@ -54,7 +54,8 @@ const Footer = () => {
                 réservés.
             </p>
             <Meta>
-                Message: {COMMIT_SUBJECT} · {new Date(COMMIT_DATE).toLocaleString()}
+                Version : {COMMIT_SUBJECT} ·{" "}
+                {new Date(COMMIT_DATE).toLocaleString()}
             </Meta>
         </FooterContainer>
     );

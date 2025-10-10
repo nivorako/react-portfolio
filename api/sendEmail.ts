@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { sendEmail } from '../src/lib/email.js';
+import { sendEmail } from '../src/lib/email';
 
 export default async function handler(
   request: VercelRequest,
@@ -17,14 +17,15 @@ export default async function handler(
     }
 
     const emailData = {
-      from: 'onboarding@resend.dev', // IMPORTANT: Replace with your verified sending email in Resend
-      to: 'rakotondrabe.nicolas@gmail.com', // IMPORTANT: Replace with your personal email to receive messages
+      // Use env with safe defaults for Resend test mode
+      from: process.env.FROM_ADDRESS || 'onboarding@resend.dev',
+      to: process.env.CONTACT_TO || 'nivo.rakoto@yahoo.fr',
       subject: `New message from ${firstName}: ${subject}`,
       replyTo: email,
       text: message,
       html: `<strong>From:</strong> ${firstName} <br/> <strong>Email:</strong> ${email} <br/> <strong>Message:</strong><p>${message}</p>`,
     };
-
+ 
     await sendEmail(emailData);
 
     return response.status(200).json({ success: true });
@@ -33,3 +34,4 @@ export default async function handler(
     return response.status(500).json({ message: error.message || 'A server error has occurred' });
   }
 }
+

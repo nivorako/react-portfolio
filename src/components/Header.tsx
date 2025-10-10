@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import {FaSun, FaMoon} from 'react-icons/fa';
+import { FaSun, FaMoon } from "react-icons/fa";
 
 interface HeaderProps {
     onToggleTheme: () => void;
@@ -15,17 +15,17 @@ const HeaderContainer = styled(motion.header)`
     right: 0;
     padding: 1rem;
     width: 100%;
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
     background: transparent;
     z-index: 1000;
-    backdrop-filter: blur(5px); 
+    backdrop-filter: blur(5px);
     @media (max-width: 1224px) {
         padding: 0 1rem;
     }
     @media (max-width: 768px) {
-        padding: 0.5rem 0.75rem; 
+        padding: 0.5rem 0.75rem;
     }
 `;
 
@@ -39,12 +39,12 @@ const Nav = styled.nav`
     padding: 1rem 3rem;
     @media (max-width: 768px) {
         flex-direction: column;
-        gap: 1rem; 
+        gap: 1rem;
     }
 `;
 
 const Logo = styled.h1`
-font-family: 'Pacifico', cursive;
+    font-family: "Pacifico", cursive;
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--text);
@@ -60,8 +60,10 @@ const ThemeToggle = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s, color 0.3s;
-    
+    transition:
+        transform 0.3s,
+        color 0.3s;
+
     &:hover {
         transform: scale(1.1);
         color: var(--primary);
@@ -69,8 +71,6 @@ const ThemeToggle = styled.button`
 `;
 
 const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDark }) => {
-    
-
     return (
         <HeaderContainer
             initial={{ y: -100 }}
@@ -81,8 +81,8 @@ const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDark }) => {
                 <Link to="/">
                     <Logo>Nivo-RAKOTO</Logo>
                 </Link>
-                
-                <ThemeToggle data-isdark={isDark} onClick={onToggleTheme} >
+
+                <ThemeToggle data-isdark={isDark} onClick={onToggleTheme}>
                     {isDark ? <FaSun /> : <FaMoon />}
                 </ThemeToggle>
             </Nav>

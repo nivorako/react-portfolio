@@ -1,11 +1,10 @@
-
-import styled from 'styled-components';
-import { FaExternalLinkAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import weare2getherImg from '../assets/wearetogether.png';
-import vtcImg from '../assets/VTC.png'; 
-import w2gImg from '../assets/w2g.png';
+import styled from "styled-components";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import weare2getherImg from "../assets/wearetogether.png";
+import vtcImg from "../assets/VTC.png";
+import w2gImg from "../assets/w2g.png";
 
 const ProjectsSection = styled.section`
     width: 100%;
@@ -14,7 +13,7 @@ const ProjectsSection = styled.section`
     background: var(--background);
     width: 100%;
     box-sizing: border-box;
-    
+
     @media (max-width: 768px) {
         padding: 3rem 0;
     }
@@ -36,7 +35,7 @@ const ProjectsGrid = styled.div`
     padding: 0;
     width: 100%;
     box-sizing: border-box;
-    
+
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
         padding: 0;
@@ -47,17 +46,19 @@ const ProjectCard = styled(motion.div)`
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     margin: 0 auto;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    
+
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
-    
+
     @media (max-width: 480px) {
         margin-bottom: 1.5rem;
         max-width: 100%;
@@ -71,7 +72,7 @@ const ProjectImage = styled.img`
 `;
 
 const ProjectContent = styled.div`
-    padding: .5rem; 
+    padding: 0.5rem;
 `;
 
 const ProjectTitle = styled.h3`
@@ -109,22 +110,22 @@ const ProjectSkills = styled.ul`
 const SkillTag = styled.li`
     display: block;
     with: 100%;
-    padding: 0.2rem 0.5rem; 
-    margin: 0.5rem; 
+    padding: 0.2rem 0.5rem;
+    margin: 0.5rem;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     color: var(--text);
     font-size: 0.9rem;
-   word-wrap: break-word;
+    word-wrap: break-word;
     white-space: normal;
     text-align: left;
     box-sizing: border-box;
 `;
 
-const ViewMoreButton = styled(Link)` 
+const ViewMoreButton = styled(Link)`
     display: block;
     width: max-content;
-    margin: 3rem auto 0; 
+    margin: 3rem auto 0;
     padding: 1rem 2rem;
     font-size: 1.1rem;
     background: var(--secondary);
@@ -136,7 +137,7 @@ const ViewMoreButton = styled(Link)`
     transition: all 0.3s ease;
     &:hover {
         transform: translateY(-2px);
-        background: #1E293B;
+        background: #1e293b;
         color: var(--primary);
     }
     &:active {
@@ -149,24 +150,43 @@ const ProjectsTeaser = () => {
         {
             title: "W2G",
             description: "Refonte complet du site Weare Together",
-            skills: ["Création d’un blog interactif avec authentification,", "Publication de photos et commentaires.", "Développement d’un espace admin pour gérer le contenu du site de manière autonome.", "👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs."],
+            skills: [
+                "Création d’un blog interactif avec authentification,",
+                "Publication de photos et commentaires.",
+                "Développement d’un espace admin pour gérer le contenu du site de manière autonome.",
+                "👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs.",
+            ],
             image: w2gImg,
             url: "https://w2g-delta.vercel.app/",
         },
         {
             title: "VTC",
-            description: "Application de réservation de véhicules avec chauffeur",
-            skills: ["Création d’un design moderne avec une UX fluide.", "Intégration de Stripe pour les paiements.", "Réservation de trajets avec carte interactive.", "Génération de devis/factures.", "Envoi de messages via formulaire ou WhatsApp.", "💡 Connexion sécurisée et gestion serveur avec Node/Express/MongoDB."],
+            description:
+                "Application de réservation de véhicules avec chauffeur",
+            skills: [
+                "Création d’un design moderne avec une UX fluide.",
+                "Intégration de Stripe pour les paiements.",
+                "Réservation de trajets avec carte interactive.",
+                "Génération de devis/factures.",
+                "Envoi de messages via formulaire ou WhatsApp.",
+                "💡 Connexion sécurisée et gestion serveur avec Node/Express/MongoDB.",
+            ],
             image: vtcImg,
-            url: "https://vtc-mu.vercel.app/",          
+            url: "https://vtc-mu.vercel.app/",
         },
         {
             title: "WeAre2gether",
-            description: "Site pour une association de danse avec espace administrateur",
-            skills: ["Création d’un blog interactif avec authentification,", "Publication de photos et commentaires.", "Développement d’un espace admin pour gérer le contenu du site de manière autonome.", "👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs."],
+            description:
+                "Site pour une association de danse avec espace administrateur",
+            skills: [
+                "Création d’un blog interactif avec authentification,",
+                "Publication de photos et commentaires.",
+                "Développement d’un espace admin pour gérer le contenu du site de manière autonome.",
+                "👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs.",
+            ],
             image: weare2getherImg,
             url: "https://weare2gether.vercel.app/",
-        }
+        },
     ];
 
     return (
@@ -174,35 +194,41 @@ const ProjectsTeaser = () => {
             <SectionTitle>Mes Projets Récents</SectionTitle>
             <ProjectsGrid>
                 {projects.map((project, index) => (
-                    <ProjectCard 
+                    <ProjectCard
                         key={index}
-                        initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                        initial={{
+                            opacity: 0,
+                            x: index % 2 === 0 ? -100 : 100,
+                        }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
                         viewport={{ amount: 0.2 }}
                     >
-                        <ProjectImage 
-                            src={project.image} 
-                            alt={`Capture d'écran du projet ${project.title}`} 
+                        <ProjectImage
+                            src={project.image}
+                            alt={`Capture d'écran du projet ${project.title}`}
                             loading="lazy"
                         />
                         <ProjectContent>
                             <ProjectTitle>
                                 {project.title}
-                                <ProjectLink 
-                                    href={project.url} 
-                                    target="_blank" 
+                                <ProjectLink
+                                    href={project.url}
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label={`Voir le projet ${project.title}`}
                                 >
-                                    <span style={{ marginRight: '6px' }}>Visiter le site</span>
+                                    <span style={{ marginRight: "6px" }}>
+                                        Visiter le site
+                                    </span>
                                     <FaExternalLinkAlt />
                                 </ProjectLink>
                             </ProjectTitle>
-                            <p style={{
-                                color: 'var(--text)',
-                                marginBottom: '2rem',
-                                fontSize: '1.1rem',
+                            <p
+                                style={{
+                                    color: "var(--text)",
+                                    marginBottom: "2rem",
+                                    fontSize: "1.1rem",
                                 }}
                             >
                                 {project.description}
@@ -212,14 +238,11 @@ const ProjectsTeaser = () => {
                                     <SkillTag key={i}>{s}</SkillTag>
                                 ))}
                             </ProjectSkills>
-                            
                         </ProjectContent>
                     </ProjectCard>
                 ))}
             </ProjectsGrid>
-            <ViewMoreButton to="/projects">
-                Voir plus de projets
-            </ViewMoreButton>
+            <ViewMoreButton to="/projects">Voir plus de projets</ViewMoreButton>
         </ProjectsSection>
     );
 };

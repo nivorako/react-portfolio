@@ -1,8 +1,7 @@
-
 import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
 import devImage from "../assets/devIMG.webp";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 // Styled Components
 const AboutContainer = styled.div`
@@ -58,7 +57,7 @@ const Line = styled(motion.div)`
     z-index: 1;
 `;
 
-const ImageContainer = styled.div` 
+const ImageContainer = styled.div`
     flex: 1;
     min-width: 0;
     margin: 1.5rem;
@@ -69,9 +68,8 @@ const ImageContainer = styled.div`
     @media (max-width: 768px) {
         width: 100%;
     }
-
 `;
- 
+
 const ProfileImage = styled.img`
     width: 100%;
     max-width: 100%;
@@ -91,8 +89,11 @@ const TextContainer = styled.div<{ inView: boolean }>`
     min-width: 0;
     min-width: 300px;
     opacity: ${({ inView }) => (inView ? 1 : 0)};
-    transform: ${({ inView }) => (inView ? 'translateY(0)' : 'translateY(20px)')};
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: ${({ inView }) =>
+        inView ? "translateY(0)" : "translateY(20px)"};
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
     padding: 0 1rem;
     box-sizing: border-box;
     @media (max-width: 768px) {
@@ -103,13 +104,13 @@ const TextContainer = styled.div<{ inView: boolean }>`
 const TextContent = styled.div`
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
 `;
 
 const Paragraph = styled.p`
     font-size: 1.1rem;
     line-height: 1.6;
-    color: var(--textSecondary); 
+    color: var(--textSecondary);
     margin-bottom: 1.5rem;
 `;
 
@@ -118,7 +119,7 @@ const Paragraph = styled.p`
  * of a developer's background and skills. It utilizes the `useInView` hook from
  * the `react-intersection-observer` library to animate text content when it
  * comes into view.
- * 
+ *
  * The component renders an `AboutContainer` which includes a title, an image
  * with animated lines, and descriptive paragraphs about the developer's
  * passion for fullstack development, UX/UI, and backend architecture. The
@@ -138,26 +139,26 @@ const About = () => {
                 <ContentWrapper>
                     <ImageContainer>
                         <Line
-                            style={{ top: 0, width: '0%' }}
+                            style={{ top: 0, width: "0%" }}
                             animate={{
-                                width: '90%',
+                                width: "90%",
                             }}
                             transition={{
                                 duration: 1.5,
-                                ease: 'easeInOut',
-                                delay: 0.3
+                                ease: "easeInOut",
+                                delay: 0.3,
                             }}
                         />
                         <ProfileImage src={devImage} alt="Développeur web" />
                         <Line
-                            style={{ bottom: 0, width: '0%' }}
+                            style={{ bottom: 0, width: "0%" }}
                             animate={{
-                                width: '90%',
+                                width: "90%",
                             }}
                             transition={{
                                 duration: 1.5,
-                                ease: 'easeInOut',
-                                delay: 0.3
+                                ease: "easeInOut",
+                                delay: 0.3,
                             }}
                         />
                     </ImageContainer>
@@ -178,21 +179,28 @@ const About = () => {
                                 est toujours de construire des applications robustes, faciles à 
                                 maintenir, et centrées sur les besoins de l'utilisateur.
                             </Paragraph> */}
-                            <Paragraph>👨‍💻 Développeur fullstack passionné, je conçois 
-                                des interfaces web modernes, performantes et centrées 
-                                sur l'utilisateur. 
+                            <Paragraph>
+                                👨‍💻 Développeur fullstack passionné, je conçois
+                                des interfaces web modernes, performantes et
+                                centrées sur l'utilisateur.
                             </Paragraph>
-                            <Paragraph>🎯 Autodidacte et curieux, je crée du code propre, 
-                                évolutif et optimisé, avec une attention particulière à l’UX/UI 
-                                et à l’architecture backend.
+                            <Paragraph>
+                                🎯 Autodidacte et curieux, je crée du code
+                                propre, évolutif et optimisé, avec une attention
+                                particulière à l’UX/UI et à l’architecture
+                                backend.
                             </Paragraph>
-                            <Paragraph>J'aime relever de nouveaux défis techniques et collaborer sur des projets ambitieux. </Paragraph>
+                            <Paragraph>
+                                J'aime relever de nouveaux défis techniques et
+                                collaborer sur des projets ambitieux.{" "}
+                            </Paragraph>
                         </TextContent>
                     </TextContainer>
                 </ContentWrapper>
-                <Paragraph>Actuellement en freelance, je serais très heureux 
-                    de discuter avec vous de vos projets ou de belles 
-                    opportunités professionnelles.
+                <Paragraph>
+                    Actuellement en freelance, je serais très heureux de
+                    discuter avec vous de vos projets ou de belles opportunités
+                    professionnelles.
                 </Paragraph>
             </Content>
         </AboutContainer>

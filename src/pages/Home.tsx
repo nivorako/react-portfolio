@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { useState, useEffect } from 'react';
-import { FaReact, FaNodeJs, FaGithub } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import webDesign from '../assets/web-design.webp';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import webDesign from "../assets/web-design.webp";
+import { motion } from "framer-motion";
 import avatar from "../assets/avatar.webp";
-import ProjectsTeaser from '../components/ProjectsTeaser';
+import ProjectsTeaser from "../components/ProjectsTeaser";
 // import { useRef } from 'react';
 
 const HomeContainer = styled.div`
@@ -22,7 +22,6 @@ const HomeContainer = styled.div`
     box-sizing: border-box;
     background: var(--background);
     @media (max-width: 768px) {
-        
         padding: 4rem 1rem;
     }
 `;
@@ -50,7 +49,7 @@ const PresentationContainer = styled(motion.div)`
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     gap: 2rem;
     @media (max-width: 768px) {
@@ -91,7 +90,7 @@ const PresentationButton = styled(Link)`
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     &:hover {
         transform: translateY(-2px);
-        background: #1E293B;
+        background: #1e293b;
         color: var(--primary);
     }
     &:active {
@@ -110,7 +109,7 @@ const Button = styled.button`
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     &:hover {
         transform: translateY(-2px);
-        background: #1E293B;
+        background: #1e293b;
         color: var(--primary);
     }
     &:active {
@@ -201,80 +200,79 @@ const CtaSection = styled.section`
         padding: 3rem 0;
         margin: 2rem 0 0;
     }
-`; 
-
-const CtaContent = styled.div`
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
 `;
 
+const CtaContent = styled.div`
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 
 const FloatingCircle = styled(motion.div)`
-  position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(145deg, var(--primary), var(--secondary));
-  z-index: 1;
-  pointer-events: none;
-  aspect-ratio: 1;
-  min-width: 300px;
-  min-height: 300px;
-  filter: brightness(1.1);
-  opacity: 0.9;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--primary), var(--secondary));
+    z-index: 1;
+    pointer-events: none;
+    aspect-ratio: 1;
+    min-width: 300px;
+    min-height: 300px;
+    filter: brightness(1.1);
+    opacity: 0.9;
 `;
 
 const CtaTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  background: var(--text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  position: relative;
-  z-index: 2;
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    background: var(--text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    z-index: 2;
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
 `;
 
 const CtaSubtitle = styled.p`
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  background: var(--text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  position: relative;
-  z-index: 2;
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-  }
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    background: var(--text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    z-index: 2;
+    @media (max-width: 768px) {
+        font-size: 1.2rem;
+    }
 `;
 
 const CtaButton = styled(Link)`
-  margin-top: 8rem;
-  padding: 0.8rem 2rem;
-  background: white;
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
+    margin-top: 8rem;
+    padding: 0.8rem 2rem;
+    background: white;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 `;
 
 /**
@@ -282,58 +280,61 @@ const CtaButton = styled(Link)`
  * Intended to be used as an event handler.
  */
 const scrollToSection = () => {
-    const element = document.getElementById('projects');
-    element?.scrollIntoView({ behavior: 'smooth' });
-    console.log('Projects section');
-}
+    const element = document.getElementById("projects");
+    element?.scrollIntoView({ behavior: "smooth" });
+    console.log("Projects section");
+};
 
 /**
  * La page d'accueil, qui affiche une bannière, un sommaire, des compétences, des projets et un appel à action.
- * 
+ *
  * @returns {JSX.Element} La page d'accueil.
- * 
+ *
  * @example
  * import React from 'react';
  * import Home from './Home';
- * 
+ *
  * const App = () => {
  *     return (
  *         <Home />
  *     );
  * };
- * 
+ *
  * export default App;
  */
 const Home = () => {
     const [scale, setScale] = useState(1);
 
     const handleScroll = () => {
-        const scrollPosition = window.scrollY; 
-        const windowHeight = window.innerHeight; 
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
-        
+
         // Si on est à 50px du haut ou du bas
-        if (scrollPosition <= 50 || documentHeight - windowHeight - scrollPosition <= 50) {
-        setScale(0);     
+        if (
+            scrollPosition <= 50 ||
+            documentHeight - windowHeight - scrollPosition <= 50
+        ) {
+            setScale(0);
         } else {
-        setScale(1);     
+            setScale(1);
         }
     };
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-    
+
     return (
         <>
             <HomeContainer id="home">
                 <div
-                style={{
-                    fontSize: "var(--font-size-4xl)",
-                    marginTop: '6rem',
-                    color: 'var(--textSecondary)',
-                }} 
+                    style={{
+                        fontSize: "var(--font-size-4xl)",
+                        marginTop: "6rem",
+                        color: "var(--textSecondary)",
+                    }}
                 >
                     Bienvenue sur mon portfolio ! Je m'appelle :
                 </div>
@@ -341,21 +342,23 @@ const Home = () => {
                 <Subtitle>Développeur Web passionné</Subtitle>
 
                 <ProfileSection>
-                    <Avatar 
-                        src={avatar} 
+                    <Avatar
+                        src={avatar}
                         alt="Nivo-RAKOTO"
-                        animate={{ 
-                        scale: [1, 1.1, 1],
+                        animate={{
+                            scale: [1, 1.1, 1],
                         }}
-                        transition={{ 
-                        duration: 2,
-                        ease: 'easeInOut',
-                        repeat: Infinity,
-                        repeatType: 'reverse', 
+                        transition={{
+                            duration: 2,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                            repeatType: "reverse",
                         }}
                     />
                     <Description>
-                        Je transforme vos idées en réalité numérique, je crée des applications web modernes et performantes, alliant créativité et innovation technique.
+                        Je transforme vos idées en réalité numérique, je crée
+                        des applications web modernes et performantes, alliant
+                        créativité et innovation technique.
                     </Description>
                     <Button onClick={scrollToSection}>Voir mes projets</Button>
                 </ProfileSection>
@@ -366,29 +369,34 @@ const Home = () => {
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                     viewport={{ amount: 0.5 }}
                 >
-                    <PresentationImage src={webDesign} alt="Formation et développement" />
-            
+                    <PresentationImage
+                        src={webDesign}
+                        alt="Formation et développement"
+                    />
+
                     <PresentationText>
-                        <h3 
-                        style={{ 
-                            color: 'var(--textSecondary)',
-                            width: '100%',
-                            textAlign: 'left',
-                            margin: "0",
-                            padding: "0"
-                        }}
+                        <h3
+                            style={{
+                                color: "var(--textSecondary)",
+                                width: "100%",
+                                textAlign: "left",
+                                margin: "0",
+                                padding: "0",
+                            }}
                         >
                             Mon Histoire :
                         </h3>
                         <p>
-                            Passionné par le développement web, j’aide 
-                            les entreprises à transformer leurs idées en solutions 
-                            web percutantes. Curieux et toujours à la pointe, 
-                            je développe des outils sur-mesure qui allient 
+                            Passionné par le développement web, j’aide les
+                            entreprises à transformer leurs idées en solutions
+                            web percutantes. Curieux et toujours à la pointe, je
+                            développe des outils sur-mesure qui allient
                             performance, design et impact.
-                        </p>  
+                        </p>
                     </PresentationText>
-                    <PresentationButton to="/about">En savoir plus</PresentationButton>
+                    <PresentationButton to="/about">
+                        En savoir plus
+                    </PresentationButton>
                 </PresentationContainer>
 
                 <SkillsSection>
@@ -399,11 +407,16 @@ const Home = () => {
                         viewport={{ amount: 0.2 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
                     >
-                        <SkillIcon><FaReact /></SkillIcon>
+                        <SkillIcon>
+                            <FaReact />
+                        </SkillIcon>
                         <SkillTitle>Frontend Expert</SkillTitle>
-                        <SkillDescription>React, TypeScript, Next.js - Applications web modernes et réactives</SkillDescription>
+                        <SkillDescription>
+                            React, TypeScript, Next.js - Applications web
+                            modernes et réactives
+                        </SkillDescription>
                     </SkillCard>
-                    
+
                     <SkillCard
                         initial={{ scale: 0 }}
                         whileInView={{ scale: scale }}
@@ -411,11 +424,16 @@ const Home = () => {
                         viewport={{ amount: 0.2 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
                     >
-                        <SkillIcon><FaNodeJs /></SkillIcon>
+                        <SkillIcon>
+                            <FaNodeJs />
+                        </SkillIcon>
                         <SkillTitle>Backend Maîtrisé</SkillTitle>
-                        <SkillDescription>Express.js, MongoDB - Architecture robuste et performante</SkillDescription>
+                        <SkillDescription>
+                            Express.js, MongoDB - Architecture robuste et
+                            performante
+                        </SkillDescription>
                     </SkillCard>
-                    
+
                     <SkillCard
                         initial={{ scale: 0 }}
                         whileInView={{ scale: scale }}
@@ -423,15 +441,19 @@ const Home = () => {
                         viewport={{ amount: 0.2 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
                     >
-                        <SkillIcon><FaGithub /></SkillIcon>
+                        <SkillIcon>
+                            <FaGithub />
+                        </SkillIcon>
                         <SkillTitle>DevOps Pratiqué</SkillTitle>
-                        <SkillDescription>Github - Gestion de versions et déploiement continu</SkillDescription>
+                        <SkillDescription>
+                            Github - Gestion de versions et déploiement continu
+                        </SkillDescription>
                     </SkillCard>
                 </SkillsSection>
 
                 <ProjectsTeaser />
 
-                <CtaSection> 
+                <CtaSection>
                     <CtaContent>
                         <CtaTitle>MAINTENANT</CtaTitle>
                         <CtaTitle>Avez-vous un projet web en tête ?</CtaTitle>
@@ -441,14 +463,14 @@ const Home = () => {
                     <FloatingCircle
                         initial={{ x: 0, y: 0 }}
                         animate={{
-                        x: [0, 100, 0, -100, 0],
-                        y: [0, 30, 0, -30, 0],
-                        scale: [1, 1.05, 1, 1.03, 1]
+                            x: [0, 100, 0, -100, 0],
+                            y: [0, 30, 0, -30, 0],
+                            scale: [1, 1.05, 1, 1.03, 1],
                         }}
                         transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "easeInOut"
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "easeInOut",
                         }}
                     />
                 </CtaSection>

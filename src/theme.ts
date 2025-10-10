@@ -1,40 +1,40 @@
-import 'styled-components';
+import "styled-components";
 
-declare module 'styled-components' {
-  export interface DefaultTheme {
-    primary: string;
-    secondary: string;
-    background: string;
-    surface: string;
-    toggleBTN: string;
-    text: string;
-    textSecondary: string;
-    border: string;
-    shadow: string;
-    accent: string;
-    fontFamily: string;
-    fontSize: {
-      xs: string;
-      sm: string;
-      base: string;
-      lg: string;
-      xl: string;
-      '2xl': string;
-      '3xl': string;
-      '4xl': string;
-      '5xl': string;
-      '6xl': string;
-    };
-    fontWeight: {
-      light: number;
-      normal: number;
-      medium: number;
-      semibold: number;
-      bold: number;
-      extrabold: number;
-      black: number;
-    };
-  }
+declare module "styled-components" {
+    export interface DefaultTheme {
+        primary: string;
+        secondary: string;
+        background: string;
+        surface: string;
+        toggleBTN: string;
+        text: string;
+        textSecondary: string;
+        border: string;
+        shadow: string;
+        accent: string;
+        fontFamily: string;
+        fontSize: {
+            xs: string;
+            sm: string;
+            base: string;
+            lg: string;
+            xl: string;
+            "2xl": string;
+            "3xl": string;
+            "4xl": string;
+            "5xl": string;
+            "6xl": string;
+        };
+        fontWeight: {
+            light: number;
+            normal: number;
+            medium: number;
+            semibold: number;
+            bold: number;
+            extrabold: number;
+            black: number;
+        };
+    }
 }
 
 export const theme = {
@@ -49,7 +49,7 @@ export const theme = {
         border: "#E2E8F0",
         shadow: "rgba(0, 0, 0, 0.05)",
         accent: "#3B82F6",
-    
+
         fontFamily: "'Inter', sans-serif",
         fontSize: {
             xs: "0.75rem",
@@ -61,7 +61,7 @@ export const theme = {
             "3xl": "1.875rem",
             "4xl": "2.25rem",
             "5xl": "3rem",
-            "6xl": "4rem"
+            "6xl": "4rem",
         },
         fontWeight: {
             light: 300,
@@ -70,8 +70,8 @@ export const theme = {
             semibold: 600,
             bold: 700,
             extrabold: 800,
-            black: 900
-        }
+            black: 900,
+        },
     },
     dark: {
         primary: "#818CF8",
@@ -84,7 +84,7 @@ export const theme = {
         border: "#334155",
         shadow: "rgba(0, 0, 0, 0.3)",
         accent: "#3B82F6",
-       
+
         fontFamily: "'Inter', sans-serif",
         fontSize: {
             xs: "0.75rem",
@@ -96,7 +96,7 @@ export const theme = {
             "3xl": "1.875rem",
             "4xl": "2.25rem",
             "5xl": "3rem",
-            "6xl": "4rem"
+            "6xl": "4rem",
         },
         fontWeight: {
             light: 300,
@@ -105,7 +105,7 @@ export const theme = {
             semibold: 600,
             bold: 700,
             extrabold: 800,
-            black: 900
-        }
-    }
+            black: 900,
+        },
+    },
 };
