@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
 
-import LogoDark from "../assets/logoDark1.png";
-import LogoLight  from "../assets/logoLight1.png";
+import LogoDark from "../assets/LogoDark1.png";
+import LogoLight  from "../assets/LogoLight1.png";
 
 interface HeaderProps {
     onToggleTheme: () => void;
