@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import weare2getherImg from "../assets/wearetogether.png";
 import vtcImg from "../assets/VTC.png";
@@ -122,28 +122,28 @@ const SkillTag = styled.li`
     box-sizing: border-box;
 `;
 
-const ViewMoreButton = styled(Link)`
-    display: block;
-    width: max-content;
-    margin: 3rem auto 0;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    background: var(--secondary);
-    color: var(--text);
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.3s ease;
-    &:hover {
-        transform: translateY(-2px);
-        background: #1e293b;
-        color: var(--primary);
-    }
-    &:active {
-        transform: scale(0.98);
-    }
-`;
+// const ViewMoreButton = styled(Link)`
+//     display: block;
+//     width: max-content;
+//     margin: 3rem auto 0;
+//     padding: 1rem 2rem;
+//     font-size: 1.1rem;
+//     background: var(--secondary);
+//     color: var(--text);
+//     border: none;
+//     border-radius: 5px;
+//     text-decoration: none;
+//     text-align: center;
+//     transition: all 0.3s ease;
+//     &:hover {
+//         transform: translateY(-2px);
+//         background: #1e293b;
+//         color: var(--primary);
+//     }
+//     &:active {
+//         transform: scale(0.98);
+//     }
+// `;
 
 const ProjectsTeaser = () => {
     const projects = [

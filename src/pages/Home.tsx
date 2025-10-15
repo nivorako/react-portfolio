@@ -33,11 +33,6 @@ const Title = styled.h1`
     color: var(--textSecondary);
 `;
 
-const Subtitle = styled.p`
-    font-size: 1.2rem;
-    color: var(--text);
-    margin-bottom: 2rem;
-`;
 
 const PresentationContainer = styled(motion.div)`
     width: 100%;
@@ -339,7 +334,7 @@ const Home = () => {
                 >
                     Bienvenue sur mon portfolio ! 
                 </div>
-                {/* <Subtitle>Nivo RAKOTO</Subtitle> */}
+                
                 <Title>Développeur Web</Title>
 
                 <ProfileSection>
