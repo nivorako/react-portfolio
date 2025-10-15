@@ -242,7 +242,7 @@ const ProjectsTeaser = () => {
                     </ProjectCard>
                 ))}
             </ProjectsGrid>
-            <ViewMoreButton to="/projects">Voir plus de projets</ViewMoreButton>
+            {/* <ViewMoreButton to="/projects">Voir plus de projets</ViewMoreButton> */}
         </ProjectsSection>
     );
 };

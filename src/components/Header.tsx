@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
 
+import LogoDark from "../assets/logoDark1.png";
+import LogoLight  from "../assets/logoLight1.png";
+
 interface HeaderProps {
     onToggleTheme: () => void;
     isDark: boolean;
@@ -43,11 +46,8 @@ const Nav = styled.nav`
     }
 `;
 
-const Logo = styled.h1`
-    font-family: "Pacifico", cursive;
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--text);
+const Logo = styled.img`
+    height: 80px;
 `;
 
 const ThemeToggle = styled.button`
@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDark }) => {
         >
             <Nav>
                 <Link to="/">
-                    <Logo>Nivo-RAKOTO</Logo>
+                    <Logo src={isDark ? LogoDark : LogoLight} alt="Nivo RAKOTO logo" />
                 </Link>
 
                 <ThemeToggle data-isdark={isDark} onClick={onToggleTheme}>

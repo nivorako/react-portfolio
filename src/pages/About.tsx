@@ -20,7 +20,7 @@ const Content = styled.div`
     max-width: 1200px;
     margin: 0 auto;
     min-height: 80vh;
-    padding: 2rem 0;
+    padding: 8rem 0 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;

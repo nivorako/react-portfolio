@@ -46,7 +46,7 @@ const ContactGrid = styled.div`
     justify-content: space-between;
     gap: 4rem;
     min-height: 60vh;
-
+    margin-top: 4rem;
     @media (max-width: 1024px) {
         gap: 2rem;
     }
@@ -89,7 +89,7 @@ const ContactInfo = styled.div`
         font-size: 2.5rem;
         margin: 0 0 2rem 0;
         width: 100%;
-        text-align: left;
+        text-align: center;
         color: ${({ theme }) => theme.primary};
     }
 

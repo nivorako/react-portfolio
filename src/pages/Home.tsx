@@ -27,15 +27,15 @@ const HomeContainer = styled.div`
 `;
 
 const Title = styled.h1`
-    font-size: 3.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
     line-height: 1.2;
-    color: var(--text);
+    color: var(--textSecondary);
 `;
 
 const Subtitle = styled.p`
     font-size: 1.2rem;
-    color: var(--textSecondary);
+    color: var(--text);
     margin-bottom: 2rem;
 `;
 
@@ -332,14 +332,15 @@ const Home = () => {
                 <div
                     style={{
                         fontSize: "var(--font-size-4xl)",
-                        marginTop: "6rem",
+                        marginTop: "10rem",
+                        marginBottom: "2rem",
                         color: "var(--textSecondary)",
                     }}
                 >
-                    Bienvenue sur mon portfolio ! Je m'appelle :
+                    Bienvenue sur mon portfolio ! 
                 </div>
-                <Title>Nivo RAKOTO</Title>
-                <Subtitle>Développeur Web passionné</Subtitle>
+                {/* <Subtitle>Nivo RAKOTO</Subtitle> */}
+                <Title>Développeur Web</Title>
 
                 <ProfileSection>
                     <Avatar
