@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import styled from "styled-components";
+import "../theme"; // Import theme types
 
 const ContactContainer = styled.main.attrs({ className: "contact-page" })`
     margin: 0 auto;

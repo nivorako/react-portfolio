@@ -164,21 +164,6 @@ const About = () => {
                     </ImageContainer>
                     <TextContainer ref={ref} inView={inView}>
                         <TextContent>
-                            {/* <Paragraph>Je suis un développeur fullstack passionné, 
-                                animé par la volonté de créer des expériences web modernes, 
-                                réactives et intuitives. Après avoir suivi une formation 
-                                complète en développement web, j'ai poursuivi 
-                                mon apprentissage en autodidacte, m'immergeant dans 
-                                des projets concrets et explorant en profondeur les nouvelles 
-                                tendances technologiques.
-                            </Paragraph> 
-                            <Paragraph>Au fil du temps, j'ai développé une réelle sensibilité 
-                                pour les problématiques UX/UI, l'optimisation des performances, 
-                                et l'architecture backend. J'accorde une attention particulière 
-                                à l'écriture d'un code propre, modulaire et évolutif. Mon objectif 
-                                est toujours de construire des applications robustes, faciles à 
-                                maintenir, et centrées sur les besoins de l'utilisateur.
-                            </Paragraph> */}
                             <Paragraph>
                                 👨‍💻 Développeur fullstack passionné, je conçois
                                 des interfaces web modernes, performantes et
