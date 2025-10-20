@@ -2,6 +2,9 @@ import { Resend } from "resend";
 //import dotenv from 'dotenv';
 
 //dotenv.config();
+ 
+const baseUrl = import.meta.env.VITE_API_URL as string;
+export { baseUrl };
 
 export async function sendEmail(data: {
     from: string;

@@ -275,10 +275,8 @@ export default function NewContact() {
 
     const onSubmit = async (data: FormData) => {
         try {
-            // Use local server only during development; use same-origin on production (Vercel)
-            const apiBase = import.meta.env.DEV && import.meta.env.VITE_API_URL
-                ? import.meta.env.VITE_API_URL
-                : "";
+            // Prefer VITE_API_URL if provided (works in dev and production)
+            const apiBase = import.meta.env.VITE_API_URL || "";
 
             const response = await fetch(`${apiBase}/api/sendEmail`, {
                 method: "POST",

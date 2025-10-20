@@ -5,6 +5,18 @@ export default async function handler(
   request: VercelRequest,
   response: VercelResponse,
 ) {
+  const origin = request.headers.origin as string | undefined;
+  const allowedOrigin = process.env.FRONTEND_URL || origin || '*';
+
+  response.setHeader('Access-Control-Allow-Origin', allowedOrigin);
+  response.setHeader('Vary', 'Origin');
+  response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  response.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  if (request.method === 'OPTIONS') {
+    return response.status(204).send('');
+  }
+
   if (request.method !== 'POST') {
     return response.status(405).json({ message: 'Only POST requests allowed' });
   }
