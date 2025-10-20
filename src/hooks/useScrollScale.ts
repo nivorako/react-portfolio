@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
+/**
+ * Hook to track the scroll position of an element and scale it accordingly.
+ *
+ * @param {React.RefObject<HTMLElement | null>} ref - The ref of the element to track.
+ *
+ * @returns {number} - The scale of the element based on its scroll position.
+ */
 export const useScrollScale = (ref: React.RefObject<HTMLElement | null>) => {
     const [scale, setScale] = useState(1);
     const { inView } = useInView({

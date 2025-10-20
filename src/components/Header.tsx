@@ -70,6 +70,12 @@ const ThemeToggle = styled.button`
     }
 `;
 
+/**
+ * Header component, containing the logo and theme toggle button.
+ *
+ * @param {HeaderProps} props - Props containing the onToggleTheme function and isDark boolean.
+ * @returns {React.ReactElement} - Header component.
+ */
 const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDark }) => {
     return (
         <HeaderContainer

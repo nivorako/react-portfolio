@@ -14,6 +14,11 @@ import About from "./pages/About";
 import { theme } from "./theme";
 import Contact from "./pages/NewContact";
 
+/**
+ * Scrolls the window to the top of the page whenever the pathname changes.
+ * This is useful when navigating between pages, so that the user is
+ * always presented with the top of the page when switching between pages.
+ */
 function ScrollToTop() {
     const { pathname } = useLocation();
     useEffect(() => {
@@ -22,6 +27,11 @@ function ScrollToTop() {
     return null;
 }
 
+/**
+ * The App component is the top-level component in the application.
+ * It is responsible for rendering the entire application, including the header, main content, and footer.
+ * It also handles the theme toggle functionality and initializes the theme on startup.
+ */
 function App() {
     const [currentTheme, setCurrentTheme] = useState(theme.light);
 

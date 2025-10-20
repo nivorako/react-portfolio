@@ -1,5 +1,18 @@
 import { Resend } from "resend";
 
+/**
+ * Send an email using Resend.
+ *
+ * @param {object} data - Email data
+ * @param {string} data.from - From email address
+ * @param {string} data.to - To email address
+ * @param {string} data.subject - Email subject
+ * @param {string} data.text - Email text
+ * @param {string} data.html - Email HTML
+ * @param {string} data.replyTo - Reply to email address
+ * @returns {Promise<object>} - Email result
+ * @throws {Error} - If Resend API key is not configured or if there is an error sending the email
+ */
 export async function sendEmail(data: {
     from: string;
     to: string;

@@ -145,6 +145,16 @@ const SkillTag = styled.li`
 //     }
 // `;
 
+/**
+ * Component displaying a teaser of recent projects.
+ *
+ * It displays a title, a grid of project cards with images, titles, descriptions and skills.
+ * Each project card has a link to the project's website.
+ *
+ * The component animates the opacity and x position of the project cards when they come into view.
+ *
+ * @returns {JSX.Element} A JSX element displaying the projects teaser.
+ */
 const ProjectsTeaser = () => {
     const projects = [
         {

@@ -3,6 +3,12 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+/**
+ * Safely executes a command and returns the output as a string.
+ * If the command fails, an empty string is returned.
+ * @param {string} cmd The command to execute.
+ * @returns {string} The output of the command, or an empty string if the command failed.
+ */
 function safeExec(cmd) {
   try {
     return execSync(cmd, { stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
@@ -11,6 +17,13 @@ function safeExec(cmd) {
   }
 }
 
+/**
+ * Escapes a string to be used in a TypeScript string literal.
+ * Replaces backslashes, single quotes, and newlines with their escaped
+ * equivalents.
+ * @param {string} str The string to escape.
+ * @returns {string} The escaped string.
+ */
 function escapeTsString(str) {
   return String(str)
     .replace(/\\/g, "\\\\")

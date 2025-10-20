@@ -31,6 +31,11 @@ const Meta = styled.p`
     color: var(--textSecondary);
 `;
 
+/**
+ * Footer component that displays social links, copyright information and version information.
+ *
+ * @returns {JSX.Element} Footer component.
+ */
 const Footer = () => {
     return (
         <FooterContainer

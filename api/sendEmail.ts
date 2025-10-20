@@ -1,6 +1,16 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { sendEmail } from './lib/email.js';
 
+/**
+ * Handles a Vercel API request to send an email.
+ * Allows POST requests from the specified frontend URL (or any URL if no frontend URL is specified).
+ * Returns a 405 error if the request method is not POST.
+ * Returns a 400 error if the request body is missing required fields (firstName, email, subject, message).
+ * Returns a 500 error if there is an error sending the email.
+ *
+ * @param {VercelRequest} request - Vercel request object
+ * @param {VercelResponse} response - Vercel response object
+ */
 export default async function handler(
   request: VercelRequest,
   response: VercelResponse,
