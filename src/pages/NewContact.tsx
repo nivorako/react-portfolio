@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import styled from "styled-components";
+import Button from "../components/Button";
 import "../theme"; // Import theme types
 
 const ContactContainer = styled.main.attrs({ className: "contact-page" })`
@@ -198,26 +199,6 @@ const TextArea = styled.textarea`
     }
 `;
 
-const Button = styled.button`
-    background: ${({ theme }) => theme.primary};
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-`;
 
 const ErrorMessage = styled.span`
     color: #ff4d4f;
@@ -418,7 +399,11 @@ export default function NewContact() {
                                 </ErrorMessage>
                             )}
 
-                            <Button type="submit" disabled={isSubmitting}>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                disabled={isSubmitting}
+                            >
                                 {isSubmitting
                                     ? "Envoi en cours..."
                                     : "Envoyer le message"}

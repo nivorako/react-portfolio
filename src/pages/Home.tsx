@@ -6,7 +6,7 @@ import webDesign from "../assets/web-design.webp";
 import { motion } from "framer-motion";
 import avatar from "../assets/avatar.webp";
 import ProjectsTeaser from "../components/ProjectsTeaser";
-// import { useRef } from 'react';
+import Button from "../components/Button";
 
 const HomeContainer = styled.div`
     width: 100%;
@@ -73,44 +73,7 @@ const PresentationText = styled.div`
     text-align: left;
 `;
 
-const PresentationButton = styled(Link)`
-    display: inline-block;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    background: var(--secondary);
-    color: var(--text);
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover {
-        transform: translateY(-2px);
-        background: #1e293b;
-        color: var(--primary);
-    }
-    &:active {
-        transform: scale(0.98);
-    }
-`;
 
-const Button = styled.button`
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    background: var(--secondary);
-    color: var(--text);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover {
-        transform: translateY(-2px);
-        background: #1e293b;
-        color: var(--primary);
-    }
-    &:active {
-        transform: scale(0.98);
-    }
-`;
 
 const ProfileSection = styled.div`
     display: flex;
@@ -218,6 +181,12 @@ const FloatingCircle = styled(motion.div)`
     min-height: 300px;
     filter: brightness(1.1);
     opacity: 0.9;
+    transform-style: preserve-3d;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 40px 100px rgba(0, 0, 0, 0.2),
+        inset 0 -20px 40px rgba(0, 0, 0, 0.2),
+        inset 0 20px 40px rgba(255, 255, 255, 0.1);
 `;
 
 const CtaTitle = styled.h2`
@@ -251,20 +220,17 @@ const CtaSubtitle = styled.p`
     }
 `;
 
-const CtaButton = styled(Link)`
+const CtaButtonWrapper = styled(Button)`
     margin-top: 8rem;
-    padding: 0.8rem 2rem;
     background: white;
     color: var(--primary);
     border: 1px solid var(--primary);
     border-radius: 50px;
-    font-size: 1.1rem;
     font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
 
     &:hover {
+        background: white;
+        color: var(--primary);
         transform: translateY(-3px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
@@ -390,9 +356,9 @@ const Home = () => {
                             performance, design et impact.
                         </p>
                     </PresentationText>
-                    <PresentationButton to="/about">
+                    <Button as={Link} to="/about">
                         En savoir plus
-                    </PresentationButton>
+                    </Button>
                 </PresentationContainer>
 
                 <SkillsSection>
@@ -454,14 +420,18 @@ const Home = () => {
                         <CtaTitle>MAINTENANT</CtaTitle>
                         <CtaTitle>Avez-vous un projet web en tête ?</CtaTitle>
                         <CtaSubtitle>Discutons-en</CtaSubtitle>
-                        <CtaButton to="/contact">Me contacter</CtaButton>
+                        <Button as={Link} to="/contact">
+                            Me contacter
+                        </Button>
                     </CtaContent>
                     <FloatingCircle
-                        initial={{ x: 0, y: 0 }}
+                        initial={{ x: 0, y: 0, rotateX: 0, rotateY: 0 }}
                         animate={{
                             x: [0, 100, 0, -100, 0],
                             y: [0, 30, 0, -30, 0],
                             scale: [1, 1.05, 1, 1.03, 1],
+                            rotateX: [0, 15, 0, -15, 0],
+                            rotateY: [0, 15, 0, -15, 0],
                         }}
                         transition={{
                             duration: 20,
