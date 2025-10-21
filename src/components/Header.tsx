@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
 
-import LogoDark from "../assets/LogoDark1.png";
-import LogoLight  from "../assets/LogoLight1.png";
+// Exportation des images de logo pour utilisation directe
+// 
+import logoDark from "../assets/LogoDark1.png";
+import logoLight from "../assets/LogoLight1.png";
 
 interface HeaderProps {
     onToggleTheme: () => void;
@@ -16,7 +18,7 @@ const HeaderContainer = styled(motion.header)`
     top: 0;
     left: 0;
     right: 0;
-    padding: 1rem;
+    padding: 1rem 1rem 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -25,7 +27,7 @@ const HeaderContainer = styled(motion.header)`
     z-index: 1000;
     backdrop-filter: blur(5px);
     @media (max-width: 1224px) {
-        padding: 0 1rem;
+       // padding: 0 1rem;
     }
     @media (max-width: 768px) {
         padding: 0.5rem 0.75rem;
@@ -39,7 +41,7 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 1rem 3rem;
+    padding: 1rem;
     @media (max-width: 768px) {
         flex-direction: column;
         gap: 1rem;
@@ -48,7 +50,11 @@ const Nav = styled.nav`
 
 const Logo = styled.img`
     height: 80px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 `;
+
 
 const ThemeToggle = styled.button`
     background: none;
@@ -70,6 +76,7 @@ const ThemeToggle = styled.button`
     }
 `;
 
+
 /**
  * Header component, containing the logo and theme toggle button.
  *
@@ -84,9 +91,12 @@ const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDark }) => {
             transition={{ duration: 0.5 }}
         >
             <Nav>
-                <Link to="/">
-                    <Logo src={isDark ? LogoDark : LogoLight} alt="Nivo RAKOTO logo" />
-                </Link>
+                <Link to="/"> 
+                        <Logo 
+                            src={isDark ? logoDark : logoLight} 
+                            alt="Nivo RAKOTO logo" 
+                        /> 
+                </Link>       
 
                 <ThemeToggle data-isdark={isDark} onClick={onToggleTheme}>
                     {isDark ? <FaSun /> : <FaMoon />}

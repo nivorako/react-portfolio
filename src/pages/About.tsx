@@ -2,6 +2,8 @@ import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
 import devImage from "../assets/devIMG.webp";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 // Styled Components
 const AboutContainer = styled.div`
@@ -114,6 +116,12 @@ const Paragraph = styled.p`
     margin-bottom: 1.5rem;
 `;
 
+const ButtonWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+`;
+
 /**
  * The About component is a functional React component that provides an overview
  * of a developer's background and skills. It utilizes the `useInView` hook from
@@ -187,6 +195,11 @@ const About = () => {
                     discuter avec vous de vos projets ou de belles opportunités
                     professionnelles.
                 </Paragraph>
+                <ButtonWrapper>
+                    <Button as={Link} to="/contact">
+                        Contacter-moi
+                    </Button>
+                </ButtonWrapper>
             </Content>
         </AboutContainer>
     );

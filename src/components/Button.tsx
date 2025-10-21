@@ -11,7 +11,7 @@ const StyledButton = styled.button<ButtonProps>`
     padding: 1rem 2rem;
     font-size: 1.1rem;
     background: ${props => props.theme.background === '#0F172A' ? '#1e293b' : 'var(--secondary)'};
-    color: ${props => props.theme.background === '#0F172A' ? 'var(--primary)' : 'var(--text)'};
+    color: ${props => props.theme.background === '#0F172A' ? 'var(--textSecondary)' : 'var(--text)'};
     border: none;
     border-radius: 5px;
     cursor: pointer;
