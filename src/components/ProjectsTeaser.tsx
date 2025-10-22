@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import weare2getherImg from "../assets/wearetogether.png";
 import vtcImg from "../assets/VTC.png";
 import w2gImg from "../assets/w2g.png";
+import portfolioImg from "../assets/PortfolioIMG.png";
 
 const ProjectsSection = styled.section`
     width: 100%;
@@ -28,7 +29,7 @@ const SectionTitle = styled.h2`
 
 const ProjectsGrid = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     max-width: 1440px;
     margin: 0 auto;
@@ -51,8 +52,13 @@ const ProjectCard = styled(motion.div)`
         box-shadow 0.3s ease;
     margin: 0 auto;
     width: 100%;
-    max-width: 100%;
+    max-width: 400px;
     box-sizing: border-box;
+    
+    /* Centrer la carte orpheline sur la dernière ligne */
+    &:last-child:nth-child(3n + 1) {
+        grid-column: 2 / 3;
+    }
 
     &:hover {
         transform: translateY(-5px);
@@ -157,10 +163,11 @@ const SkillTag = styled.li`
  */
 const ProjectsTeaser = () => {
     const projects = [
+
         {
             title: "VTC",
             description:
-                "Application de réservation de véhicules avec chauffeur",
+                "Application Pour VTC",
             skills: [
                 "Création d’un design moderne avec une UX fluide.",
                 "Intégration de Stripe pour les paiements.",
@@ -180,12 +187,10 @@ const ProjectsTeaser = () => {
                 "Le design rétro évoque une esthétique intemporelle. Ce style crée une ambiance unique, chaleureuse et reconnaissable",
                 "Toutes les fonctions essentielles ont été réintégrées et testées.",
                 "Nettoyage des composants, meilleure organisation des fichiers, et réduction de la dette technique.",
-                "👉  Hébergement sécurisé, performant et évolutif.",
             ],
             image: w2gImg,
             url: "https://w2g-delta.vercel.app/",
-        },
-        
+        },       
         {
             title: "WeAre2gether",
             description:
@@ -198,6 +203,20 @@ const ProjectsTeaser = () => {
             ],
             image: weare2getherImg,
             url: "https://weare2gether.vercel.app/",
+        },
+
+        {
+            title: "Portfolio",
+            description:
+                "Site sur lequel vous êtes actuellement",
+            skills: [
+                "Création du design moderne et responsive.",
+                "Animation avec Framer Motion.",
+                "Déploiement sur DigitalOcean Droplet : configuration de l’environnement, gestion des firewalls, accès SSH.",
+                "Gestion DNS et SSL : configuration du domaine personnalisé, propagation DNS, certificat SSL."
+            ],
+            image: portfolioImg,
+            url: "#",
         },
     ];
 
