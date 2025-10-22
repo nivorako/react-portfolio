@@ -158,18 +158,6 @@ const SkillTag = styled.li`
 const ProjectsTeaser = () => {
     const projects = [
         {
-            title: "W2G",
-            description: "Refonte complet du site Weare Together",
-            skills: [
-                "Création d’un blog interactif avec authentification,",
-                "Publication de photos et commentaires.",
-                "Développement d’un espace admin pour gérer le contenu du site de manière autonome.",
-                "👉 Maîtrise de Back4App et conception d’une expérience fluide pour utilisateurs et administrateurs.",
-            ],
-            image: w2gImg,
-            url: "https://w2g-delta.vercel.app/",
-        },
-        {
             title: "VTC",
             description:
                 "Application de réservation de véhicules avec chauffeur",
@@ -184,6 +172,20 @@ const ProjectsTeaser = () => {
             image: vtcImg,
             url: "https://vtc-mu.vercel.app/",
         },
+        {
+            title: "W2G",
+            description: "Refonte complet du site WeAre2gether",
+            skills: [
+                "Passage de React vers Next Js  pour bénéficier du SSR, du routage simplifié et d’une meilleure performance. ",
+                "Le design rétro évoque une esthétique intemporelle. Ce style crée une ambiance unique, chaleureuse et reconnaissable",
+                "Toutes les fonctions essentielles ont été réintégrées et testées.",
+                "Nettoyage des composants, meilleure organisation des fichiers, et réduction de la dette technique.",
+                "👉  Hébergement sécurisé, performant et évolutif.",
+            ],
+            image: w2gImg,
+            url: "https://w2g-delta.vercel.app/",
+        },
+        
         {
             title: "WeAre2gether",
             description:

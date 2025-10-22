@@ -26,9 +26,7 @@ const HeaderContainer = styled(motion.header)`
     background: transparent;
     z-index: 1000;
     backdrop-filter: blur(5px);
-    @media (max-width: 1224px) {
-       // padding: 0 1rem;
-    }
+    
     @media (max-width: 768px) {
         padding: 0.5rem 0.75rem;
     }
@@ -44,7 +42,6 @@ const Nav = styled.nav`
     padding: 1rem;
     @media (max-width: 768px) {
         flex-direction: column;
-        gap: 1rem;
     }
 `;
 

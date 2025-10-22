@@ -320,23 +320,28 @@ export default function NewContact() {
                     <h2>LET S DISCUSS</h2>
                     <ContactItem>
                         <FiPhone />
-                        <span>+33 6 12 34 56 78</span>
+                        <span>+33 6 00 00 00 00</span>
                     </ContactItem>
                     <ContactItem>
                         <FiMail />
-                        <span>contact@exemple.com</span>
+                        <span>contact@niv-rakoto.com</span>
                     </ContactItem>
                     <ContactItem>
-                        <FiMapPin />
-                        <span>123 Rue de Paris, 75000 Paris, France</span>
+                        <FiMapPin /> 
+                        <span>Ile de france</span>
                     </ContactItem>
                 </ContactInfo>
 
                 <ContactForm>
                     <Subtitle>
-                        <span>Quelle est votre histoire ? </span>
-                        Discutons ensemble. Toujours disponible pour de beaux
-                        projets ou des opportunités professionnelles.
+                        <span>Besoin d'un développeur engagé et créatif ? </span>
+                        Je suis disponible pour des missions freelance, des collaborations ou des projets ambitieux.
+                        <br />
+                        
+                        <strong>Contactez-moi dès maintenant</strong> via le formulaire ou par email.
+                        <br />
+                       
+                        Réponse rapide garantie.
                     </Subtitle>
 
                     <Form onSubmit={handleSubmit(onSubmit)}>
