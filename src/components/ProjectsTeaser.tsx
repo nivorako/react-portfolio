@@ -56,7 +56,7 @@ const ProjectCard = styled(motion.div)`
     box-sizing: border-box;
     
     /* Centrer la carte orpheline sur la dernière ligne */
-    @media (min-width: 769px) {
+    @media (min-width: 768px) {
         &:last-child:nth-child(3n + 1) {
             grid-column: 2 / 3;
         }
