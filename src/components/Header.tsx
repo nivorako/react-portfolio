@@ -87,10 +87,10 @@ const LogoBrand = styled.div`
     }
 
     .logo-text {
-        font-family: ${props => props.theme.fontFamily};
+        font-family: 'Pacifico', cursive;
         font-size: ${props => props.theme.fontSize["2xl"]};
         font-weight: ${props => props.theme.fontWeight.bold};
-        color: ${props => props.theme.text};
+        color: ${props => props.theme.primary};
         letter-spacing: 0.05em;
         white-space: nowrap;
 

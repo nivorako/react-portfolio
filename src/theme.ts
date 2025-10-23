@@ -50,7 +50,7 @@ export const theme = {
         shadow: "rgba(0, 0, 0, 0.05)",
         accent: "#3B82F6",
 
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'Roboto', sans-serif",
         fontSize: {
             xs: "0.75rem",
             sm: "0.875rem",
@@ -85,7 +85,7 @@ export const theme = {
         shadow: "rgba(0, 0, 0, 0.3)",
         accent: "#3B82F6",
 
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'Roboto', sans-serif",
         fontSize: {
             xs: "0.75rem",
             sm: "0.875rem",

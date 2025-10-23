@@ -30,7 +30,7 @@ const Title = styled.h1`
     font-size: 2rem;
     margin-bottom: 1rem;
     line-height: 1.2;
-    color: var(--textSecondary);
+    color: var(--text);
 `;
 
 
@@ -67,7 +67,7 @@ const PresentationImage = styled.img`
 const PresentationText = styled.div`
     max-width: 600px;
     font-size: 1.1rem;
-    color: var(--textSecondary);
+    color: var(--text);
     margin-bottom: 2rem;
     line-height: 1.6;
     text-align: left;
@@ -93,7 +93,7 @@ const Avatar = styled(motion.img)`
 
 const Description = styled.p`
     font-size: 1.1rem;
-    color: var(--textSecondary);
+    color: var(--text);
     max-width: 600px;
     text-align: left;
 `;
@@ -138,7 +138,7 @@ const SkillTitle = styled.h3`
 `;
 
 const SkillDescription = styled.p`
-    color: var(--textSecondary);
+    color: var(--text);
     font-size: 0.9rem;
 `;
 
@@ -295,7 +295,7 @@ const Home = () => {
                         fontSize: "var(--font-size-4xl)",
                         marginTop: "10rem",
                         marginBottom: "2rem",
-                        color: "var(--textSecondary)",
+                        color: "var(--text)",
                     }}
                 >
                     Bienvenue sur mon portfolio ! 
@@ -339,7 +339,7 @@ const Home = () => {
                     <PresentationText>
                         <h3
                             style={{
-                                color: "var(--textSecondary)",
+                                color: "var(--text)",
                                 width: "100%",
                                 textAlign: "left",
                                 margin: "0",
