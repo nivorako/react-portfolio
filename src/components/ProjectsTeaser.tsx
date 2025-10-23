@@ -119,6 +119,16 @@ const ProjectSkills = styled.ul`
     margin: 0.5rem 0;
 `;
 
+const ClosingText = styled.p`
+    text-align: center;
+    color: var(--text);
+    font-size: 1.1rem;
+    max-width: 900px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+    line-height: 1.6;
+`;
+
 const SkillTag = styled.li`
     display: block;
     with: 100%;
@@ -181,6 +191,7 @@ const ProjectsTeaser = () => {
                 "Génération de devis/factures.",
                 "Envoi de messages via formulaire ou WhatsApp.",
                 "💡 Connexion sécurisée et gestion serveur avec Node/Express/MongoDB.",
+                "Work in progress — Ce projet évolue au fil des retours et des besoins."
             ],
             image: vtcImg,
             url: "https://vtc-mu.vercel.app/",
@@ -193,6 +204,7 @@ const ProjectsTeaser = () => {
                 "Le design rétro évoque une esthétique intemporelle. Ce style crée une ambiance unique, chaleureuse et reconnaissable",
                 "Toutes les fonctions essentielles ont été réintégrées et testées.",
                 "Nettoyage des composants, meilleure organisation des fichiers, et réduction de la dette technique.",
+                "Work in progress — certaines fonctionnalités sont en cours d’implémentation."
             ],
             image: w2gImg,
             url: "https://w2g-delta.vercel.app/",
@@ -219,7 +231,8 @@ const ProjectsTeaser = () => {
                 "Création du design moderne et responsive.",
                 "Animation avec Framer Motion.",
                 "Déploiement sur DigitalOcean Droplet : configuration de l’environnement, gestion des firewalls, accès SSH.",
-                "Gestion DNS et SSL : configuration du domaine personnalisé, propagation DNS, certificat SSL."
+                "Gestion DNS et SSL : configuration du domaine personnalisé, propagation DNS, certificat SSL.",
+                "Work in progress — certaines fonctionnalités sont en cours d’implémentation."
             ],
             image: portfolioImg,
             url: "#",
@@ -272,13 +285,25 @@ const ProjectsTeaser = () => {
                             </p>
                             <ProjectSkills>
                                 {project.skills.map((s, i) => (
-                                    <SkillTag key={i}>{s}</SkillTag>
+                                    <SkillTag key={i}>
+                                        {s.includes("Work in progress") ? (
+                                            <>
+                                                <strong>Work in progress</strong>
+                                                {s.replace("Work in progress", "")}
+                                            </>
+                                        ) : (
+                                            s
+                                        )}
+                                    </SkillTag>
                                 ))}
                             </ProjectSkills>
                         </ProjectContent>
                     </ProjectCard>
                 ))}
             </ProjectsGrid>
+            <ClosingText>
+                Je reste en veille constante sur les technologies émergentes et continue de développer de nouveaux projets pour enrichir mes compétences.
+            </ClosingText>
             {/* <ViewMoreButton to="/projects">Voir plus de projets</ViewMoreButton> */}
         </ProjectsSection>
     );
