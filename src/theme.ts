@@ -76,10 +76,10 @@ export const theme = {
     dark: {
         primary: "#818CF8",
         secondary: "#60A5FA",
-        background: "#0F172A",
+        background: "#121e38",
         surface: "#1E293B",
         toggleBTN: "#ffffff",
-        text: "#F8FAFC",
+        text: "#F8FAFC", 
         textSecondary: "#94A3B8",
         border: "#334155",
         shadow: "rgba(0, 0, 0, 0.3)",
