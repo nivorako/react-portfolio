@@ -56,13 +56,19 @@ const ProjectCard = styled(motion.div)`
     box-sizing: border-box;
     
     /* Centrer la carte orpheline sur la dernière ligne */
-    &:last-child:nth-child(3n + 1) {
-        grid-column: 2 / 3;
+    @media (min-width: 769px) {
+        &:last-child:nth-child(3n + 1) {
+            grid-column: 2 / 3;
+        }
     }
 
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        max-width: 100%;
     }
 
     @media (max-width: 480px) {
