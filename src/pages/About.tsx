@@ -197,7 +197,7 @@ const About = () => {
                 </Paragraph>
                 <ButtonWrapper>
                     <Button as={Link} to="/contact">
-                        Contacter-moi
+                        Contactez-moi
                     </Button>
                 </ButtonWrapper>
             </Content>

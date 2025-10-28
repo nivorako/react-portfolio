@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import webDesign from "../assets/web-design.webp";
 import { motion } from "framer-motion";
 import avatar from "../assets/avatar.webp";
+import Me from "../assets/me.jpg";
 import ProjectsTeaser from "../components/ProjectsTeaser";
 import Button from "../components/Button";
 
@@ -88,6 +89,7 @@ const Avatar = styled(motion.img)`
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center bottom;
     border: 3px solid var(--secondary);
 `;
 
@@ -305,7 +307,7 @@ const Home = () => {
 
                 <ProfileSection>
                     <Avatar
-                        src={avatar}
+                        src={Me}
                         alt="Nivo-RAKOTO"
                         animate={{
                             scale: [1, 1.1, 1],
@@ -322,7 +324,12 @@ const Home = () => {
                         des applications web modernes et performantes, alliant
                         créativité et innovation technique.
                     </Description>
-                    <Button onClick={scrollToSection}>Voir mes projets</Button>
+                    <Button 
+                        as={Link} 
+                        to="/contact"
+                    >
+                        Me contacter
+                    </Button>
                 </ProfileSection>
 
                 <PresentationContainer
