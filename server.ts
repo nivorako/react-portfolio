@@ -1,5 +1,5 @@
 import express from 'express';
-import cors from 'cors';
+import cors, { CorsOptions } from 'cors';
 import { sendEmail } from './src/lib/email';
 import dotenv from 'dotenv';
 
@@ -14,9 +14,9 @@ const allowedOrigins = [
   'http://localhost:5174',
   'https://new-portfolio-4bsv.vercel.app',
   process.env.FRONTEND_URL // Add your production frontend URL from .env
-].filter(Boolean); // Filter out undefined values
+].filter((origin): origin is string => Boolean(origin)); // Filter out undefined values
 
-const corsOptions = {
+const corsOptions: CorsOptions = {
   origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],

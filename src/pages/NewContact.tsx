@@ -338,7 +338,7 @@ export default function NewContact() {
                         Je suis disponible pour des missions freelance, des collaborations ou des projets ambitieux.
                         <br />
                         
-                        <strong>Contactez-moi dès maintenant</strong> via le formulaire ou par email.
+                        <strong>Contactez-moi dès maintenant</strong> via ce formulaire ou par email.
                         <br />
                        
                         Réponse rapide garantie.
