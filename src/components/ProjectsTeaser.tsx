@@ -54,7 +54,7 @@ const ProjectCard = styled(motion.div)`
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
-    
+
     /* Centrer la carte orpheline sur la dernière ligne */
     @media (min-width: 768px) {
         &:last-child:nth-child(3n + 1) {
@@ -179,11 +179,9 @@ const SkillTag = styled.li`
  */
 const ProjectsTeaser = () => {
     const projects = [
-
         {
             title: "VTC",
-            description:
-                "Application Pour VTC",
+            description: "Application Pour VTC",
             skills: [
                 "Création d’un design moderne avec une UX fluide.",
                 "Intégration de Stripe pour les paiements.",
@@ -191,7 +189,7 @@ const ProjectsTeaser = () => {
                 "Génération de devis/factures.",
                 "Envoi de messages via formulaire ou WhatsApp.",
                 "💡 Connexion sécurisée et gestion serveur avec Node/Express/MongoDB.",
-                "Work in progress — Ce projet évolue au fil des retours et des besoins."
+                "Work in progress — Ce projet évolue au fil des retours et des besoins.",
             ],
             image: vtcImg,
             url: "https://vtc-mu.vercel.app/",
@@ -204,11 +202,11 @@ const ProjectsTeaser = () => {
                 "Le design rétro évoque une esthétique intemporelle. Ce style crée une ambiance unique, chaleureuse et reconnaissable",
                 "Toutes les fonctions essentielles ont été réintégrées et testées.",
                 "Nettoyage des composants, meilleure organisation des fichiers, et réduction de la dette technique.",
-                "Work in progress — certaines fonctionnalités sont en cours d’implémentation."
+                "Work in progress — certaines fonctionnalités sont en cours d’implémentation.",
             ],
             image: w2gImg,
             url: "https://w2g-delta.vercel.app/",
-        },       
+        },
         {
             title: "WeAre2gether",
             description:
@@ -225,14 +223,13 @@ const ProjectsTeaser = () => {
 
         {
             title: "Portfolio",
-            description:
-                "Site sur lequel vous êtes actuellement",
+            description: "Site sur lequel vous êtes actuellement",
             skills: [
                 "Création du design moderne et responsive.",
                 "Animation avec Framer Motion.",
                 "Déploiement sur DigitalOcean Droplet : configuration de l’environnement, gestion des firewalls, accès SSH.",
                 "Gestion DNS et SSL : configuration du domaine personnalisé, propagation DNS, certificat SSL.",
-                "Work in progress — certaines fonctionnalités sont en cours d’implémentation."
+                "Work in progress — certaines fonctionnalités sont en cours d’implémentation.",
             ],
             image: portfolioImg,
             url: "#",
@@ -288,8 +285,13 @@ const ProjectsTeaser = () => {
                                     <SkillTag key={i}>
                                         {s.includes("Work in progress") ? (
                                             <>
-                                                <strong>Work in progress</strong>
-                                                {s.replace("Work in progress", "")}
+                                                <strong>
+                                                    Work in progress
+                                                </strong>
+                                                {s.replace(
+                                                    "Work in progress",
+                                                    ""
+                                                )}
                                             </>
                                         ) : (
                                             s
@@ -302,7 +304,9 @@ const ProjectsTeaser = () => {
                 ))}
             </ProjectsGrid>
             <ClosingText>
-                Je reste en veille constante sur les technologies émergentes et continue de développer de nouveaux projets pour enrichir mes compétences.
+                Je reste en veille constante sur les technologies émergentes et
+                continue de développer de nouveaux projets pour enrichir mes
+                compétences.
             </ClosingText>
             {/* <ViewMoreButton to="/projects">Voir plus de projets</ViewMoreButton> */}
         </ProjectsSection>

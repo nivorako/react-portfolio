@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
 
-
 interface HeaderProps {
     onToggleTheme: () => void;
     isDark: boolean;
@@ -36,11 +35,11 @@ const Nav = styled.nav`
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
-    
+
     a {
         text-decoration: none;
     }
-    
+
     @media (max-width: 768px) {
         flex-direction: column;
     }
@@ -66,40 +65,39 @@ const LogoBrand = styled.div`
 
         /* Adaptation du SVG au thème */
         .gear-shape {
-            fill: ${props => props.theme.primary};
-            stroke: ${props => props.theme.text};
+            fill: ${(props) => props.theme.primary};
+            stroke: ${(props) => props.theme.text};
             stroke-width: 1.5;
             opacity: 0.9;
         }
 
         /* Anneau intérieur */
         .inner-ring {
-            stroke: ${props => props.theme.text};
+            stroke: ${(props) => props.theme.text};
             stroke-width: 3;
         }
 
         /* Cercle central */
         .center-circle {
-            fill: ${props => props.theme.background};
-            stroke: ${props => props.theme.primary};
+            fill: ${(props) => props.theme.background};
+            stroke: ${(props) => props.theme.primary};
             stroke-width: 2;
         }
     }
 
     .logo-text {
-        font-family: 'Pacifico', cursive;
-        font-size: ${props => props.theme.fontSize["2xl"]};
-        font-weight: ${props => props.theme.fontWeight.bold};
-        color: ${props => props.theme.primary};
+        font-family: "Pacifico", cursive;
+        font-size: ${(props) => props.theme.fontSize["2xl"]};
+        font-weight: ${(props) => props.theme.fontWeight.bold};
+        color: ${(props) => props.theme.primary};
         letter-spacing: 0.05em;
         white-space: nowrap;
 
         @media (max-width: 768px) {
-            font-size: ${props => props.theme.fontSize.xl};
+            font-size: ${(props) => props.theme.fontSize.xl};
         }
     }
 `;
-
 
 const ThemeToggle = styled.button`
     background: none;
@@ -121,7 +119,6 @@ const ThemeToggle = styled.button`
     }
 `;
 
-
 /**
  * Header component, containing the logo and theme toggle button.
  *
@@ -138,9 +135,15 @@ const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDark }) => {
             <Nav>
                 <Link to="/">
                     <LogoBrand>
-                        <svg className="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <svg
+                            className="logo-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 100 100"
+                        >
                             {/* Roue crantée avec 8 dents alternées (style paramètres) */}
-                            <path className="gear-shape" d="
+                            <path
+                                className="gear-shape"
+                                d="
                                 M 50 5
                                 L 45 5 L 45 15 L 40 15 L 40 18
                                 L 35 18 L 32 22 L 28 22 L 25 25
@@ -167,17 +170,29 @@ const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDark }) => {
                                 L 65 18 L 60 18 L 60 15
                                 L 55 15 L 55 5
                                 Z
-                            " />
-                            
+                            "
+                            />
+
                             {/* Anneau intérieur */}
-                            <circle cx="50" cy="50" r="20" className="inner-ring" fill="none" />
-                            
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="20"
+                                className="inner-ring"
+                                fill="none"
+                            />
+
                             {/* Cercle central */}
-                            <circle cx="50" cy="50" r="12" className="center-circle" />
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="12"
+                                className="center-circle"
+                            />
                         </svg>
                         <span className="logo-text">NIVO RAKOTO</span>
                     </LogoBrand>
-                </Link>       
+                </Link>
 
                 <ThemeToggle data-isdark={isDark} onClick={onToggleTheme}>
                     {isDark ? <FaSun /> : <FaMoon />}

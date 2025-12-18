@@ -1,6 +1,14 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
-import { FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
+import { useState, useEffect, type MouseEvent } from "react";
+import {
+    FaReact,
+    FaNodeJs,
+    FaGithub,
+    FaLock,
+    FaCreditCard,
+    FaSearch,
+    FaBolt,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import webDesign from "../assets/web-design.webp";
 import { motion } from "framer-motion";
@@ -29,11 +37,11 @@ const HomeContainer = styled.div`
 
 const Title = styled.h1`
     font-size: 2rem;
+    margin-top: 7rem;
     margin-bottom: 1rem;
     line-height: 1.2;
     color: var(--text);
 `;
-
 
 const PresentationContainer = styled(motion.div)`
     width: 100%;
@@ -74,13 +82,11 @@ const PresentationText = styled.div`
     text-align: left;
 `;
 
-
-
 const ProfileSection = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     margin-top: 2rem;
 `;
 
@@ -97,7 +103,16 @@ const Description = styled.p`
     font-size: 1.1rem;
     color: var(--text);
     max-width: 600px;
-    text-align: left;
+    text-align: center;
+`;
+
+const RealisationsLink = styled.a`
+    color: var(--secondary);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
 `;
 
 const SkillsSection = styled.div`
@@ -184,7 +199,7 @@ const FloatingCircle = styled(motion.div)`
     filter: brightness(1.1);
     opacity: 0.9;
     transform-style: preserve-3d;
-    box-shadow: 
+    box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.3),
         0 40px 100px rgba(0, 0, 0, 0.2),
         inset 0 -20px 40px rgba(0, 0, 0, 0.2),
@@ -268,6 +283,12 @@ const scrollToSection = () => {
 const Home = () => {
     const [scale, setScale] = useState(1);
 
+    const scrollToSkills = (e: MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const element = document.getElementById("skills");
+        element?.scrollIntoView({ behavior: "smooth" });
+    };
+
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
@@ -289,22 +310,58 @@ const Home = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const skills = [
+        {
+            title: "Frontend Expert",
+            description:
+                "React, TypeScript, Next.js - Applications web modernes et réactives",
+            icon: <FaReact />,
+        },
+        {
+            title: "Backend Maîtrisé",
+            description:
+                "Express.js, MongoDB - Architecture robuste et performante",
+            icon: <FaNodeJs />,
+        },
+        {
+            title: "DevOps Pratiqué",
+            description:
+                "Github / Vercel - Gestion de versions et déploiement continu",
+            icon: <FaGithub />,
+        },
+        {
+            title: "Authentification & paiements",
+            description:
+                "Stripe, Auth.js (NextAuth), sécurité des flux utilisateurs",
+            icon: (
+                <span style={{ display: "inline-flex", gap: "0.35rem" }}>
+                    <FaLock />
+                    <FaCreditCard />
+                </span>
+            ),
+        },
+         {
+            title: "SEO & Performance",
+            description:
+                "Core Web Vitals, optimisation Lighthouse, SSR/SSG (Next.js)",
+            icon: (
+                <span style={{ display: "inline-flex", gap: "0.35rem" }}>
+                    <FaSearch />
+                    <FaBolt />
+                </span>
+            ),
+        },
+    ];
+
     return (
         <>
             <HomeContainer id="home">
-                <div
-                    style={{
-                        fontSize: "var(--font-size-4xl)",
-                        marginTop: "10rem",
-                        marginBottom: "2rem",
-                        color: "var(--text)",
-                    }}
-                >
-                    Bienvenue sur mon portfolio ! 
-                </div>
-                
-                <Title>Développeur Web</Title>
 
+                <Title>CREATION DE SITE WEB</Title>
+
+                <Description>Rapide et sur-mesure</Description>
+                <Description>pour indépendants et PME</Description>
+                
                 <ProfileSection>
                     <Avatar
                         src={Me}
@@ -320,14 +377,15 @@ const Home = () => {
                         }}
                     />
                     <Description>
-                        Je transforme vos idées en réalité numérique, je crée
-                        des applications web modernes et performantes, alliant
-                        créativité et innovation technique.
+                        “Je crée des applications web performantes pour PME & startups 
+                        avec React, Next.js & Node.js — disponibles pour missions freelance.”
                     </Description>
-                    <Button 
-                        as={Link} 
-                        to="/contact"
-                    >
+
+                    <RealisationsLink href="#skills" onClick={scrollToSkills}>
+                        Voir mes réalisations
+                    </RealisationsLink>
+                    
+                    <Button as={Link} to="/contact">
                         Me contacter
                     </Button>
                 </ProfileSection>
@@ -368,56 +426,21 @@ const Home = () => {
                     </Button>
                 </PresentationContainer>
 
-                <SkillsSection>
-                    <SkillCard
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: scale }}
-                        whileHover={{ scale: 1.1 }}
-                        viewport={{ amount: 0.2 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                    >
-                        <SkillIcon>
-                            <FaReact />
-                        </SkillIcon>
-                        <SkillTitle>Frontend Expert</SkillTitle>
-                        <SkillDescription>
-                            React, TypeScript, Next.js - Applications web
-                            modernes et réactives
-                        </SkillDescription>
-                    </SkillCard>
-
-                    <SkillCard
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: scale }}
-                        whileHover={{ scale: 1.1 }}
-                        viewport={{ amount: 0.2 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                    >
-                        <SkillIcon>
-                            <FaNodeJs />
-                        </SkillIcon>
-                        <SkillTitle>Backend Maîtrisé</SkillTitle>
-                        <SkillDescription>
-                            Express.js, MongoDB - Architecture robuste et
-                            performante
-                        </SkillDescription>
-                    </SkillCard>
-
-                    <SkillCard
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: scale }}
-                        whileHover={{ scale: 1.1 }}
-                        viewport={{ amount: 0.2 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                    >
-                        <SkillIcon>
-                            <FaGithub />
-                        </SkillIcon>
-                        <SkillTitle>DevOps Pratiqué</SkillTitle>
-                        <SkillDescription>
-                            Github - Gestion de versions et déploiement continu
-                        </SkillDescription>
-                    </SkillCard>
+                <SkillsSection id="skills">
+                    {skills.map((skill) => (
+                        <SkillCard
+                            key={skill.title}
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: scale }}
+                            whileHover={{ scale: 1.1 }}
+                            viewport={{ amount: 0.2 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <SkillIcon>{skill.icon}</SkillIcon>
+                            <SkillTitle>{skill.title}</SkillTitle>
+                            <SkillDescription>{skill.description}</SkillDescription>
+                        </SkillCard>
+                    ))}
                 </SkillsSection>
 
                 <ProjectsTeaser />

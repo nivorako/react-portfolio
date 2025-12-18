@@ -44,7 +44,10 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
         >
             <SocialLinks>
-                <SocialLink href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank">
+                <SocialLink
+                    href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin"
+                    target="_blank"
+                >
                     LinkedIn
                 </SocialLink>
                 <SocialLink href="#" target="_blank">

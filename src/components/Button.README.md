@@ -10,26 +10,26 @@ import Button from "../components/Button";
 
 ## Propriétés
 
-| Propriété  | Type                                  | Par défaut    | Description                                           |
-|------------|---------------------------------------|---------------|-------------------------------------------------------|
-| variant    | "primary" \| "secondary" \| "submit"  | "secondary"   | Variante de style du bouton                          |
-| fullWidth  | boolean                               | false         | Étend le bouton sur toute la largeur (max 300px)    |
-| as         | any                                   | -             | Permet de transformer le bouton en autre élément     |
-| to         | string                                | -             | URL de destination (utilisé avec `as={Link}`)        |
-| ...props   | ButtonHTMLAttributes                  | -             | Toutes les propriétés HTML standard d'un bouton      |
+| Propriété | Type                                 | Par défaut  | Description                                      |
+| --------- | ------------------------------------ | ----------- | ------------------------------------------------ |
+| variant   | "primary" \| "secondary" \| "submit" | "secondary" | Variante de style du bouton                      |
+| fullWidth | boolean                              | false       | Étend le bouton sur toute la largeur (max 300px) |
+| as        | any                                  | -           | Permet de transformer le bouton en autre élément |
+| to        | string                               | -           | URL de destination (utilisé avec `as={Link}`)    |
+| ...props  | ButtonHTMLAttributes                 | -           | Toutes les propriétés HTML standard d'un bouton  |
 
 ## Variantes
 
 ### Secondary (par défaut)
+
 Bouton avec fond secondaire, idéal pour les actions standards.
 
 ```tsx
-<Button onClick={handleClick}>
-    Cliquez ici
-</Button>
+<Button onClick={handleClick}>Cliquez ici</Button>
 ```
 
 ### Primary
+
 Bouton avec fond primaire, pour les actions importantes.
 
 ```tsx
@@ -39,6 +39,7 @@ Bouton avec fond primaire, pour les actions importantes.
 ```
 
 ### Submit
+
 Bouton pour les formulaires, avec styles optimisés pour la soumission.
 
 ```tsx
@@ -52,9 +53,7 @@ Bouton pour les formulaires, avec styles optimisés pour la soumission.
 ### Bouton standard
 
 ```tsx
-<Button onClick={scrollToSection}>
-    Voir mes projets
-</Button>
+<Button onClick={scrollToSection}>Voir mes projets</Button>
 ```
 
 ### Bouton avec lien (React Router)
@@ -64,18 +63,13 @@ import { Link } from "react-router-dom";
 
 <Button as={Link} to="/contact">
     Me contacter
-</Button>
+</Button>;
 ```
 
 ### Bouton de formulaire pleine largeur
 
 ```tsx
-<Button
-    type="submit"
-    variant="submit"
-    fullWidth
-    disabled={isSubmitting}
->
+<Button type="submit" variant="submit" fullWidth disabled={isSubmitting}>
     {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
 </Button>
 ```
@@ -83,14 +77,13 @@ import { Link } from "react-router-dom";
 ### Bouton désactivé
 
 ```tsx
-<Button disabled>
-    Bouton désactivé
-</Button>
+<Button disabled>Bouton désactivé</Button>
 ```
 
 ## Styles
 
 Le composant utilise les variables CSS suivantes :
+
 - `--secondary` : Couleur de fond par défaut
 - `--text` : Couleur du texte
 - `--primary` : Couleur primaire pour les variantes

@@ -199,7 +199,6 @@ const TextArea = styled.textarea`
     }
 `;
 
-
 const ErrorMessage = styled.span`
     color: #ff4d4f;
     font-size: 0.875rem;
@@ -327,20 +326,22 @@ export default function NewContact() {
                         <span>contact@niv-rakoto.com</span>
                     </ContactItem>
                     <ContactItem>
-                        <FiMapPin /> 
+                        <FiMapPin />
                         <span>Ile de france</span>
                     </ContactItem>
                 </ContactInfo>
 
                 <ContactForm>
                     <Subtitle>
-                        <span>Besoin d'un développeur engagé et créatif ? </span>
-                        Je suis disponible pour des missions freelance, des collaborations ou des projets ambitieux.
+                        <span>
+                            Besoin d'un développeur engagé et créatif ?{" "}
+                        </span>
+                        Je suis disponible pour des missions freelance, des
+                        collaborations ou des projets ambitieux.
                         <br />
-                        
-                        <strong>Contactez-moi dès maintenant</strong> via ce formulaire ou par email.
+                        <strong>Contactez-moi dès maintenant</strong> via ce
+                        formulaire ou par email.
                         <br />
-                       
                         Réponse rapide garantie.
                     </Subtitle>
 

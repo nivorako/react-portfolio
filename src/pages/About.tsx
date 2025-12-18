@@ -116,6 +116,21 @@ const Paragraph = styled.p`
     margin-bottom: 1.5rem;
 `;
 
+const WorkWithTitle = styled.h3`
+    margin: 1rem 0 0.75rem;
+    color: var(--text);
+    font-size: 1.3rem;
+`;
+
+const WorkWithList = styled.ul`
+    margin: 0 0 1.5rem;
+    padding-left: 1.2rem;
+    color: var(--textSecondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: left;
+`;
+
 const ButtonWrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -195,6 +210,13 @@ const About = () => {
                     discuter avec vous de vos projets ou de belles opportunités
                     professionnelles.
                 </Paragraph>
+
+                <WorkWithTitle>Pour qui je travaille</WorkWithTitle>
+                <WorkWithList>
+                    <li>Startups SaaS</li>
+                    <li>PME / TPE</li>
+                    <li>Agences web</li>
+                </WorkWithList>
                 <ButtonWrapper>
                     <Button as={Link} to="/contact">
                         Contactez-moi
