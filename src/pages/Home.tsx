@@ -40,7 +40,14 @@ const Title = styled.h1`
     margin-top: 7rem;
     margin-bottom: 1rem;
     line-height: 1.2;
-    color: var(--text);
+    color: var(--primary);
+`;
+
+const SectionTitle = styled.h2`
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary);
 `;
 
 const PresentationContainer = styled(motion.div)`
@@ -107,7 +114,7 @@ const Description = styled.p`
 `;
 
 const RealisationsLink = styled.a`
-    color: var(--secondary);
+    color: var(--primary);
     text-decoration: underline;
     cursor: pointer;
     font-size: 1rem;
@@ -121,6 +128,13 @@ const SkillsSection = styled.div`
     gap: 2rem;
     margin: 2rem 0;
     padding: 0;
+    width: 100%;
+`;
+
+const SkillsGrid = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     width: 100%;
 
     @media (min-width: 768px) {
@@ -190,7 +204,10 @@ const CtaContent = styled.div`
 const FloatingCircle = styled(motion.div)`
     position: absolute;
     border-radius: 50%;
-    background: linear-gradient(145deg, var(--primary), var(--secondary));
+    background: ${({ theme }) =>
+        theme.background === "#121e38"
+            ? "linear-gradient(145deg, #4F46E5, #818CF8)"
+            : "linear-gradient(145deg, var(--primary), var(--secondary))"};
     z-index: 1;
     pointer-events: none;
     aspect-ratio: 1;
@@ -210,11 +227,11 @@ const CtaTitle = styled.h2`
     font-size: 2.5rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    background: var(--text);
+    background: var(--primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
+    color: black;
     position: relative;
     z-index: 2;
     @media (max-width: 768px) {
@@ -396,23 +413,13 @@ const Home = () => {
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                     viewport={{ amount: 0.5 }}
                 >
+                    <SectionTitle>Mon histoire</SectionTitle>
                     <PresentationImage
                         src={webDesign}
                         alt="Formation et développement"
                     />
 
                     <PresentationText>
-                        <h3
-                            style={{
-                                color: "var(--text)",
-                                width: "100%",
-                                textAlign: "left",
-                                margin: "0",
-                                padding: "0",
-                            }}
-                        >
-                            Mon Histoire :
-                        </h3>
                         <p>
                             Passionné par le développement web, j’aide les
                             entreprises à transformer leurs idées en solutions
@@ -427,20 +434,25 @@ const Home = () => {
                 </PresentationContainer>
 
                 <SkillsSection id="skills">
-                    {skills.map((skill) => (
-                        <SkillCard
-                            key={skill.title}
-                            initial={{ scale: 0 }}
-                            whileInView={{ scale: scale }}
-                            whileHover={{ scale: 1.1 }}
-                            viewport={{ amount: 0.2 }}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                        >
-                            <SkillIcon>{skill.icon}</SkillIcon>
-                            <SkillTitle>{skill.title}</SkillTitle>
-                            <SkillDescription>{skill.description}</SkillDescription>
-                        </SkillCard>
-                    ))}
+                    <SectionTitle>Compétences</SectionTitle>
+
+                    <SkillsGrid>
+                        {skills.map((skill) => (
+                            <SkillCard
+                                key={skill.title}
+                                initial={{ scale: 0 }}
+                                whileInView={{ scale: scale }}
+                                whileHover={{ scale: 1.1 }}
+                                viewport={{ amount: 0.2 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                            >
+                                <SkillIcon>{skill.icon}</SkillIcon>
+                                <SkillTitle>{skill.title}</SkillTitle>
+                                <SkillDescription>{skill.description}</SkillDescription>
+                            </SkillCard>
+                        ))}
+                    </SkillsGrid>
+                    
                 </SkillsSection>
 
                 <ProjectsTeaser />

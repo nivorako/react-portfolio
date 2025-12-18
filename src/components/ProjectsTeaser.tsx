@@ -24,7 +24,7 @@ const SectionTitle = styled.h2`
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--text);
+    color: var(--primary);
 `;
 
 const ProjectsGrid = styled.div`
@@ -144,28 +144,6 @@ const SkillTag = styled.li`
     box-sizing: border-box;
 `;
 
-// const ViewMoreButton = styled(Link)`
-//     display: block;
-//     width: max-content;
-//     margin: 3rem auto 0;
-//     padding: 1rem 2rem;
-//     font-size: 1.1rem;
-//     background: var(--secondary);
-//     color: var(--text);
-//     border: none;
-//     border-radius: 5px;
-//     text-decoration: none;
-//     text-align: center;
-//     transition: all 0.3s ease;
-//     &:hover {
-//         transform: translateY(-2px);
-//         background: #1e293b;
-//         color: var(--primary);
-//     }
-//     &:active {
-//         transform: scale(0.98);
-//     }
-// `;
 
 /**
  * Component displaying a teaser of recent projects.

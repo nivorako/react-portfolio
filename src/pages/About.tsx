@@ -32,7 +32,7 @@ const Title = styled.h1`
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
-    color: var(--text);
+    color: var(--primary);
 
     @media (max-width: 768px) {
         font-size: 2rem;
@@ -112,20 +112,20 @@ const TextContent = styled.div`
 const Paragraph = styled.p`
     font-size: 1.1rem;
     line-height: 1.6;
-    color: var(--textSecondary);
+    color: var(--text);
     margin-bottom: 1.5rem;
 `;
 
 const WorkWithTitle = styled.h3`
     margin: 1rem 0 0.75rem;
-    color: var(--text);
+    color: var(--primary);
     font-size: 1.3rem;
 `;
 
 const WorkWithList = styled.ul`
     margin: 0 0 1.5rem;
     padding-left: 1.2rem;
-    color: var(--textSecondary);
+    color: var(--text);
     font-size: 1.05rem;
     line-height: 1.6;
     text-align: left;
