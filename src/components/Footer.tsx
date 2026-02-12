@@ -50,7 +50,7 @@ const Footer = () => {
                 >
                     LinkedIn
                 </SocialLink>
-                <SocialLink href="#" target="_blank">
+                <SocialLink href="https://github.com/nivorako/react-portfolio" target="_blank">
                     GitHub
                 </SocialLink>
                 <SocialLink href="#" target="_blank">
