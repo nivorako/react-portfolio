@@ -205,8 +205,8 @@ const ProjectsTeaser = () => {
             skills: [
                 "Création du design moderne et responsive.",
                 "Animation avec Framer Motion.",
-                "Déploiement sur DigitalOcean Droplet : configuration de l’environnement, gestion des firewalls, accès SSH.",
-                "Gestion DNS et SSL : configuration du domaine personnalisé, propagation DNS, certificat SSL.",
+                "Déploiement sur Vercel : configuration du projet, builds automatiques via Git (CI/CD), gestion des variables d'environnement et des previews.",
+                "Domaine & HTTPS sur Vercel : connexion du domaine personnalisé, configuration DNS (records), SSL automatique et redirections (www / non-www).",             
                 "Work in progress — certaines fonctionnalités sont en cours d’implémentation.",
             ],
             image: portfolioImg,
