@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import webDesign from "../assets/web-design.webp";
 import { motion } from "framer-motion";
-import avatar from "../assets/avatar.webp";
+//import avatar from "../assets/avatar.webp";
 import Me from "../assets/me.jpg";
 import ProjectsTeaser from "../components/ProjectsTeaser";
 import Button from "../components/Button";
@@ -299,7 +299,7 @@ const scrollToSection = () => {
  */
 const Home = () => {
     const [scale, setScale] = useState(1);
-
+    console.log("Home components loaded");
     const scrollToSkills = (e: MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
         const element = document.getElementById("skills");

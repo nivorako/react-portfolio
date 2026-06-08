@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { FaExternalLinkAlt } from "react-icons/fa";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import weare2getherImg from "../assets/wearetogether.png";
 import vtcImg from "../assets/VTC.png";
 import w2gImg from "../assets/w2g.png";
 import portfolioImg from "../assets/PortfolioIMG.png";
+import familienImg from "../assets/familien.png";
 
 const ProjectsSection = styled.section`
     width: 100%;
@@ -101,6 +102,28 @@ const ProjectTitle = styled.h3`
     }
 `;
 
+const CaseStudyButton = styled(Link)`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+
+    &:hover {
+        background: var(--secondary);
+        transform: translateY(-2px);
+    }
+`;
+
 const ProjectLink = styled.a`
     color: var(--primary);
     font-size: 1.2rem;
@@ -157,6 +180,22 @@ const SkillTag = styled.li`
  */
 const ProjectsTeaser = () => {
     const projects = [
+        {
+            title: "Familien",
+            description: "Organisation familiale autour d un patient Alzheimer",
+            skills: [
+                "Création d'une application qui optimise l organisation familiale.",
+                "gestion des accès selon user role.",
+                "structure : next Js, tailwind, mongodb, node js, express, payload cms",
+                "gestion des données avec payload cms",
+                "centralisation des informations,",
+                "💡 Connexion sécurisée et gestion serveur avec Node/Express/MongoDB.",
+                "Work in progress — Ce projet évolue au fil des retours et des besoins.",
+            ],
+            image: familienImg,
+            url: "https://avec-toi-hazel.vercel.app/",
+            caseStudyUrl: "/case-study",
+        },
         {
             title: "VTC",
             description: "Application Pour VTC",
@@ -236,7 +275,13 @@ const ProjectsTeaser = () => {
                         />
                         <ProjectContent>
                             <ProjectTitle>
-                                {project.title}
+                                {project.caseStudyUrl ? (
+                                    <CaseStudyButton to={project.caseStudyUrl}>
+                                        Étude de cas
+                                    </CaseStudyButton>
+                                ) : (
+                                    project.title
+                                )}
                                 <ProjectLink
                                     href={project.url}
                                     target="_blank"

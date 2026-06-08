@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import About from "./pages/About";
 import { theme } from "./theme";
 import Contact from "./pages/NewContact";
+import CaseStudy from "./pages/CaseStudy";
 
 /**
  * Scrolls the window to the top of the page whenever the pathname changes.
@@ -94,7 +95,8 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/about" element={<About />} />
-                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/contact" element={<Contact />}/>
+                            <Route path="/case-study" element={<CaseStudy />}/>
                         </Routes>
                     </main>
                     <Footer />
