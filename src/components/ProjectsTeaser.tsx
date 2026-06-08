@@ -6,7 +6,7 @@ import weare2getherImg from "../assets/wearetogether.png";
 import vtcImg from "../assets/VTC.png";
 import w2gImg from "../assets/w2g.png";
 import portfolioImg from "../assets/PortfolioIMG.png";
-import familienImg from "../assets/familien.png";
+import familienImg from "../assets/fAMILIEN.png";
 
 const ProjectsSection = styled.section`
     width: 100%;
