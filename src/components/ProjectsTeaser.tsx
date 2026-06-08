@@ -189,7 +189,7 @@ const ProjectsTeaser = () => {
                 "structure : next Js, tailwind, mongodb, node js, express, payload cms",
                 "gestion des données avec payload cms",
                 "centralisation des informations,",
-                "💡 Connexion sécurisée et gestion serveur avec Node/Express/MongoDB.",
+                "💡 Connexion sécurisée.",
                 "Work in progress — Ce projet évolue au fil des retours et des besoins.",
             ],
             image: familienImg,

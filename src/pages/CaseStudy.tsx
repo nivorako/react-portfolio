@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const PageContainer = styled.section`
     width: 100%;
@@ -12,7 +13,10 @@ const PageContainer = styled.section`
 
 const Content = styled.div`
     max-width: 900px;
-    margin: 0 auto;
+    margin: 3rem auto 0;
+    @media (max-width: 640px) {
+        font-size: 0.9rem;
+    }
 `;
 
 const Title = styled.h1`
@@ -27,7 +31,7 @@ const Intro = styled.p`
     margin-bottom: 3rem;
 `;
 
-const StudySection = styled.section`
+const StudySection = styled(motion.section)`
     margin-bottom: 2.5rem;
     padding: 2rem;
     border-radius: 12px;
@@ -78,23 +82,39 @@ const CaseStudy = () => {
                     identifiés et des solutions mises en place.
                 </Intro>
 
-                <StudySection>
+                <StudySection
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    viewport={{ amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
                     <SectionTitle>Problèmes</SectionTitle>
                     <SectionContent>
                         <p>Lorsqu'une personne est atteinte d'Alzheimer, plusieurs aidants interviennent souvent :</p>
 
-                        <p>conjoint ;</p>
-                        <p>enfants ;</p>
-                        <p>auxiliaires de vie ;</p>
-                        <p>professionnels de santé.</p>
+                        <SectionList>
+                            <li>conjoint ;</li>
+                            <li>enfants ;</li>
+                            <li>auxiliaires de vie ;</li>
+                            <li>professionnels de santé.</li>
+                        </SectionList>
 
+                       <SectionParagraph>
                         <p>Les informations sont dispersées entre appels, messages, documents papier et emails.</p>
-
                         <p>Cette dispersion peut entraîner des oublis, des doublons ou une mauvaise coordination.</p>
+                       </SectionParagraph>
                     </SectionContent>
                 </StudySection>
 
-                <StudySection>
+                <StudySection
+                     initial={{
+                            opacity: 0,y:40,
+                        }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                        viewport={{ amount: 0.2 }}
+                >
                     <SectionTitle>Analyses</SectionTitle>
                     <SectionContent>
                         <p>Après étude du sujet et échanges avec des aidants, plusieurs besoins sont apparus :</p>
@@ -109,21 +129,35 @@ const CaseStudy = () => {
                     </SectionContent>
                 </StudySection>
 
-                <StudySection>
+                <StudySection
+                        initial={{
+                                    opacity: 0,y:40,
+                                }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                        viewport={{ amount: 0.2 }}
+                >
                     <SectionTitle>Solutions</SectionTitle>
                     <SectionContent>
                         <p>Familien permet :</p>
                         <SectionList>
-                        <li>la gestion des profils patients ;</li>
-                        <li>le partage sécurisé de documents ;</li>
-                        <li>la coordination des aidants ;</li>
-                        <li>la gestion des rôles et permissions ;</li>
+                        <li>la gestion des profils patients;</li>
+                        <li>le partage sécurisé de documents;</li>
+                        <li>la coordination des aidants;</li>
+                        <li>la gestion des rôles et permissions;</li>
                         <li>la centralisation des informations médicales.</li>
                         </SectionList>
                     </SectionContent>
                 </StudySection>
 
-                <StudySection>
+                <StudySection
+                        initial={{
+                                    opacity: 0,y:40,
+                                }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                        viewport={{ amount: 0.2 }}
+                >
                     <SectionTitle>Défis techniques</SectionTitle>
                     <SectionContent>
                         <SectionParagraph>
@@ -143,7 +177,13 @@ const CaseStudy = () => {
                     </SectionContent>
                 </StudySection>
 
-                <StudySection>
+                <StudySection
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    viewport={{ amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
                     <SectionTitle>Les choix techniques</SectionTitle>
                     <SectionContent>
                         <SectionParagraph>
@@ -173,7 +213,13 @@ const CaseStudy = () => {
                     </SectionContent>
                 </StudySection>
 
-                <StudySection>
+                <StudySection
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    viewport={{ amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
                     <SectionTitle>Ce que j’ai appris</SectionTitle>
                     <SectionContent>
                         <SectionParagraph>
@@ -189,7 +235,13 @@ const CaseStudy = () => {
                         </SectionParagraph>
                     </SectionContent>
                 </StudySection>
-                <StudySection>
+                <StudySection
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    viewport={{ amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
                     <SectionTitle>Perspective</SectionTitle>
                     <SectionContent>
                         <SectionParagraph>
@@ -204,7 +256,13 @@ const CaseStudy = () => {
                         </SectionParagraph>
                     </SectionContent>
                 </StudySection>
-                <StudySection>
+                <StudySection
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    viewport={{ amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
                     <SectionTitle>Conclusion</SectionTitle>
                     <SectionContent>
                         <SectionParagraph>
